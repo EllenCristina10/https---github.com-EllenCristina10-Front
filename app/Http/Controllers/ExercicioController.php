@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aluno;
+use App\Models\Exercicio;
 use Illuminate\Http\Request;
 
-class AlunoController extends Controller
+class ExercicioController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //Route::get('aluno')
-        return view('home');
+        //
     }
 
     /**
@@ -21,7 +20,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('aluno');
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class AlunoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Aluno $aluno)
+    public function show(Exercicio $exercicio)
     {
         //
     }
@@ -43,7 +42,7 @@ class AlunoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Aluno $aluno)
+    public function edit(Exercicio $exercicio)
     {
         //
     }
@@ -51,7 +50,7 @@ class AlunoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Aluno $aluno)
+    public function update(Request $request, Exercicio $exercicio)
     {
         //
     }
@@ -59,7 +58,7 @@ class AlunoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Aluno $aluno)
+    public function destroy(Exercicio $exercicio)
     {
         //
     }
