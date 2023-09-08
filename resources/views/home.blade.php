@@ -4,7 +4,7 @@
 
 <div class="row container">
    
-    <h1>Kaio</h1>
+    <h1>Aqui será a Home!</h1>
 
 </div>
 
