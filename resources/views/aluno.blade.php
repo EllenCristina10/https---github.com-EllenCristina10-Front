@@ -6,9 +6,9 @@
 <div class="row container">
     <form class="row g-3">
         <div class="col-md-6">
-            <img src="..resources/imagens/encontro.png" alt="pessoa">
             <label for="inputEmail4" class="form-label">Nome Completo</label>
-            <input type="text" class="form-control" id="inputEmail4">
+            <input type="text" class="form-control" id="inputEmail4" >
+            <img src="img/do-utilizador.png" alt="">
         </div>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Telefone</label>
@@ -27,9 +27,7 @@
             <input type="date" class="form-control" id="inputAddress" placeholder="">
         </div>
         <div class="col-md-2">
-            <label for="inputAddress2" class="form-label">
-            <img src="../imagens/altura.png" alt="Icon" class="icon">    
-            Altura</label>
+            <label for="inputAddress2" class="form-label">Altura</label>
             <input type="number" class="form-control" id="inputAddress2" placeholder="">
         </div>
         <div class="col-md-2">
@@ -56,9 +54,7 @@
             <input type="email" class="form-control" id="inputCEP">
         </div>
         <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">
-            <img src="resources/imagens/objetivo.png" alt="Icon" class="icon">    
-            Objetivo</label>
+            <label for="inputEmail4" class="form-label">Objetivo</label>
             <input type="email" class="form-control" id="inputEmail4">
         </div>
         
