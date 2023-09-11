@@ -2,9 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\ListarAlunoController;
 use App\Http\Controllers\InstrutorController;
+use App\Http\Controllers\ListarInstrutorController;
 use App\Http\Controllers\AulaController;
+use App\Http\Controllers\ListarAulaController;
 use App\Http\Controllers\ExercicioController;
+use App\Http\Controllers\ListarExercicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +34,7 @@ Route::get('/instrutor', [InstrutorController::class, 'create'])->name('instruto
 Route::get('/aula', [AulaController::class, 'create'])->name('aula.create');
 Route::get('/exercicio', [ExercicioController::class, 'create'])->name('exercicio.create');
 
+Route::get('/listaraluno', [ListarAlunoController::class, 'index'])->name('listaraluno.index');
+Route::get('/listarinstrutor', [ListarInstrutorController::class, 'index'])->name('listarinstrutor.index');
+Route::get('/listaraula', [ListarAulaController::class, 'index'])->name('listaraula.index');
+Route::get('/listarexercicio', [ListarExercicioController::class, 'index'])->name('listarexercicio.index');

@@ -14,6 +14,8 @@ class AlunoController extends Controller
     {
         //Route::get('aluno')
         return view('home');
+        return view('listaraluno');
+
     }
 
     /**

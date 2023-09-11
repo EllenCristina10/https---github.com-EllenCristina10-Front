@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Instrutor;
+use App\Models\ListarInstrutor;
 use Illuminate\Http\Request;
 
-class InstrutorController extends Controller
+class ListarInstrutorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('listarinstrutor');
     }
 
     /**
@@ -20,7 +20,7 @@ class InstrutorController extends Controller
      */
     public function create()
     {
-        return view('instrutor');
+        //
     }
 
     /**
@@ -34,7 +34,7 @@ class InstrutorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Instrutor $instrutor)
+    public function show(ListarInstrutor $listarInstrutor)
     {
         //
     }
@@ -42,7 +42,7 @@ class InstrutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Instrutor $instrutor)
+    public function edit(ListarInstrutor $listarInstrutor)
     {
         //
     }
@@ -50,7 +50,7 @@ class InstrutorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Instrutor $instrutor)
+    public function update(Request $request, ListarInstrutor $listarInstrutor)
     {
         //
     }
@@ -58,7 +58,7 @@ class InstrutorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Instrutor $instrutor)
+    public function destroy(ListarInstrutor $listarInstrutor)
     {
         //
     }
