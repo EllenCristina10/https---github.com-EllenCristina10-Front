@@ -1,0 +1,22 @@
+* {
+    color: #ff5e00;  
+    background-color: #f7f7f5;
+}
+.col{
+    border-radius: 50px;
+    color: #ff5e00; 
+}
+.fonte {
+    color: #ff5e00;
+    top: 100px;
+    left: 10px;
+    font-family: Roboto;
+    font-weight: Regular;
+    opacity: 1;
+    text-align: left;
+    padding: 8px;
+}
+.container-fluid{
+    font-size: 17px;
+    position: rigth;
+}

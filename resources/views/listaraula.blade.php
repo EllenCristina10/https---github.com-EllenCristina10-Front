@@ -28,7 +28,7 @@
   </table>
     <div class="col-12 position-relative">
         <div class="position-absolute bottom-2 end-0">
-          <a class="btn btn-primary btn-lg" href="{{route('aluno.create')}}" role="button">Cadastrar</a>
+          <a class="btn btn-primary btn-lg" href="{{route('aula.create')}}" role="button">Cadastrar</a>
         </div>
     </div>
 @endsection
