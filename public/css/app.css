@@ -1,4 +1,10 @@
-* {
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park|Roboto&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
     color: #ff5e00;  
     background-color: #f7f7f5;
 }
@@ -6,17 +12,22 @@
     border-radius: 50px;
     color: #ff5e00; 
 }
-.fonte {
+
+.fonte{
+    font-family: 'Roboto', sans-serif;
     color: #ff5e00;
-    top: 100px;
-    left: 10px;
-    font-family: Roboto;
-    font-weight: Regular;
     opacity: 1;
     text-align: left;
-    padding: 8px;
 }
-.container-fluid{
+
+.container-fluid {
     font-size: 17px;
-    position: rigth;
+    position: right;
+}
+
+#botao-excluir {
+    width: 60px;
+    height: 45px;
+    border-radius: 10%;
+    background-color: red;
 }

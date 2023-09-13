@@ -7,9 +7,10 @@
     <title>@yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
 </head>
-<body class="fonte">
-    <nav class="navbar navbar-expand-lg bg-body flex-row" style="background-color: #f7f7f5;">
+<body>
+    <nav class="navbar navbar-expand-lg bg-light-0 flex-row">
         <div class="container-fluid">
           <a class="navbar-brand fs-2" href="#">Academia de Irecê</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

@@ -2,6 +2,7 @@
 @section('title', 'Lista de Alunos')
 @section('conteudo')
 
+
 <table class="table">
     <thead>
       <tr>
@@ -29,7 +30,7 @@
         <td>1234</td>
         <td>12/07/2002</td>
         <td>65</td>
-        <td>1.64</td>
+        <td>1.44</td>
         <td>Rua A</td>
         <td>BA</td>
         <td>Ibititá</td>
@@ -37,7 +38,9 @@
         <td>Ganhar massa muscular</td>
         <td width=150px>
             <a href='#' class= 'btn btn-success btn-sm'>Editar</a>
-            <a href='#' class='btn btn-danger btn-sm'>Excluir</a>
+            <button type="button" class="btn btn-primary" id="botao-excluir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Excluir
+            </button>
         </td>
       </tr>
     </tbody>
@@ -49,4 +52,22 @@
         </div>
     </div>
 
+    {{--Pop-up de confirmação--}}
+    <div class="modal fade"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Você quer excluir esse aluno?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirmar</button>
+            <button type="button" class="btn btn-primary">Voltar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 @endsection
+
