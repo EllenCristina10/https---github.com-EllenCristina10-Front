@@ -9,6 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/a4a4be15d1.js" crossorigin="anonymous"></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script> src="/resources/js/app.js"</script>
+  
 
 </head>
 
@@ -21,10 +23,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link secondary-color" aria-current="page" href="#">Alunos</a>
-        <a class="nav-link secondary-color" href="#">Intrutores</a>
-        <a class="nav-link secondary-color" href="#">Aulas</a>
-        <a class="nav-link secondary-color" href="#">Treinos</a>
+        <a class="nav-link secondary-color" aria-current="page" href="{{route ('aluno.create')}}">Alunos</a>
+        <a class="nav-link secondary-color" href="{{route ('instrutor.create')}}">Intrutores</a>
+        <a class="nav-link secondary-color" href="{{route ('aula.create')}}">Aulas</a>
+        <a class="nav-link secondary-color" href="{{route ('exercicio.create')}}">Treinos</a>
       </div>
     </div>
   </div>

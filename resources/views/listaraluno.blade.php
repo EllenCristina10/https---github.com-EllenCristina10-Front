@@ -30,7 +30,7 @@
         <td>1234</td>
         <td>12/07/2002</td>
         <td>65</td>
-        <td>1.44</td>
+        <td>1.64</td>
         <td>Rua A</td>
         <td>BA</td>
         <td>Ibititá</td>
