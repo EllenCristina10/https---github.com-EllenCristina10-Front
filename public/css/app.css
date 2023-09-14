@@ -5,29 +5,23 @@
     margin: 0;
     padding: 0;
     border: 0;
-    color: #ff5e00;  
-    background-color: #f7f7f5;
-}
-.col{
-    border-radius: 50px;
-    color: #ff5e00; 
+    --primary-color: #212529;
+    --secondary-color: #f58105;
+    --background-color: #f7f7f5;
 }
 
-.fonte{
-    font-family: 'Roboto', sans-serif;
-    color: #ff5e00;
-    opacity: 1;
-    text-align: left;
+.primary-color{
+    color: var(--primary-color);
 }
 
-.container-fluid {
-    font-size: 17px;
-    position: right;
+.secondary-color{
+    color: var(--secondary-color);
 }
 
-#botao-excluir {
-    width: 60px;
-    height: 45px;
-    border-radius: 10%;
-    background-color: red;
+.background-color{
+    color: var(--background-color);
+}
+
+.background-icon-color{
+    background-color: var(--primary-color);
 }
