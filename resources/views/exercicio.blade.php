@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top: 36px;">
 
-    <form class="row needs-validation was-validated" novalidate="" onsubmit="return validate()">    
+    <form class="row">    
         {{--Linha 1--}}
         <h1>Dados do Exercício</h1>
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
@@ -16,12 +16,11 @@
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                         </svg>
                     </div>
-                        <input type="text" class="form-control" id="validationDefault01" placeholder="Nome Completo" value="" required="">
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Nome Completo" pattern="[a-z A-Z àâÂÀòôÒÔèêÈÊìîÌÎùûÙÛ \s]+$" required>
                         <div class="invalid-feedback">
                             Informe o nome do exercício!
                         </div>
-                </div>
-                
+                </div> 
             </div>
             {{--Descrição--}}
             <div class="col-sm-6">
@@ -32,7 +31,7 @@
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                         </svg>
                     </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Descrição" value="" required="">
+                    <input type="text" class="form-control" id="InputDescricao" placeholder="Descrição" pattern="[a-z A-Z àâÂÀòôÒÔèêÈÊìîÌÎùûÙÛ \s]+$" required>
                     <div class="invalid-feedback">
                         Informe a descrição!
                     </div>
@@ -52,21 +51,39 @@
                             <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                         </svg>
                     </div>
-                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Vídeo" value="" required="">
+                        <input type="text" class="form-control" id="InputVideo" placeholder="Vídeo" value="" required="">
                         <div class="invalid-feedback">
                             Envie o video!
                         </div>
-                    </div>
-                    
+                    </div>          
             </div>
         </div>
         <div class="row" style="justify-content: end; margin-top: 36px;">
             <div class="col-md-1">
-                <button id="cadastrarButton" button type="button" class="btn btn-success">Cadastrar</button>
+                <button button class="btn btn-success" type="submit" onclick="validate()">Cadastrar</button>
             </div>
         </div>
     </form>
 </div>
+
+
+<!-- <script>  
+    (() => {
+        'use strict'
+
+     const forms = document.querySelectorAll('.needs-validation')
+
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                 event.preventDefault()
+                event.stopPropagation()
+            }
+        form.classList.add('was-validated')
+        }, false)
+  })
+})()
+</script> -->
  
 
 
