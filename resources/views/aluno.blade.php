@@ -68,6 +68,7 @@
                         <option>Ricardo</option>
                         <option>Alan Jefferson</option>
                         <option>Fernanda</option>
+                        <option>Juliana Bonde</option>
                     </select>
                     <div class="invalid-feedback">
                         Informe o Instrutor!

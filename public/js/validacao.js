@@ -13,41 +13,27 @@ const Mask = {
         }).format(value / 100);
     },
     cpfCnpj(value){
+        if (typeof value !== "string") {
+            return "";
+        }
+    
         value = value.replace(/\D/g, "");
-
-        if(value.length > 14){
-            value = value.slice(0, -1);
+    
+        //11122233344
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    
+        //111.22233344
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+    
+        //111.222.33344
+        value = value.replace(/(\d{3})(\d)/, "$1-$2");
+    
+        //111.222.333-44
+    
+        if (value.length > 14) {
+            value = value.slice(0, 14);
         }
-
-        if(value.length > 11){
-
-            //11222333444455
-            value = value.replace(/(\d{2})(\d)/, "$1.$2");
-
-            //11.222333444455
-            value = value.replace(/(\d{3})(\d)/, "$1.$2");
-
-            //11.222.333444455
-            value = value.replace(/(\d{3})(\d)/, "$1/$2");
-
-            //11.222.333/444455
-            value = value.replace(/(\d{4})(\d)/, "$1-$2");
-
-            //11.222.333.4444-55
-        }else{
-
-            //11122233344
-            value = value.replace(/(\d{3})(\d)/, "$1.$2");
-
-            //111.22233344
-            value = value.replace(/(\d{3})(\d)/, "$1.$2");
-
-            //111.222.33344
-            value = value.replace(/(\d{3})(\d)/, "$1-$2");
-
-            //111.222.333-44
-        }
-
+    
         return value;
     },
     cep(value){
@@ -57,9 +43,23 @@ const Mask = {
             value = value.slice(0, -1);
         }
 
-        value = value.replace(/(\d{5})(\d)/, "$1-$2");
+        value = value.replace(/(\d{5})-(\d{3})/, "$1-$2");
 
         return value;
+    },
+    data(value){
+        value = value.replace(/\D/g, "");
+
+        if(value.length > 8){
+            value = value.slice(0, -1);   
+        }
+        
+        value = value.replace(/(\d{2})-(\d{2})-(\d{4})/, "$1/$2/$3");
+
+        return value;
+    },
+    email(value){
+        
     }
 }
 
@@ -277,5 +277,43 @@ const Validate = {
             error,
             value
         };
+    },
+    isData(value){
+        value = value.replace(/\D/g, "");
+
+        let error = null;
+
+        if(value.lenght !== 8){
+            error = "Data inválida!";
+        }
+
+        return {
+            error,
+            value
+        };
     }
 }
+
+const cpfInput = document.querySelector('#inputCPF');
+
+cpfInput.addEventListener('keyup', function () {
+  Mask.apply(this, 'cpfCnpj');
+});
+
+const emailInput = document.querySelector('#inputEmail');
+
+emailInput.addEventListener('keyup', function () {
+    Mask.apply(this, 'email');
+});
+
+const cepInput = document.querySelector('#inputCep');
+
+cepInput.addEventListener('keyup', function () {
+    Mask.apply(this, 'cep');
+});
+
+const dataInput = document.querySelector('#inputData');
+
+dataInput.addEventListener('blur', function () {
+    Mask.apply(this, 'data');
+});
