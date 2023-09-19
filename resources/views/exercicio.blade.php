@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top: 36px;">
 
-    <form class="row">    
+    <form class="row" id="form">    
         {{--Linha 1--}}
         <h1>Dados do Exercício</h1>
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
@@ -20,7 +20,8 @@
                         <div class="invalid-feedback">
                             Informe o nome do exercício!
                         </div>
-                </div> 
+                </div>
+                <span id="name-error"></span> 
             </div>
             {{--Descrição--}}
             <div class="col-sm-6">
@@ -65,26 +66,5 @@
         </div>
     </form>
 </div>
-
-
-<!-- <script>  
-    (() => {
-        'use strict'
-
-     const forms = document.querySelectorAll('.needs-validation')
-
-    Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-                 event.preventDefault()
-                event.stopPropagation()
-            }
-        form.classList.add('was-validated')
-        }, false)
-  })
-})()
-</script> -->
- 
-
 
 @endsection

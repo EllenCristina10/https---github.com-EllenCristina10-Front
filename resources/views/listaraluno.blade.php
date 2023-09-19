@@ -34,9 +34,9 @@
         <td>Rua A</td>
         <td>BA</td>
         <td>Ibititá</td>
-        <td>44960000</td>
+        <td>44960-000</td>
         <td>Ganhar massa muscular</td>
-        <td width=150px>
+        <td class="td-buttons">
             <a href='#' class= 'btn btn-success btn-sm'>Editar</a>
             <button type="button" class="btn btn-primary" id="botao-excluir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Excluir

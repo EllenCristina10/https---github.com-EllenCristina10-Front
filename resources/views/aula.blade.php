@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top: 36px;">
 
-    <form class="row">
+    <form class="row" id="form">
         {{-- Linha 1 --}}
         <h1>Dados da Aula</h1>
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
@@ -21,6 +21,7 @@
                         Informe o nome da aula!
                     </div>
                 </div>
+                <span id="name-error"></span>
             </div>
             {{--Instrutor--}}
             <div class="col-sm-6" style="min-width: 200px">
@@ -58,6 +59,7 @@
                         Informe a descrição!
                     </div>
                 </div>
+                <span id="name-error"></span>
             </div>
             {{--Máximo de Aluno--}}
             <div class="col-sm-6">

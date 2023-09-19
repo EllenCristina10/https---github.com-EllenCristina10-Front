@@ -10,6 +10,40 @@
     --background-color: #f7f7f5;
 }
 
+#name-error{
+    color:red;
+    display: none;
+}
+
+#email-error{
+    color:red;
+    display: none;
+}
+
+#password-error{
+    color:red;
+    display: none;
+}
+
+#confirm-error{
+    color:red;
+    display: none;
+}
+
+#phone-error{
+    color: red;
+    display: none;
+}
+
+#cpf-error{
+    color:red;
+    display: none;
+}
+
+#cep-error{
+    color:red;
+    display: none;
+}
 .primary-color{
     color: var(--primary-color);
 }
@@ -25,3 +59,14 @@
 .background-icon-color{
     background-color: var(--primary-color);
 }
+
+.td-buttons {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .td-buttons button {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+  }

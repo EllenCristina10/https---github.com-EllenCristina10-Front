@@ -3,7 +3,7 @@
 @section('conteudo')
 
 <div class="container" style="margin-top: 36px;">
-<form class="row">
+<form class="row" id="form">
     <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{-- Linha 1 --}}
             <h1>Relatório</h1>
@@ -54,7 +54,7 @@
             {{--Linha 2--}}
             <div class="row" style="justify-content: space-between; margin-top: 36px;">
                 {{--Descrição--}}
-                <div class="col-sm-6">
+                <div class="col-sm-16 ">
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-text secondary-color" viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
                                 <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputDescricao" placeholder="Descrição" required>
+                        <textarea class="form-control" id="inputDescricao" placeholder="Descrição" rows="7" required></textarea>
                         <div class="invalid-feedback">
                             Informe a descrição!
                         </div>

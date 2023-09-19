@@ -5,7 +5,7 @@
 
 <div class="container" style="margin-top: 36px;">
     {{-- Definindo as linhas --}}
-    <form class="row" >
+    <form class="row" id="form" >
         {{--Linha 1--}}
         <h1>Dados Pessoais</h1>
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
@@ -22,6 +22,7 @@
                         Informe o nome!
                     </div>
                 </div>
+                <span id="name-error"></span>
             </div>
             {{--Telefone--}}
             <div class="col-sm-3">
@@ -36,6 +37,7 @@
                         Informe o telefone!
                     </div>
                 </div>
+                <span id="phone-error"></span>
             </div>
             {{--Data de nascimento--}}
             <div class="col-sm-3">
@@ -63,7 +65,7 @@
                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                         </svg>
                     </div>
-                    <select id="inputSexo" class="form-select" required> 
+                    <select id="inputInstrutor" class="form-select" required> 
                         <option selected disabled value=""> Instrutor...</option>
                         <option>Ricardo</option>
                         <option>Alan Jefferson</option>
@@ -88,6 +90,7 @@
                         Informe o email!
                     </div>
                 </div>
+                <span id="email-error"></span>
             </div>
             {{--Senha--}}
             <div class="col-sm-3">
@@ -103,6 +106,7 @@
                         Informe a senha!
                     </div>
                 </div>
+                <span id="password-error"></span>
             </div>
             {{--Confirmação de senha--}}
             <div class="col-sm-3">
@@ -118,12 +122,13 @@
                         Confirme a senha!
                     </div>
                 </div>
+                <span id="confirm-error"></span>
             </div>
         </div>
         {{--Linha 3--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
-             {{--CPF--}}
-             <div class="col-sm-2">
+            {{--CPF--}}
+            <div class="col-sm-2">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window secondary-color" viewBox="0 0 16 16">
@@ -131,11 +136,12 @@
                             <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
                         </svg>
                     </div>
-                    <input type="text" class="form-control" id="inputCPF" placeholder="CPF"required>
+                    <input type="text" class="form-control" id="inputCPF" placeholder="CPF" required>
                     <div class="invalid-feedback">
                         Informe o CPF!
                     </div>
                 </div>
+                <span id="cpf-error"></span>
             </div>
             {{--Endereço--}}
             <div class="col-sm-2" style="min-width: 200px">
@@ -191,11 +197,12 @@
                             <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                         </svg>
                     </div>
-                    <input type="number" class="form-control" id="inputCep" placeholder="CEP" pattern="[0-9]{8}" required>
+                    <input type="text" class="form-control" id="inputCep" placeholder="CEP" required>
                     <div class="invalid-feedback">
                         Informe o CEP!
                     </div>
                 </div>
+                <span id="cep-error"></span>
             </div>
         </div>
         {{--Linha 4--}}
@@ -260,45 +267,7 @@
                         Informe o objetivo!
                     </div>
                 </div>
-            </div>
-            {{--exemplo--}}
-            <div class="col-sm-2" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye secondary-color" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                        </svg>
-                    </div>
-                    <select id="inputObjetivo" class="form-select">
-                        <option selected>exemplo...</option>
-                        <option>Hipertrofia</option>
-                        <option>Definição muscular</option>
-                        <option>Emagrecer</option>
-                    </select>
-                </div>
-            </div>
-            {{--exemplo--}}
-            <div class="col-sm-2" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye secondary-color" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                        </svg>
-                    </div>
-                    <select id="inputObjetivo" class="form-select">
-                        <option selected>exemplo...</option>
-                        <option>Hipertrofia</option>
-                        <option>Definição muscular</option>
-                        <option>Emagrecer</option>
-                    </select>
-                </div>
-            </div>
+            </div>  
         </div>
         <div class="row" style="justify-content: end; margin-top: 36px;">
             <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
