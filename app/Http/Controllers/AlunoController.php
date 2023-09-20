@@ -12,9 +12,7 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //Route::get('aluno')
-        return view('home');
-        return view('listaraluno');
+        return view('students.index');
 
     }
 
@@ -23,7 +21,7 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('aluno');
+        return view('students.create');
     }
 
     /**
