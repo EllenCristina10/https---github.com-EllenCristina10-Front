@@ -21,7 +21,84 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle secondary-color" data-bs-toggle="dropdown" aria-expanded="false">
+              Alunos
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark ">
+              <a class="nav-link secondary-color" aria-current="page" href="{{route ('listaraluno.index')}}">Listar</a>
+              <a class="nav-link secondary-color" aria-current="page" href="{{route ('aluno.create')}}">Cadastrar</a>             
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle secondary-color" data-bs-toggle="dropdown" aria-expanded="false">
+              Instrutores
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">             
+              <a class="nav-link secondary-color" href="{{route ('listarinstrutor.index')}}">Listar</a>
+              <a class="nav-link secondary-color" href="{{route ('instrutor.create')}}">Cadastrar</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle secondary-color" data-bs-toggle="dropdown" aria-expanded="false">
+              Aulas
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <a class="nav-link secondary-color" href="{{route ('listaraula.index')}}">Listar</a>
+              <a class="nav-link secondary-color" href="{{route ('aula.create')}}">Cadastrar</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle secondary-color" data-bs-toggle="dropdown" aria-expanded="false">
+              Exercícios
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <a class="nav-link secondary-color" href="{{route ('listarexercicio.index')}}">Listar</a>
+              <a class="nav-link secondary-color" href="{{route ('exercicio.create')}}">Cadastrar</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle secondary-color" data-bs-toggle="dropdown" aria-expanded="false">
+              Relatorios
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <a class="nav-link secondary-color" href="{{route ('listarrelatorio.index')}}">Listar</a>
+              <a class="nav-link secondary-color" href="{{route ('relatorio.create')}}">Cadastrar</a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+     <!-- 
       <div class="navbar-nav">
         <a class="nav-link secondary-color" aria-current="page" href="{{route ('aluno.create')}}">Alunos</a>
         <a class="nav-link secondary-color" href="{{route ('instrutor.create')}}">Intrutores</a>
@@ -33,13 +110,14 @@
   </div>
 </nav>
 </nav>
-
+--> 
   @yield('conteudo')
 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   {{-- <script src="{{ asset('js/validacao.js') }}"></script> --}}
-  <script src="{{ asset('js/validacoes.js') }}"></script>
+  <script src="/front/public/js/validacao.js"></script>
+
 </body>
     
 </html>

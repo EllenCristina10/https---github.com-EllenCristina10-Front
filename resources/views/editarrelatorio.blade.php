@@ -6,6 +6,7 @@
 <form class="row" id="form">
     <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{-- Linha 1 --}}
+            <h1 style="text-align: center;">Editar Relatório</h1>
             <h1>Relatório do Instrutor</h1>
             <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Instrutor--}}
