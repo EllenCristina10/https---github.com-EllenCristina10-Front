@@ -59,7 +59,7 @@
         {{--Linha 2--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Instrutor--}}
-            <div class="col-sm-3" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person secondary-color" viewBox="0 0 16 16">
@@ -103,12 +103,12 @@
                         </svg>
                     </div>
                     <input type="password" class="form-control" id="inputSenha" placeholder="Senha" required onblur="validarSenhas(this.value)" >
-                                <div class="invalid-feedback">
-                                    Informe a senha!
-                                </div>
-                            </div>
-                            <span id="password-error"></span>
-                        </div>
+                    <div class="invalid-feedback">
+                        Informe a senha!
+                    </div>
+                </div>
+                <span id="password-error"></span>
+            </div>
             {{--Confirmação de senha--}}
             <div class="col-sm-3">
                 <div class="input-group">
@@ -125,8 +125,9 @@
                 </div>
                 <span id="confirm-error"></span>
             </div>
+        </div>
         {{--Linha 3--}}
-        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+        <div class="row " style="justify-content: space-between; margin-top: 36px;">
             {{--CPF--}}
             <div class="col-sm-3">
                 <div class="input-group">
@@ -144,7 +145,7 @@
                 <span id="cpf-error"></span>
             </div>
             {{--Endereço--}}
-            <div class="col-sm-3" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map secondary-color" viewBox="0 0 16 16">
@@ -158,7 +159,7 @@
                 </div>
             </div>
             {{--Cidade--}}
-            <div class="col-sm-2" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses secondary-color" viewBox="0 0 16 16">
@@ -172,7 +173,7 @@
                 </div>
             </div>
             {{--Estado--}}
-            <div class="col-sm-3" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
@@ -216,8 +217,9 @@
                     </div>
                 </div>
             </div>
-            {{--Linha 4--}}
-            <h1 style="margin-top: 36px;"></h1>
+        </div>
+        {{--Linha 4--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--CEP--}}
             <div class="col-sm-3" style="min-width: 200px">
                 <div class="input-group">

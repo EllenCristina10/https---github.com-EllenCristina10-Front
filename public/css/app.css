@@ -71,4 +71,23 @@
     margin: 0.25rem 0;
   }
 
- 
+
+  .dropdown-persist {
+    display: block !important;
+    position: static !important;
+    margin-top: 0 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  @media (max-width: 992px) {
+    .navbar-nav .nav-item.dropdown {
+      position: static;
+    }
+
+    .navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      position: static;
+      float: none;
+    }
+  }
