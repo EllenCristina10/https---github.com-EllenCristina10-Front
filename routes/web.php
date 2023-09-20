@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\InstrutorController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\ExercicioController;
@@ -24,9 +24,8 @@ Route::get('/', [SiteController::class, 'index'])->name('home.index');
 
 
 //Students
-Route::get('/aluno', [AlunoController::class, 'create'])->name('aluno.create');
-// Route::get('/listaraluno', [ListarAlunoController::class, 'index'])->name('listaraluno.index');
-// Route::get('/editaraluno', [EditarAlunoController::class, 'index'])->name('editaraluno.index');
+Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 
 
 //Instructors

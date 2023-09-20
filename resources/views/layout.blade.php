@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link secondary-color" href="#">Alunos</a>
+            <a class="nav-link secondary-color" href="{{ route ('student.index') }}">Alunos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link secondary-color" href="#">Instrutores</a>
