@@ -3,7 +3,7 @@
 @section('conteudo')
 
 
-<div class="container" style="margin-top: 36px;">
+<div class="container">
     {{-- Definindo as linhas --}}
     <form class="row" id="form" >
         {{--Linha 1--}}

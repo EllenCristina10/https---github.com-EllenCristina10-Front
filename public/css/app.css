@@ -10,6 +10,13 @@
     --background-color: #f7f7f5;
 }
 
+
+.container{
+  margin-top: 36px;
+}
+.table{
+  margin-top: 36px;
+}
 #name-error{
     color:red;
     display: none;
