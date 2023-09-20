@@ -127,9 +127,9 @@
             </div>
         </div>
         {{--Linha 3--}}
-        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+        <div class="row " style="justify-content: space-between; margin-top: 36px;">
             {{--CPF--}}
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window secondary-color" viewBox="0 0 16 16">
@@ -137,7 +137,7 @@
                             <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
                         </svg>
                     </div>
-                    <input type="text" class="form-control" id="inputCPF" placeholder="CPF" required>
+                    <input type="text" class="form-control" id="cpfInput" placeholder="CPF" required>
                     <div class="invalid-feedback">
                         Informe o CPF!
                     </div>
@@ -145,35 +145,35 @@
                 <span id="cpf-error"></span>
             </div>
             {{--Endereço--}}
-            <div class="col-sm-2" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map secondary-color" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
                         </svg>
                     </div>
-                    <input type="text" class="form-control" id="inputEndereco" value="AV.Irece N°612" required>
+                    <input type="text" class="form-control" id="inputEndereco" placeholder="Endereço" required>
                     <div class="invalid-feedback">
                         Informe o endereço!
                     </div>
                 </div>
             </div>
             {{--Cidade--}}
-            <div class="col-sm-2" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-houses secondary-color" viewBox="0 0 16 16">
                             <path d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
                         </svg>
                     </div>
-                    <input type="text" class="form-control" id="inputCidade" value="Irice" required>
+                    <input type="text" class="form-control" id="inputCidade" placeholder="Cidade" required>
                     <div class="invalid-feedback">
                         Informe a cidade!
                     </div>
                 </div>
             </div>
             {{--Estado--}}
-            <div class="col-sm-3" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
@@ -183,13 +183,41 @@
                     </div>
                     <select class="form-select" id="inputEstado" required>
                         <option selected disabled value="" >Estado</option>
-                        <option>...</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espirito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão </option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará </option>
+                        <option>Paraíba </option>
+                        <option>Paraná </option>
+                        <option>Pernambuco </option>
+                        <option>Piauí </option>
+                        <option>Rio de Janeiro </option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia </option>
+                        <option>Roraima </option>
+                        <option>Santa Catarina</option>
+                        <option>São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins </option>
+
                     </select>
                     <div class="invalid-feedback">
                         Informe o Estado!
                     </div>
                 </div>
             </div>
+        </div>
             {{--Linha 4--}}
             <h1 style="margin-top: 36px;"></h1>
             {{--CEP--}}
