@@ -385,6 +385,62 @@ function validarNome(input) {
     }
 }
 
+
+const inputSenha = document.querySelector('#inputSenha');
+const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
+const passwordStyle = document.getElementById("inputSenha").style;
+//Validando Senha
+function validarSenha(){
+
+    //teste
+    //let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
+    let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[@$!%*?&]+)[A-Za-z\d@$!%*?&]{8,16}$/g;
+    let resultsPassword = passwordRegex.test(inputSenha.value);
+
+    let msg = document.getElementById("password-error");
+
+    if(inputSenha.value == ""){
+        msg.style.display = "block";
+        msg.innerHTML = "Campo obrigatório*";
+        passwordStyle.borderColor = "red";
+        return false;
+    }else if(resultsPassword === false){
+        msg.style.display = "block";
+        msg.innerHTML = "Senha inválida!*";
+        passwordStyle.borderColor = "red";
+        return false;
+    }else{
+        msg.style.display = "none";
+        msg.innerHTML = "";
+        passwordStyle.borderColor = "green";
+        return true;
+    };
+};
+
+//confirmando Senha
+function confirmPassword(){
+
+    let msg = document.getElementById("confirm-error");
+
+    if(passwordInput.value == ""){
+        msg.style.display = "block";
+        msg.innerHTML = "Digite a senha novamente!";
+        confirmStyle.borderColor = "red";
+        return false;
+    }else if(passwordInput.value !== inputConfirmarSenha.value){
+        msg.style.display = "block";
+        msg.innerHTML = "Senhas não conferem!";
+        confirmStyle.borderColor = "red";
+        return false;
+    }else{
+        msg.style.display = "none";
+        msg.innerHTML = "";
+        confirmStyle.borderColor = "green";
+        return true;
+    };
+};
+
+
 // Função para validar as senhas
 function validarSenhas() {
     // Obtém os campos de senha
@@ -412,6 +468,8 @@ function validarSenhas() {
   // Adiciona um event listener ao campo de senha para chamar a função validarSenhas() quando o usuário pressionar a tecla Enter
   document.querySelector('#inputSenha').addEventListener('keydown', function(event) {
     if (event.keyCode == 13) {
-      validarSenhas();
+      validarSenha();
     }
   });
+
+

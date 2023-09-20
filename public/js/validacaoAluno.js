@@ -84,7 +84,8 @@ function validarEmail(){
 
 //Validando Senha
 function validarSenha(){
-    let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[@$!%*?&]+)[A-Za-z\d@$!%*?&]{8,16}$/g;
+    let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
+    //let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[@$!%*?&]+)[A-Za-z\d@$!%*?&]{8,16}$/g;
     let resultsPassword = passwordRegex.test(passwordInput.value);
 
     let msg = document.getElementById("password-error");
@@ -96,7 +97,7 @@ function validarSenha(){
         return false;
     }else if(resultsPassword === false){
         msg.style.display = "block";
-        msg.innerHTML = "Senha é inválida!*";
+        msg.innerHTML = "Senha inválida!*";
         passwordStyle.borderColor = "red";
         return false;
     }else{

@@ -58,8 +58,8 @@
         </div>
         {{--Linha 2--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
-              {{--Instrutor--}}
-              <div class="col-sm-3" style="min-width: 200px">
+            {{--Instrutor--}}
+            <div class="col-sm-3" style="min-width: 200px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person secondary-color" viewBox="0 0 16 16">
@@ -102,7 +102,7 @@
                             <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                         </svg>
                     </div>
-                    <input type="password" class="form-control" id="inputSenha" placeholder="Senha" required onblur="validarSenha(this.value)" onblur="validarSenhas()">
+                    <input type="password" class="form-control" id="inputSenha" placeholder="Senha" required onblur="validarSenhas(this.value)" >
                                 <div class="invalid-feedback">
                                     Informe a senha!
                                 </div>
@@ -118,7 +118,7 @@
                             <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                         </svg>
                     </div>
-                    <input type="password" class="form-control" id="inputConfirmarSenha" placeholder="Confirmar senha" required onblur="validarSenha(this.value)" onblur="validarSenhas()">
+                    <input type="password" class="form-control" id="inputConfirmarSenha" placeholder="Confirmar senha" required onblur="validarSenhas(this.value)">
                     <div class="invalid-feedback">
                         Confirme a senha!
                     </div>
@@ -128,7 +128,7 @@
         {{--Linha 3--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--CPF--}}
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window secondary-color" viewBox="0 0 16 16">
@@ -144,7 +144,7 @@
                 <span id="cpf-error"></span>
             </div>
             {{--Endereço--}}
-            <div class="col-sm-2" style="min-width: 200px">
+            <div class="col-sm-3" style="min-width: 200px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map secondary-color" viewBox="0 0 16 16">
@@ -182,7 +182,34 @@
                     </div>
                     <select class="form-select" id="inputEstado" required>
                         <option selected disabled value="" >Estado</option>
-                        <option>...</option>
+                        <option>Acre</option>
+                        <option>Alagoas</option>
+                        <option>Amapá</option>
+                        <option>Amazonas</option>
+                        <option>Bahia</option>
+                        <option>Ceará</option>
+                        <option>Distrito Federal</option>
+                        <option>Espirito Santo</option>
+                        <option>Goiás</option>
+                        <option>Maranhão </option>
+                        <option>Mato Grosso</option>
+                        <option>Mato Grosso do Sul</option>
+                        <option>Minas Gerais</option>
+                        <option>Pará </option>
+                        <option>Paraíba </option>
+                        <option>Paraná </option>
+                        <option>Pernambuco </option>
+                        <option>Piauí </option>
+                        <option>Rio de Janeiro </option>
+                        <option>Rio Grande do Norte</option>
+                        <option>Rio Grande do Sul</option>
+                        <option>Rondônia </option>
+                        <option>Roraima </option>
+                        <option>Santa Catarina</option>
+                        <option>São Paulo</option>
+                        <option>Sergipe</option>
+                        <option>Tocantins </option>
+
                     </select>
                     <div class="invalid-feedback">
                         Informe o Estado!
