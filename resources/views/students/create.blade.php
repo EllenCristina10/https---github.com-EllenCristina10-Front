@@ -303,7 +303,27 @@
         <div class="row" style="justify-content: end; margin-top: 36px;">
             <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
         </div>
+
+        {{--Linha 6--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            {{--CEP--}}
+            <div class="col-sm-3" style="min-width: 200px">
+                <div class="input-group">
+                    <div class="input-group-text background-icon-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck secondary-color" viewBox="0 0 16 16">
+                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                        </svg>
+                    </div>
+                    <input type="text" class="form-control" id="inputCep" placeholder="CEP" required>
+                    <div class="invalid-feedback">
+                        Informe o CEP!
+                    </div>
+                </div>
+                <span id="cep-error"></span>
+            </div>
+        </div>
     </form>
+
 
     
 </div>

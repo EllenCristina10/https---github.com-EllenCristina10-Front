@@ -26,31 +26,13 @@
   </table>
 
   <div class="col-12 position-relative">
-  <div class="row" style="justify-content: end; margin-top: 36px;">
-    <div class="col-md-1"><button class="btn btn-primary" type="submit">Novo</button></div>
+  <div class="row" style="justify-content: end; margin-top: 36px;"> 
+
+    <div class="col-md-1"><button class="btn btn-success" type="submit"><a href="{{route('student.create')}}">Novo</a></button></div>
   </div>
+  
 </div>
 
 </div>
-
-{{-- Pop-up de confirmação de exclusão --}}
-<div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar Exclusão</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Tem certeza que deseja excluir?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Sim</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 @endsection

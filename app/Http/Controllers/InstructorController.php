@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Instrutor;
+use App\Models\Instructor;
 use Illuminate\Http\Request;
 
-class InstrutorController extends Controller
+class InstructorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('instructors.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class InstrutorController extends Controller
      */
     public function create()
     {
-        return view('instrutor');
+        return view('instructors.create');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\InstrutorController;
+use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\ExercicioController;
 use App\Http\Controllers\RelatorioController;
@@ -29,22 +29,21 @@ Route::get('/student/create', [StudentController::class, 'create'])->name('stude
 
 
 //Instructors
-Route::get('/instrutor', [InstrutorController::class, 'create'])->name('instrutor.create');
+Route::get('/instructor', [InstructorController::class, 'index'])->name('instructor.index');
+Route::get('/instructor/create', [InstructorController::class, 'create'])->name('instructor.create');
 // Route::get('/listarinstrutor', [ListarInstrutorController::class, 'index'])->name('listarinstrutor.index');
 // Route::get('/editarinstrutor', [EditarInstrutorController::class, 'index'])->name('editarinstrutor.index');
 
 //Lessons
-Route::get('/aula', [AulaController::class, 'create'])->name('aula.create');
+Route::get('/lesson', [AulaController::class, 'index'])->name('lesson.index');
+Route::get('/lesson/create', [AulaController::class, 'create'])->name('lesson.create');
 // Route::get('/editaraula', [EditarAulaController::class, 'index'])->name('editaraula.index');
 // Route::get('/listaraula', [ListarAulaController::class, 'index'])->name('listaraula.index');
 
 //Exercises
-Route::get('/exercicio', [ExercicioController::class, 'create'])->name('exercicio.create');
-// Route::get('/listarexercicio', [ListarExercicioController::class, 'index'])->name('listarexercicio.index');
-// Route::get('/editarexercicio', [EditarExercicioController::class, 'index'])->name('editarexercicio.index');
+Route::get('/exercise', [ExercicioController::class, 'index'])->name('exercise.index');
+Route::get('/exercise/create', [ExercicioController::class, 'create'])->name('exercise.create');
 
 //Reports
-Route::get('/relatorio', [RelatorioController::class, 'create'])->name('relatorio.create');
-// Route::get('/listarrelatorio', [ListarRelatorioController::class, 'index'])->name('listarrelatorio.index');
-
-
+Route::get('/report', [RelatorioController::class, 'index'])->name('report.index');
+Route::get('/report/create', [RelatorioController::class, 'create'])->name('report.create');

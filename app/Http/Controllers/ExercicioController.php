@@ -12,7 +12,7 @@ class ExercicioController extends Controller
      */
     public function index()
     {
-        //
+        return view('exercises.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ExercicioController extends Controller
      */
     public function create()
     {
-        return view('exercicio');
+        return view('exercises.create');
     }
 
     /**

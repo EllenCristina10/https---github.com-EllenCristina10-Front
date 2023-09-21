@@ -18,7 +18,7 @@
   <nav class="navbar  navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="#"><svg class="secondary-color" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+      <a class="navbar-brand" href="{{ route ('home.index') }}"><svg class="secondary-color" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z" fill="currentColor" />
         </svg></a>
@@ -31,13 +31,13 @@
             <a class="nav-link secondary-color" href="{{ route ('student.index') }}">Alunos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link secondary-color" href="#">Instrutores</a>
+            <a class="nav-link secondary-color" href="{{ route ('instructor.index') }}">Instrutores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link secondary-color" href="#">Treinos</a>
+            <a class="nav-link secondary-color" href="{{ route ('exercise.index') }}">Treinos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link secondary-color">Aulas</a>
+            <a class="nav-link secondary-color" href="{{ route ('lesson.index') }}">Aulas</a>
           </li>
         </ul>
       </div>
@@ -62,8 +62,8 @@
             <div class="single-cta">
               <i class="fas fa-phone"></i>
               <div class="cta-text">
-                <h4>Call us</h4>
-                <span>9876543210 0</span>
+                <h4>Contate nos</h4>
+                <span>(74) 9 9940-6724</span>
               </div>
             </div>
           </div>
@@ -71,8 +71,8 @@
             <div class="single-cta">
               <i class="far fa-envelope-open"></i>
               <div class="cta-text">
-                <h4>Mail us</h4>
-                <span>mail@info.com</span>
+                <h4>Envie um Email</h4>
+                <span>softcomirece@info.com</span>
               </div>
             </div>
           </div>
@@ -100,26 +100,26 @@
           <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
             <div class="footer-widget">
               <div class="footer-widget-heading">
-                <h3>Useful Links</h3>
+                <h3>Links Úteis </h3>
               </div>
               <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">services</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
                 <li><a href="#">portfolio</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Expert Team</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Latest News</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Nossos serviços</a></li>
+                <li><a href="#">Time de especialistas</a></li>
+                <li><a href="#">Nos contate</a></li>
+                <li><a href="#">Ultimas Noticias</a></li>
               </ul>
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
             <div class="footer-widget">
               <div class="footer-widget-heading">
-                <h3>Subscribe</h3>
+                <h3>Se inscreva</h3>
               </div>
               <div class="footer-text mb-25">
                 <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
@@ -147,10 +147,10 @@
             <div class="footer-menu">
               <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Policy</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Termos</a></li>
+                <li><a href="#">Privacidade</a></li>
+                <li><a href="#">Politica</a></li>
+                <li><a href="#">Contato</a></li>
               </ul>
             </div>
           </div>

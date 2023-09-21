@@ -56,12 +56,11 @@
                         <div class="invalid-feedback">
                             Envie o video!
                         </div>
-                    </div>          
+                    </div> 
+                </div>         
             </div>
-        </div>
-        <div class="row" style="justify-content: end; margin-top: 36px;">
-            <div class="col-md-1">
-                <button button class="btn btn-success" type="submit" onclick="validate()">Cadastrar</button>
+            <div class="row" style="justify-content: end; margin-top: 36px;">
+                <div class="col-md-1"><button button class="btn btn-success" type="submit" onclick="validate()">Cadastrar</button></div>
             </div>
         </div>
     </form>

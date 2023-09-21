@@ -2,80 +2,52 @@
 @section('title', 'Lista de Instrutores')
 @section('conteudo')
 
-<h1>Lista de Instrutores</h1>
-<div class="row" style="justify-content: space-between; margin-top: 36px;"></div>
-<table class="table">
+<div class="container">
+  <h1>Lista de Instrutores</h1>
+  <table class=" table table-light table-striped-columns">
     <thead>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Telefone</th>
-        <th scope="col">Email</th>
-        <th scope="col">Senha</th>
-        <th scope="col">Data de Nascimento</th>
-        <th scope="col">CPF</th>
-        <th scope="col">Endereço</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Cidade</th>
-        <th scope="col">CEP</th>
-        <th scope="col">editar</th>
-        <th scope="col">excluir</th>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Senha</th>
+          <th scope="col">Data de Nascimento</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">CEP</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>Pedro</td>
+        <td><a href="route ('student.show', '$student_id')"> Ricardo Milos da Silva</a></td>
         <td>7499900-0822</td>
-        <td>pedro@ifba</td>
+        <td>RicardoInstrutor@gmail.com</td>
         <td>5321</td>
         <td>12/07/2001</td>
         <td>65909823499</td>
         <td>Rua C</td>
         <td>BA</td>
-        <td>Central</td>
+        <td>Irecê</td>
         <td>44960000</td>
-        <td>    
-          <a href="{{route ('editarinstrutor.index')}}" class='btn btn-success btn-sm'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-              </svg></a></td>
-        <td>
-          <button type="button" class="btn btn-danger btn-sm" id="botao-excluir" data-bs-toggle="modal" data-bs-target="#confirmacaoExclusaoModal">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                </svg>
-          </button>
-        </td>
       </tr>
     </tbody>
   </table>
-    <div class="col-12 position-relative">
-      <div class="row" style="justify-content: end; margin-top: 36px;">
-        <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
-      </div>
-    </div>
 
-    {{-- Pop-up de confirmação de exclusão --}}
-<div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar Exclusão</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              Tem certeza que deseja excluir?
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
-              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Sim</button>
-          </div>
-      </div>
+  <div class="col-12 position-relative">
+  <div class="row" style="justify-content: end; margin-top: 36px;"> 
+
+    <div class="col-md-1"><button class="btn btn-success" type="submit"><a href="{{route('instructor.create')}}">Novo</a></button></div>
   </div>
+  
 </div>
+
+</div>
+
+
 
 
 @endsection

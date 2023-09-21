@@ -77,9 +77,9 @@
             </div>
            
         </div>
-        <div class="row" style="justify-content: end; margin-top: 36px;">
-            <div class="col-md-1"><button button type="button" class="btn btn-success">Cadastrar</button></div>
-        </div>
+            <div class="row" style="justify-content: end; margin-top: 36px;">
+                <div class="col-md-1"><button button type="button" class="btn btn-success">Cadastrar</button></div>
+            </div>
         </div>
     </form>
 
