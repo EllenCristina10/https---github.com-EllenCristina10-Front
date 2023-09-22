@@ -128,6 +128,25 @@
         </div>
         {{--Linha 3--}}
         <div class="row " style="justify-content: space-between; margin-top: 36px;">
+             {{--Sexo--}}
+             <div class="col-sm-3">
+                <div class="input-group">
+                    <div class="input-group-text background-icon-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-ambiguous secondary-color" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
+                        </svg>
+                    </div>
+                    <select id="inputSexo" class="form-select" required> 
+                        <option selected disabled value="">Sexo...</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Outro</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Informe o Sexo!
+                    </div>
+                </div>
+            </div>
             {{--CPF--}}
             <div class="col-sm-3">
                 <div class="input-group">
@@ -172,6 +191,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        {{--Linha 4--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Estado--}}
             <div class="col-sm-3">
                 <div class="input-group">
@@ -210,18 +232,14 @@
                         <option>São Paulo</option>
                         <option>Sergipe</option>
                         <option>Tocantins </option>
-
                     </select>
                     <div class="invalid-feedback">
                         Informe o Estado!
                     </div>
                 </div>
             </div>
-        </div>
-        {{--Linha 4--}}
-        <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--CEP--}}
-            <div class="col-sm-3" style="min-width: 200px">
+            <div class="col-sm-3">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck secondary-color" viewBox="0 0 16 16">
@@ -236,28 +254,288 @@
                 <span id="cep-error"></span>
             </div>
         </div>
-        {{--Linha 5--}}
-        <h1 style="margin-top: 36px;">Anamnese</h1>
-        <div class="row" style="justify-content: space-between; margin-top: 36px;">
-            {{--Sexo--}}
-            <div class="col-sm-2" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-ambiguous secondary-color" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
-                        </svg>
+         {{--Linha 5--}}
+         <h1 style="margin-top: 36px;">Anamnese</h1>
+            <div class="row" style="justify-content: space-between; margin-top: 36px;">
+             <h2>1.Atividades da vida diária</h2>
+                 {{--Horas trabalhadas--}}
+                <div class="col-sm-2" style="min-width: 200px">
+                        <h3>Número de horas trabalhadas por semana:</h3>
+                        <div class="form-check form-check-inline"> 
+                            <input class="form-check-input" type="radio" name="tosseComSangue" value="sempre" id="sempre">
+                            <label class="form-check-label" for="sempre">
+                                Menos de 20
+                            </label>
+                         </div>
+                        <div class="form-check form-check-inline"> 
+                            <input class="form-check-input" type="radio" name="tosseComSangue" value="algumasVezes" id="algumasVezes">
+                            <label class="form-check-label" for="algumasVezes">
+                                20 a 40
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="tosseComSangue" value="nunca" id="nunca">
+                            <label class="form-check-label" for="nunca">
+                                41 a 60
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="tosseComSangue" value="nunca" id="nunca">
+                            <label class="form-check-label" for="nunca">
+                                Mais de  60
+                            </label>
+                        </div>
                     </div>
-                    <select id="inputSexo" class="form-select" required> 
-                        <option selected disabled value="">Sexo...</option>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
-                        <option>Outro</option>
-                    </select>
+                {{--Atividades desempenhadas--}}
+                <h3>Atividades desempenhadas no trabalho: </h3>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Sentar na cadeira
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Levantar ou carregar peso
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Ficar de pé
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Caminhar
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Dirigir
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Outros
+                        </label>
+                    </div>
                     <div class="invalid-feedback">
-                        Informe o Sexo!
+                        Informe as atividades!
+                    </div> 
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Observações:</label>
                     </div>
-                </div>
             </div>
+         {{--Linha 6--}}
+         <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            <h2>2.Historico Médico</h2>
+                {{--Último exame--}}
+                <div class="col-sm-3" style="min-width: 200px">
+                    <div class="input-group">
+                        <div class="input-group-text background-icon-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date secondary-color" viewBox="0 0 16 16">
+                                <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                            </svg>
+                        </div>
+                        <input type="text" class="form-control" id="inputCep" placeholder="Data do último exame físico e/ou médico" required>
+                        <div class="invalid-feedback">
+                            Informe a data do último exame!
+                        </div>
+                    </div>
+                    <span id="cep-error"></span>
+                </div>
+                {{--Cardiopatia--}}
+                 <h3>Marque aquele(s) que tenha(m) tido alguma cardiopatia antes dos 50 anos: </h3>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Pai
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Mãe
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Irmão(ã)
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Avô/Avó
+                        </label>  
+                    </div>
+                {{--Intervenções cirúrgicas--}}
+                <h3>Marque as intervenções cirúrgicas que você tenha feito: </h3>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Coluna
+                        </label> 
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Rim
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Coração
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Pulmão
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Articulação
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Olhos
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Hérnia de Disco dos Beatles
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Outra
+                        </label>  
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="width: 150px"></textarea>
+                        <label for="floatingTextarea"></label>
+                    </div> 
+            {{--Problemas diagnosticados--}}
+            <h3>Marque o(s) problema(s) abaixo que tenha sido diagnosticado(a) ou tratado(a) por um médico:</h3>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Alcoolismo
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Artrite
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Diabetes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Problemas musculares
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Problema renal
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Problemas oculares
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Pressão arterial alta
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Enfisema
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Úlcera
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        AVC
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Anemia
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Asma
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Anemia
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Obesidade
+                    </label> 
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Outro
+                    </label>  
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="width: 150px"></textarea>
+                    <label for="floatingTextarea"></label>
+                </div>
+            {{--Medicamentos--}}
+            <h3>Descreva o(s) medicamento(s) utlizado(s) nos últimos tempos</h3>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Descrição:</label>
+            </div>
+         </div>
+        {{--Linha 7--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Experiência--}}
             <div class="col-sm-2" style="min-width: 200px">
                 <div class="input-group">
@@ -300,32 +578,395 @@
                 </div>
             </div>  
         </div>
-        <div class="row" style="justify-content: end; margin-top: 36px;">
-            <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
-        </div>
-
-        {{--Linha 6--}}
+        {{--Linha 12--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
-            {{--CEP--}}
-            <div class="col-sm-3" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck secondary-color" viewBox="0 0 16 16">
-                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                        </svg>
-                    </div>
-                    <input type="text" class="form-control" id="inputCep" placeholder="CEP" required>
-                    <div class="invalid-feedback">
-                        Informe o CEP!
-                    </div>
+            {{--Sintomas--}}
+            <div>
+                <h3>Indique os sintomas conforme segue:</h3>
+                <br><h5>A&#41; Tosse com sangue </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="tosseComSangue" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="tosseComSangue" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
                 </div>
-                <span id="cep-error"></span>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tosseComSangue" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+            <div>
+                <br><h5>B&#41 Dor abdonminal</h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dorabdonminal" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dorabdonminal" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dorabdonminal" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br><h5> C&#41 Dor nas pernas </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornaspernas" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornaspernas" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dornaspernas" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br><h5>D&#41 Dor nos braços</h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornosbraços" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornosbraços" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dornosbraços" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br><h5> E&#41 Dor nas costas ou pescoço </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornascostasoupescoço" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornascostasoupescoço" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dornascostasoupescoço" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+            <div>
+                <br><h5> F&#41 Dor no peito </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornopeito " value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="dornopeito" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dornopeito" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br><h5> G&#41 Dores articulares </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="doresarticulares" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="doresarticulares" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="doresarticulares" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br><h5> H&#41 Falta de ar com esforço leve </h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="Faltadearcomesforçoleve " value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="Faltadearcomesforçoleve" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Faltadearcomesforçoleve" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br> <h5> I&#41 Sentir-se fraco</h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="sentirsefraco" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="sentirsefraco" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sentirsefraco" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <br> <h5> J&#41 Tontura</h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="tontura" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="tontura" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tontura" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
+            </div>
+            <div>
+                <br><h5> K&#41 Palpitação ou batimento cardíaco acelerado</h5>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="palpitação" value="sempre" id="sempre">
+                    <label class="form-check-label" for="sempre">
+                        Sempre
+                    </label>
+                 </div>
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="palpitação" value="algumasVezes" id="algumasVezes">
+                    <label class="form-check-label" for="algumasVezes">
+                        Algumas vezes
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="palpitação" value="nunca" id="nunca">
+                    <label class="form-check-label" for="nunca">
+                        Nunca
+                    </label>
+                </div>
             </div>
         </div>
+        {{--Linha 14--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            {{--Alergias--}}
+            <h3>Você possui alguma alegria?</h3>
+       
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="sim" id="">
+                <label class="form-check-label" for="sempre">
+                    Sim
+                </label>
+            </div>
+
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="nao" id="">
+                <label class="form-check-label" for="sempre">
+                    Não
+                </label>
+            </div>
+            
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="quais" id="">
+                <label class="form-check-label" for="sempre">
+                    Quais?
+                </label>
+            </div>
+            
+        </div>
+
+        {{--Linha 15--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            {{--Acidentes--}}
+            <h3>Nos últimos tempos, você sofreu algum acidente ou lesão ósteo-articular?</h3>
+       
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="sim" id="">
+                <label class="form-check-label" for="sempre">
+                    Sim
+                </label>
+            </div>
+
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="nao" id="">
+                <label class="form-check-label" for="sempre">
+                    Não
+                </label>
+            </div>
+            
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="quais" id="">
+                <label class="form-check-label" for="sempre">
+                    Quais?
+                </label>
+            </div>
+            
+        </div>
+        
+        {{--Linha 16--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            {{--Restrições--}}
+            <h3>Você possui alguma restrição à prática de atividade física?</h3>
+       
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="sim" id="">
+                <label class="form-check-label" for="sempre">
+                    Sim
+                </label>
+            </div>
+
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="nao" id="">
+                <label class="form-check-label" for="sempre">
+                    Não
+                </label>
+            </div>
+            
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="quais" id="">
+                <label class="form-check-label" for="sempre">
+                    Quais?
+                </label>
+            </div>
+        </div>
+        {{--Linha 17--}}
+        <h5>3.Comportamento relacionado à saúde</h5>
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            {{--Fumante--}}
+            <h3>Você fuma atualmente?</h3>
+       
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="sim" id="">
+                <label class="form-check-label" for="sempre">
+                    Sim
+                </label>
+            </div>
+
+            <div class="form-check form-check-inline"> 
+                <input class="form-check-input" type="radio" name="" value="nao" id="">
+                <label class="form-check-label" for="sempre">
+                    Não
+                </label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="width: 250px "></textarea>
+                <label for="floatingTextarea2">Se positivo, quantos cigarros por dia?</label>
+            </div>
+        </div>
+
+        {{--Linha 18--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+            <h2>Comentários gerais</h2>
+            <h5>Caso voce tenha alguma informação para acrescentar, que <br>
+            não tenha sido perguntada nesse questionario de saúde , por favor registrar nesse espaço</h5>
+            <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="comentariogeraltxtarea" style="height: 100px"></textarea>
+            </div>        
+        </div>
+        
+        {{--Linha 19--}}
+        <div class="row" style="justify-content: space-between; margin-top: 36px;">
+        <!--<p>
+        <h3>Data do recebimento Assinatura do Aluno ou Responsável</h3>
+        <br> <br> 
+            ____/____/______                                ________________________________________
+        
+        </p>
+        </div>
+
+
+        <div class="row" style="justify-content: end; margin-top: 36px;">
+            <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
+        </div>-->
+
+        <div class="form-group">
+            <label for="dataPreenchimento">Data do preenchimento:</label>
+            <input type="text" id="dataPreenchimento" class="date-input" placeholder="___/____/____">
+        </div>
+    
+        <div class="form-group">
+            <label for="assinaturaAluno">Assinatura do aluno responsável:</label>
+            <div class="signature"></div>
+        </div>
+        </div>
+
     </form>
-
-
     
 </div>
 
+    
 @endsection

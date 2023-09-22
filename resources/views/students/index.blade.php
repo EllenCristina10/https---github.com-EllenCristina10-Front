@@ -28,7 +28,7 @@
   <div class="col-12 position-relative">
   <div class="row" style="justify-content: end; margin-top: 36px;"> 
 
-    <div class="col-md-1"><button class="btn btn-success" type="submit"><a href="{{route('student.create')}}">Novo</a></button></div>
+    <div class="col-md-1"><a href="{{route('student.create')}}"><button class="btn btn-success" type="submit">Novo</button></a></div>
   </div>
   
 </div>
