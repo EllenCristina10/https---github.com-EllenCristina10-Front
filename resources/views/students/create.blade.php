@@ -357,7 +357,7 @@
         </div>
         <div class="mt-4">
             <div class="form-floating">
-                <textarea class="form-control w-75 h-100" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
                 <label for="floatingTextarea2">Outros:</label>
             </div>
         </div>    
@@ -499,7 +499,7 @@
         </div>
         <div class="mt-4">
             <div class="form-floating">
-                <textarea class="form-control w-75" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <textarea class="form-control w-75"  id="floatingTextarea"></textarea>
                 <label for="floatingTextarea">Outra:</label>
             </div>
         </div>
@@ -546,7 +546,7 @@
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
-                        Problema anal
+                        Problema renal
                     </label>
                 </div>
             </div>
@@ -639,7 +639,7 @@
         </div>
         <div class="mt-4">
             <div class="form-floating w-75">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <textarea class="form-control"  id="floatingTextarea"></textarea>
                 <label for="floatingTextarea">Outro:</label>
             </div>
         </div>
@@ -649,7 +649,7 @@
         </div>
         <div class="mt-4">
             <div class="form-floating w-75">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                <textarea class="form-control"  id="floatingTextarea2"></textarea>
                 <label for="floatingTextarea2">Descrição:</label>
             </div>
         </div>
@@ -1023,7 +1023,7 @@
             </div>
             <div class="mt-4">
                 <div class="form-floating w-75">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                    <textarea class="form-control"  id="floatingTextarea2"></textarea>
                     <label for="floatingTextarea2">Quais?</label>
                 </div>
             </div>
@@ -1052,7 +1052,7 @@
             </div>
             <div class="mt-4">
                 <div class="form-floating w-75">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                    <textarea class="form-control"  id="floatingTextarea2"></textarea>
                     <label for="floatingTextarea2">Quais?</label>
                 </div>
             </div>
@@ -1081,7 +1081,7 @@
             </div>
             <div class="mt-4">
                 <div class="form-floating w-75">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                    <textarea class="form-control" id="floatingTextarea2"></textarea>
                     <label for="floatingTextarea2">Quais?</label>
                 </div>
             </div>
@@ -1114,56 +1114,113 @@
         </div>
         <div class="mt-4">
             <div class="form-floating w-75">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+                <textarea class="form-control"  id="floatingTextarea2"></textarea>
                 <label for="floatingTextarea2">Se positivo, quantos cigarros por dia?</label>
             </div>
         </div>
         {{--Linha 7--}}
+        {{--Experiência--}}   
+        <div class="container mt-4">
+            <h3>Atualmente, você realiza alguma atividade física?</h3>
+        </div>  
         <div class="row mt-4">
-            {{--Experiência--}}
-            <div class="col-sm-2" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-expand secondary-color" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708z" />
-                        </svg>
-                    </div>
-                    <select id="inputExperiencia" class="form-select" required>
-                        <option selected disabled value="">Experiência...</option>
-                        <option>Iniciante</option>
-                        <option>Intermediário</option>
-                        <option>Avançado</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Informe a experiência!
-                    </div>
+            <div class="col-2">
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="" value="sim" id="">
+                    <label class="form-check-label" for="sempre">
+                        Sim
+                    </label>
                 </div>
             </div>
-            {{--Objetivo--}}
-            <div class="col-sm-2" style="min-width: 200px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bullseye secondary-color" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
-                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                        </svg>
-                    </div>
-                    <select id="inputObjetivo" class="form-select" required>
-                        <option selected disabled value="">Objetivo...</option>
-                        <option>Estética</option>
-                        <option>Lazer</option>
-                        <option>Terapêutico</option>
-                        <option>Condicionamento físico</option>
-                        <option>Convívio social</option>
-                        <option>Emagrecimento</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Informe o objetivo!
-                    </div>
+            <div class="col-2">
+                <div class="form-check form-check-inline"> 
+                    <input class="form-check-input" type="radio" name="" value="nao" id="">
+                    <label class="form-check-label" for="sempre">
+                        Não
+                    </label>
                 </div>
-            </div>  
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="form-floating w-75">
+                <textarea class="form-control"  id="floatingTextarea2"></textarea>
+                <label for="floatingTextarea2">Qual(is):</label>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="form-floating w-75">
+                <textarea class="form-control"  id="floatingTextarea2"></textarea>
+                <label for="floatingTextarea2">Frequência:</label>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="form-floating w-75">
+                <textarea class="form-control"  id="floatingTextarea2"></textarea>
+                <label for="floatingTextarea2">Duração:</label>
+            </div>
+        </div>
+     
+        {{--Objetivos--}}
+        <div class="container mt-4">
+            <h3>Objetivos com relação a atividade física: </h3>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Estética
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Lazer
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Terapêutico
+                    </label>
+                </div>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Condicionamento físico
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Convívio social
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Emagrecimento
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="form-floating w-75">
+                <textarea class="form-control"  id="comentariogeraltxtarea"></textarea>
+                <label for="floatingTextarea2">Outros:</label>
+            </div>
         </div>
         {{--Linha 18--}}
         <div class="row">
@@ -1173,64 +1230,75 @@
             <div class="container mt-4">
                 <h5>Caso voce tenha alguma informação para acrescentar, que não tenha sido perguntada nesse questionário de saúde, por favor registrar nesse espaço</h5>
             </div>
-            <div class="form-floating w-75 mt-4">
-                <textarea class="form-control" placeholder="Leave a comment here" id="comentariogeraltxtarea"></textarea>
+            <div class="mt-4">
+                <div class="form-floating w-75">
+                    <textarea class="form-control"  id="comentariogeraltxtarea"></textarea>
+                    <label for="floatingTextarea2">Comentários:</label>
+                </div>
             </div>
         </div>
         {{--Linha 19--}}
         <div class="row">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-3">
-                    <div class="box d-flex align-items-center">
-                        <div class="form-group">
-                            <label for="dataPreenchimento">Data do preenchimento:</label> <br>
-                            ____/_____/_____
+            <div class="mt-4">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-3">
+                        <div class="box d-flex align-items-center">
+                            <div class="form-group">
+                                <label for="dataPreenchimento">Data do preenchimento:</label> <br>
+                                ____/_____/_____
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box d-flex align-items-center">
+                            <div class="form-group">
+                                <label for="assinaturaAluno">Assinatura do aluno responsável:</label><br>
+                                _________________________________
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="box d-flex align-items-center">
-                        <div class="form-group">
-                            <label for="assinaturaAluno">Assinatura do aluno responsável:</label><br>
-                            _________________________________
+                <br>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-3">
+                        <div class="box d-flex align-items-center">
+                            <div class="form-group">
+                                <label for="dataPreenchimento">Data do recebimento:</label> <br>
+                                ____/_____/_____
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-3">
-                    <div class="box d-flex align-items-center">
-                        <div class="form-group">
-                            <label for="dataPreenchimento">Data do recebimento:</label> <br>
-                            ____/_____/_____
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-3">
-                    <div class="box d-flex align-items-center">
-                        <div class="form-group">
-                            <label for="assinaturaAluno">Assinatura do instrutor:</label><br>
-                            _________________________________
+                    <div class="col-3">
+                        <div class="box d-flex align-items-center">
+                            <div class="form-group">
+                                <label for="assinaturaAluno">Assinatura do instrutor:</label><br>
+                                _________________________________
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <style>
-            .box {
-            border: 1px solid #000;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
+            @media print {
+                body {
+                    font-size: 12pt; /* Tamanho da fonte para impressão */
+                    color: black; /* Cor do texto para impressão */
+                    background-color: white; /* Cor de fundo para impressão */
+                }
+                .box {
+                    border: 1px solid #000;
+                    border-radius: 10px;
+                    padding: 10px;
+                    margin: 10px 0;
+                    display: inline-block; /* Alterado para inline-block */
+                    height: auto;
+                    max-width: 100%; /* Defina uma largura máxima para a caixa */
+                }
+            }
         </style>
         </div>
         <div class="flex-row d-flex align-items-end justify-content-end mt-4">
@@ -1238,7 +1306,79 @@
                 Cadastrar
             </button>
         </div>
+        
     </form>
 </div>
+
+<script>
+  var botao = document.createElement("button");
+  botao.textContent = "Imprimir";
+  botao.onclick = imprimir;
+  document.body.appendChild(botao);
+
+  // Função para criar uma versão separada do conteúdo para impressão
+  function criarConteudoParaImpressao() {
+    // Clona o elemento body, removendo o navbar e o footer
+    var conteudoParaImpressao = document.body.cloneNode(true);
+    
+    // Remove o navbar e o footer da cópia
+    var elementosParaRemover = conteudoParaImpressao.querySelectorAll("nav, footer");
+    elementosParaRemover.forEach(function(elemento) {
+      elemento.parentNode.removeChild(elemento);
+    });
+
+    return conteudoParaImpressao;
+  }
+
+  // Função para imprimir o conteúdo
+  function imprimir() {
+    // Inclui temporariamente o link para o CSS externo do Bootstrap
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"; // Substitua pela URL correta
+    document.head.appendChild(link);
+
+    // Crie um estilo interno para adicionar ao documento de impressão
+    var estiloInterno = document.createElement("style");
+    estiloInterno.type = "text/css";
+    estiloInterno.innerHTML = `
+      /* Seu CSS interno aqui */
+      body {
+        background-color: lightgray;
+      }
+      /* Adicione outras regras CSS internas conforme necessário */
+    `;
+    document.head.appendChild(estiloInterno);
+
+    var conteudoParaImpressao = criarConteudoParaImpressao();
+    
+    // Abre uma nova janela para impressão
+    var win = window.open("about:blank");
+    win.document.open();
+    win.document.write("<html><head><title>Impressão</title></head><body>");
+    win.document.write(conteudoParaImpressao.innerHTML);
+
+    win.document.write("</body></html>");
+    win.document.close();
+
+    // Remove o link do CSS externo e o estilo interno após a impressão
+    link.parentNode.removeChild(link);
+    estiloInterno.parentNode.removeChild(estiloInterno);
+
+    win.print();
+    win.close();
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
 
 @endsection
