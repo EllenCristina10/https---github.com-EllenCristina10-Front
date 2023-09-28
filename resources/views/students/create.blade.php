@@ -645,7 +645,7 @@
         </div>
         {{--Medicamentos--}}
         <div class="container mt-4">
-            <h3>Descreva o(s) medicamento(s) utlizado(s) nos últimos tempos</h3>
+            <h3>Descreva o(s) medicamento(s) utlizado(s) nos últimos tempos:</h3>
         </div>
         <div class="mt-4">
             <div class="form-floating w-75">
@@ -1370,15 +1370,5 @@
     win.close();
   }
 </script>
-
-
-
-
-
-
-
-
-
-
 
 @endsection
