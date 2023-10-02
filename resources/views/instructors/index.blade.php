@@ -11,13 +11,6 @@
           <th scope="col">Nome</th>
           <th scope="col">Telefone</th>
           <th scope="col">Email</th>
-          <th scope="col">Senha</th>
-          <th scope="col">Data de Nascimento</th>
-          <th scope="col">CPF</th>
-          <th scope="col">Endereço</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Cidade</th>
-          <th scope="col">CEP</th>
       </tr>
     </thead>
     <tbody>
@@ -26,13 +19,6 @@
         <td><a href="route ('student.show', '$student_id')"> Ricardo Milos da Silva</a></td>
         <td>7499900-0822</td>
         <td>RicardoInstrutor@gmail.com</td>
-        <td>5321</td>
-        <td>12/07/2001</td>
-        <td>65909823499</td>
-        <td>Rua C</td>
-        <td>BA</td>
-        <td>Irecê</td>
-        <td>44960000</td>
       </tr>
     </tbody>
   </table>

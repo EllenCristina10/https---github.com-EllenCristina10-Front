@@ -9,16 +9,14 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Vídeo</th>
+                <th scope ="col">Descrição</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">1</th>
                 <td><a href="route ('student.show', '$student_id')"> Suplex Duplo Carpado Invertido</a></td>
-                <td>O aluno ira segurar o saco de areia, levantado do chão e arremesalo por cima do ombro apos dar duas piruetas no ar para adicionar intensidade ao golpe</td>
-                <td>Vídeo</td>
+                <td>O aluno levanta o saco de pancadas e o arremesa por cima de seu ombro, ao arremesar ele pula junto, e realiza um duplo carpado para adicionar intensidade ao golpe </td>
             </tr>
         </tbody>
     </table>

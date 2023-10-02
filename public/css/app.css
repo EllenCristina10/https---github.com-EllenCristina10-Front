@@ -17,40 +17,12 @@
 .table{
   margin-top: 36px;
 }
-#name-error{
+#error{
     color:red;
     display: none;
 }
 
-#email-error{
-    color:red;
-    display: none;
-}
 
-#password-error{
-    color:red;
-    display: none;
-}
-
-#confirm-error{
-    color:red;
-    display: none;
-}
-
-#phone-error{
-    color: red;
-    display: none;
-}
-
-#cpf-error{
-    color:red;
-    display: none;
-}
-
-#cep-error{
-    color:red;
-    display: none;
-}
 .primary-color{
     color: var(--primary-color);
 }

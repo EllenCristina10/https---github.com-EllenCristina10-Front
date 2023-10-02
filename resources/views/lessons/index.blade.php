@@ -9,18 +9,14 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome da Aula</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Nome do Instrutor</th>
-                <th scope="col">Máximo de Alunos</th>
+                <th scope="col">Nome do Instrutor</th>               
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td><a href="route ('student.show', '$student_id')"> Zumba</a></td>
-                <td>Aula de Dança</td>
-                <td>Cláudio</td>
-                <td>40</td>
+                <td><a href="route ('student.show', '$student_id')"> Zumba</a></td>               
+                <td>Cláudio Marques de Araujo Costa</td>
             </tr>
         </tbody>
     </table>

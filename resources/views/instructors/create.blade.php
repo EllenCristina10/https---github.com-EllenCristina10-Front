@@ -5,26 +5,80 @@
 <div class="container" style="margin-top: 36px;">
 
     <form class="row" id="form">
-        {{--Linha 1--}}
-        <h1>Dados Pessoais</h1>
+         {{--Linha 1--}}
+         <h1>Dados Pessoais</h1>
+         <div class="row d-flex justify-content-between mt-4">
+             {{--Nome completo--}}
+             <div class="col-sm-5 " >
+                 <div class="input-group">
+                     <div class="input-group-text background-icon-color">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person secondary-color" viewBox="0 0 16 16">
+                             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                         </svg>
+                     </div>
+                     <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+ 
+                     <div class="invalid-feedback">
+                         Informe o nome!
+                     </div>
+                 </div>
+                 <span id="error"></span>
+             </div>
+             {{--CPF--}}
+             <div class="col-sm-2"  style="width: 210px">
+                 <div class="input-group">
+                     <div class="input-group-text background-icon-color">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window secondary-color" viewBox="0 0 16 16">
+                             <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+                             <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
+                         </svg>
+                     </div>
+                     <input type="text" class="form-control" id="cpfInput" placeholder="CPF" required>
+                     <div class="invalid-feedback">
+                         Informe o CPF!
+                     </div>
+                 </div>
+                 <span id="error"></span>
+             </div>
+             {{--Sexo--}}
+              <div class="col-sm-2" style="width: 210px">
+                 <div class="input-group">
+                     <div class="input-group-text background-icon-color">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-ambiguous secondary-color" viewBox="0 0 16 16">
+                             <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
+                         </svg>
+                     </div>
+                     <select id="inputSexo" class="form-select" required> 
+                         <option selected disabled value="">Sexo...</option>
+                         <option>Masculino</option>
+                         <option>Feminino</option>
+                         <option>Outro</option>
+                     </select>
+                     <div class="invalid-feedback">
+                         Informe o Sexo!
+                     </div>
+                 </div>
+              </div>   
+             {{--Data de nascimento--}}
+             <div class="col-sm-2" style="width: 180px">
+                 <div class="input-group">
+                     <div class="input-group-text background-icon-color">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date secondary-color" viewBox="0 0 16 16">
+                             <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                         </svg>
+                     </div>
+                     <input type="text" class="form-control" id="inputData" placeholder="__/__/____" required>
+                     <div class="invalid-feedback">
+                         Informe a data de nascimento!
+                     </div>
+                 </div>
+             </div>
+         </div>
+        {{--Linha 2--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
-            {{--Nome completo--}}
-            <div class="col-sm-6">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person secondary-color" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                        </svg>
-                    </div>
-                    <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo" required>
-                    <div class="invalid-feedback">
-                        Informe o nome!
-                    </div>
-                </div>
-                <span id="name-error"></span>
-            </div>
             {{--Telefone--}}
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="width: 225px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone secondary-color" viewBox="0 0 16 16">
@@ -36,44 +90,10 @@
                         Informe o telefone!
                     </div>
                 </div>
-                <span id="phone-error"></span>
-            </div>
-            {{--Data de nascimento--}}
-            <div class="col-sm-3">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date secondary-color" viewBox="0 0 16 16">
-                            <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"/>
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                        </svg>
-                    </div>
-                    <input type="Date" class="form-control" id="inputData" placeholder="Data de Nascimento" required>
-                    <div class="invalid-feedback">
-                        Informe a data de nascimento!
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{--Linha 2--}}
-        <div class="row" style="justify-content: space-between; margin-top: 36px;">
-             {{--CPF--}}
-             <div class="col-sm-3">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-window secondary-color" viewBox="0 0 16 16">
-                            <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                            <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
-                        </svg>
-                    </div>
-                    <input type="text" class="form-control" id="cpfInput" placeholder="CPF" required>
-                    <div class="invalid-feedback">
-                        Informe o CPF!
-                    </div>
-                </div>
-                <span id="cpf-error"></span>
+                <span id="error"></span>
             </div>
             {{--Email--}}
-            <div class="col-sm-3">
+            <div class="col-sm-4" style="width: 440px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope secondary-color" viewBox="0 0 16 16">
@@ -85,10 +105,10 @@
                         Informe o email!
                     </div>
                 </div>
-                <span id="email-error"></span>
+                <span id="error"></span>
             </div>
            {{--Senha--}}
-           <div class="col-sm-3">
+           <div class="col-sm-3" style="width: 220px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
@@ -101,10 +121,10 @@
                         Informe a senha!
                     </div>
                 </div>
-                <span id="password-error"></span>
+                <span id="error"></span>
             </div>
             {{--Confirmação de senha--}}
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="width: 220px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
@@ -117,13 +137,13 @@
                         Confirme a senha!
                     </div>
                 </div>
-                <span id="confirm-error"></span>
+                <span id="error"></span>
             </div>
         </div>
         {{--Linha 3--}}
         <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Endereço--}}
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map secondary-color" viewBox="0 0 16 16">
@@ -196,7 +216,7 @@
                 </div>
             </div>
             {{--CEP--}}
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck secondary-color" viewBox="0 0 16 16">
@@ -208,7 +228,42 @@
                         Informe o CEP!
                     </div>
                 </div>
-                <span id="cep-error"></span>
+                <span id="error"></span>
+            </div>
+        </div>
+        {{--Linha 2--}}
+        <div class="row" style="justify-content: start; margin-top: 36px;">
+            {{--Entrada--}}
+            <div class="col-sm-3">
+                <label for="Entrada">Horario de Entrada</label>
+                <div class="input-group">
+                    <div class="input-group-text background-icon-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-top secondary-color" viewBox="0 0 16 16">
+                            <path d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z"/>
+                        </svg>
+                    </div>
+                    <input type="time" class="form-control" id="inputEntrada" placeholder="Entrada" required>
+                    <div class="invalid-feedback">
+                        Informe o horário da entrada!
+                    </div>
+                </div>
+                <span id="error"></span>
+            </div>
+            {{--Saída--}}
+            <div class="col-sm-3">
+                <label for="Saida">Horario de Saida</label>
+                <div class="input-group">
+                    <div class="input-group-text background-icon-color">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hourglass-bottom secondary-color" viewBox="0 0 16 16">
+                            <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2h-7z"/>
+                          </svg>
+                    </div>
+                    <input type="time" class="form-control" id="inputSaida" placeholder="Saída" required>
+                    <div class="invalid-feedback">
+                        Informe o horário da saída!
+                    </div>
+                </div>
+                <span id="error"></span>
             </div>
         </div>
         <div class="row" style="justify-content: end; margin-top: 36px;">
