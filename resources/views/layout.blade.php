@@ -105,7 +105,7 @@
                 <h3>Links Úteis </h3>
               </div>
               <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ route ('home.index') }}">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">portfolio</a></li>
