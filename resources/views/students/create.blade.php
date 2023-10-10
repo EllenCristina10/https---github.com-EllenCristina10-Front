@@ -107,41 +107,54 @@
                 </div>
                 <span id="error"></span>
             </div>
-            {{--Senha--}}
-            <div class="col-sm-3" style="width: 225px">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
-                            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                        </svg>
-                    </div>
-                    <input type="password" class="form-control" id="inputSenha" placeholder="Senha" required onblur="validarSenhas(this.value)" >
-                    <div class="invalid-feedback">
-                        Informe a senha!
-                    </div>
-                </div>
-                <span id="error"></span>
-            </div>
-            {{--Confirmação de senha--}}
-            <div class="col-sm-3">
-                <div class="input-group">
-                    <div class="input-group-text background-icon-color">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
-                            <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                            <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                        </svg>
-                    </div>
-                    <input type="password" class="form-control" id="inputConfirmarSenha" placeholder="Confirmar senha" required onblur="validarSenhas(this.value)">
-                    <div class="invalid-feedback">
-                        Confirme a senha!
-                    </div>
-                </div>
-                <span id="error"></span>
-            </div>
+          <!-- Senha -->
+<div class="col-sm-3" style="width: 255px">
+    <div class="input-group">
+        <div class="input-group-text background-icon-color">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
+                <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
         </div>
+        <input type="password" class="form-control border-right-0" id="inputSenha" placeholder="Senha" required onblur="validarSenhas(this.value)">
+        <div class="invalid-feedback">
+            Informe a senha!
+        </div>
+        <span class="input-group-text" onclick="togglePassword('inputSenha')" style="cursor: pointer; border-left: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+            </svg>
+        </span>
+    </div>
+    <span id="error"></span>
+</div>
+
+<!-- Confirmação de senha -->
+<div class="col-sm-3" style="width: 255px">
+    <div class="input-group">
+        <div class="input-group-text background-icon-color">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key secondary-color" viewBox="0 0 16 16">
+                <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+            </svg>
+        </div>
+        <input type="password" class="form-control border-right-0" id="inputConfirmarSenha" placeholder="Confirmar senha" required onblur="validarSenhas(this.value)">
+        <div class="invalid-feedback">
+            Confirme a senha!
+        </div>
+        <span class="input-group-text" onclick="togglePassword('inputConfirmarSenha')" style="cursor: pointer; border-left: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+            </svg>
+        </span>
+    </div>
+    <span id="error"></span>
+</div>
+
         {{--Linha 3--}}
-        <div class="row d-flex justify-content-between mt-4">
+       <div class="row" style="justify-content: space-between; margin-top: 36px;">
             {{--Endereço--}}
             <div class="col-sm-4">
                 <div class="input-group">
@@ -171,7 +184,7 @@
                 </div>
             </div>
             {{--Estado--}}
-            <div class="col-sm-3">
+            <div class="col-sm-3" style="min-width: 200px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
@@ -208,6 +221,7 @@
                         <option>São Paulo</option>
                         <option>Sergipe</option>
                         <option>Tocantins </option>
+
                     </select>
                     <div class="invalid-feedback">
                         Informe o Estado!
@@ -388,7 +402,7 @@
             </div>
             <div class="col-sm">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <input class="form-check-input" type="checkbox" value="" id="checkOutrosTrabalho">
                     <label class="form-check-label" for="flexCheckChecked">
                         Outros
                     </label>
@@ -396,9 +410,9 @@
             </div>
         </div>
         <div class="mt-4">
-            <div class="form-floating">
-                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Outros:</label>
+            <div class="form-floating" style="display: none;" id="textOutrosTrabalho">
+                <textarea class="form-control w-75 h-100" > </textarea>
+                <label for="textOutrosTrabalho">Descrição:</label>
             </div>
         </div>    
         <div class="invalid-feedback">
@@ -409,17 +423,20 @@
         <p><br><hr><br></p>
         <div class="container mt-4">
             <h2>2.Historico Médico</h2>
+            Data do último exame físico e/ou médico:
         </div>
         {{--Último exame--}}
-        <div class="col-sm-3 mt-4" style="min-width: 200px">
+        
+        <div class="col-sm-3 mt-4" style="width: 225px">
             <div class="input-group">
+               
                 <div class="input-group-text background-icon-color">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date secondary-color" viewBox="0 0 16 16">
                         <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                     </svg>
                 </div>
-                <input type="text" class="form-control" id="inputCep" placeholder="Data do último exame físico e/ou médico" required>
+                <input type="date" class="form-control" id="inputDataExame" required>
                 <div class="invalid-feedback">
                     Informe a data do último exame!
                 </div>
@@ -533,7 +550,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <input class="form-check-input" type="checkbox" value="" id="checkOutrosCirurgia" >
                     <label class="form-check-label" for="flexCheckChecked">
                         Outra
                     </label>  
@@ -541,9 +558,9 @@
             </div>
         </div>
         <div class="mt-4">
-            <div class="form-floating">
+            <div class="form-floating" id="textOutrosCirurgia" style="display: none">
                 <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Outra:</label>
+                <label for="floatingTextarea2">Descrição:</label>
             </div>
         </div>  
         
@@ -676,7 +693,7 @@
             </div>
             <div class="col-sm">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                    <input class="form-check-input" type="checkbox" value="" id="checkOutrosDiagnosticado" >
                     <label class="form-check-label" for="flexCheckChecked">
                         Outro
                     </label>  
@@ -684,9 +701,9 @@
             </div>
         </div>
         <div class="mt-4">
-            <div class="form-floating">
-                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Outro:</label>
+            <div class="form-floating" id="textOutrosDiagnosticado" style="display: none">
+                <textarea class="form-control w-75 h-100"  id="floatingTextarea3"></textarea>
+                <label for="floatingTextarea3">Descrição:</label>
             </div>
         </div>  
         {{--Medicamentos--}}
@@ -1056,26 +1073,26 @@
         <div class="row mt-4">
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="sim" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="alergia" value="sim" id="checkAlergiaSim">
+                    <label class="form-check-label" for="checkAlergiaSim">
                         Sim
                     </label>
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="nao" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="alergia" value="nao" id="checkAlergiaNao">
+                    <label class="form-check-label" for="checkAlergiaNao">
                         Não
                     </label>
                 </div>
             </div>
-            <div class="mt-4">
-                <div class="form-floating">
-                    <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                    <label for="floatingTextarea2">Quais?</label>
-                </div>
-            </div>  
+        </div>
+        <div class="mt-4">
+            <div class="form-floating" id="textOutrosAlergia" style="display: none">
+                <textarea class="form-control w-75 h-100" id="floatingTextareaAlergia"></textarea>
+                <label for="floatingTextareaAlergia">Qual(is)?</label>
+            </div>
         </div>
         {{--Linha 15--}}
         {{--Acidentes--}}
@@ -1086,26 +1103,26 @@
         <div class="row mt-4">
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="sim" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="acidente" value="sim" id="checkAcidenteSim">
+                    <label class="form-check-label" for="checkAcidenteSim">
                         Sim
                     </label>
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="não" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="acidente" value="nao" id="checkAcidenteNao">
+                    <label class="form-check-label" for="checkAcidenteNao">
                         Não
                     </label>
                 </div>
             </div>
-            <div class="mt-4">
-                <div class="form-floating">
-                    <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                    <label for="floatingTextarea2">Quais?</label>
-                </div>
-            </div>  
+        </div>
+        <div class="mt-4">
+            <div class="form-floating" id="textOutrosAcidente" style="display: none">
+                <textarea class="form-control w-75 h-100" id="floatingTextareaAcidente"></textarea>
+                <label for="floatingTextareaAlergia">Qual(is)?</label>
+            </div>
         </div>
         {{--Linha 16--}}
         {{--Restrições--}}
@@ -1116,22 +1133,22 @@
         <div class="row mt-4">
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="sim" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="restricao" value="sim" id="restricaoSim">
+                    <label class="form-check-label" for="restricaoSim">
                         Sim
                     </label>
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="nao" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="restricao" value="nao" id="restricaoNao">
+                    <label class="form-check-label" for="restricaoNao">
                         Não
                     </label>
                 </div>
             </div>
             <div class="mt-4">
-                <div class="form-floating">
+                <div class="form-floating" id="texRestricao" style="display: none">
                     <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
                     <label for="floatingTextarea2">Quais?</label>
                 </div>
@@ -1149,27 +1166,27 @@
         <div class="row mt-4">
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="sim" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="fuma" value="sim" id="fumaSim">
+                    <label class="form-check-label" for="fumaSim">
                         Sim
                     </label>
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="nao" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="fuma" value="nao" id="fumaNao">
+                    <label class="form-check-label" for="fumaNao">
                         Não
                     </label>
                 </div>
             </div>
         </div>
         <div class="mt-4">
-            <div class="form-floating">
+            <div class="form-floating" id="textFuma" style="display: none">
                 <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Se possitivo, quantos cigarros por dia?</label>
+                <label for="floatingTextarea2">Quantos cigarros por dia?</label>
             </div>
-        </div>  
+        </div>
         {{--Linha 7--}}
         {{--Experiência--}}
         <p><br><hr><br></p>   
@@ -1179,39 +1196,39 @@
         <div class="row mt-4">
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="sim" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="sedentario" value="sim" id="sedentarioSim">
+                    <label class="form-check-label" for="sedentarioSim">
                         Sim
                     </label>
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-check form-check-inline"> 
-                    <input class="form-check-input" type="radio" name="" value="nao" id="">
-                    <label class="form-check-label" for="sempre">
+                    <input class="form-check-input" type="radio" name="sedentario" value="nao" id="sedentarioNao">
+                    <label class="form-check-label" for="sedentarioNao">
                         Não
                     </label>
                 </div>
             </div>
         </div>
         <div class="mt-4">
-            <div class="form-floating">
-                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Qual(is)?</label>
+            <div class="form-floating" id="textAreasAtividade" style="display: none">
+                <textarea class="form-control w-75 h-100" id="atividadeText"></textarea>
+                <label for="atividadeText">Qual(is)?</label>
             </div>
         </div>  
         <div class="mt-4">
-            <div class="form-floating">
-                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Frequencia?</label>
+            <div class="form-floating" id="textAreasFrequencia" style="display: none">
+                <textarea class="form-control w-75 h-100" id="frequenciaText"></textarea>
+                <label for="frequenciaText">Frequência?</label>
             </div>
         </div>  
         <div class="mt-4">
-            <div class="form-floating">
-                <textarea class="form-control w-75 h-100"  id="floatingTextarea2"></textarea>
-                <label for="floatingTextarea2">Duração?</label>
+            <div class="form-floating" id="textAreasDuracao" style="display: none">
+                <textarea class="form-control w-75 h-100" id="duracaoText"></textarea>
+                <label for="duracaoText">Duração?</label>
             </div>
-        </div>  
+        </div> 
      
         {{--Objetivos--}}
         <p><br><hr><br></p>
@@ -1291,140 +1308,305 @@
                     <label for="floatingTextarea2">Comentários?</label>
                 </div>
             </div>  
-        </div> 
-        <!--  Essa parte e a de assinatura e datas, sera reaproveitada em depois
-        {{--Linha 19--}}
-        <div class="row">
-            <div class="mt-4">
+        </div>
+        {{--Linha 19--}} 
+        <p><br><br></p>
+        <div class="conteudo-impressao">    
                 <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-3">
-                        <div class="box d-flex align-items-center">
-                            <div class="form-group">
-                                <label for="dataPreenchimento">Data do preenchimento:</label> <br>
-                                ____/_____/_____
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- Primeira coluna -->
+                                <div class="box">
+                                    <div class="form-group">
+                                        <label for="dataPreenchimento">Data do preenchimento:</label> <br>
+                                        ____/_____/_____
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="form-group">
+                                        <label for="assinaturaAluno">Assinatura do aluno responsável:</label><br>
+                                        _________________________________
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="box d-flex align-items-center">
-                            <div class="form-group">
-                                <label for="assinaturaAluno">Assinatura do aluno responsável:</label><br>
-                                _________________________________
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-3">
-                        <div class="box d-flex align-items-center">
-                            <div class="form-group">
-                                <label for="dataPreenchimento">Data do recebimento:</label> <br>
-                                ____/_____/_____
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div class="box d-flex align-items-center">
-                            <div class="form-group">
-                                <label for="assinaturaAluno">Assinatura do instrutor:</label><br>
-                                _________________________________
+                            <div class="col-6">
+                                <!-- Segunda coluna -->
+                                <div class="box">
+                                    <div class="form-group">
+                                        <label for="dataPreenchimento">Data do recebimento:</label> <br>
+                                        ____/_____/_____
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="form-group">
+                                        <label for="assinaturaAluno">Assinatura do instrutor:</label><br>
+                                        _________________________________
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>-->
-        <style>
-            @media print {
-                body {
-                    font-size: 12pt; /* Tamanho da fonte para impressão */
-                    color: black; /* Cor do texto para impressão */
-                    background-color: white; /* Cor de fundo para impressão */
-                }
-                .box {
-                    border: 1px solid #000;
-                    border-radius: 10px;
-                    padding: 10px;
-                    margin: 10px 0;
-                    display: inline-block; /* Alterado para inline-block */
-                    height: auto;
-                    max-width: 100%; /* Defina uma largura máxima para a caixa */
-                }
-            }
-        </style>
         </div>
-        <div class="flex-row d-flex align-items-end justify-content-end mt-4">
-            <button class="btn btn-success mx-2" type="submit">
-                Cadastrar
-            </button>
+        <div class="botoes">
+            <div class="row">
+                <div class="col-9" style="width: 820px"></div>
+                <div class="col-1">
+                    <div class="flex-row d-flex align-items-end justify-content-end mt-4">
+                        <button type="button" class="btn btn-primary" onclick="imprimir()">Imprimir</button>
+                    </div>
+                </div>  
+                <div class="col-2">
+                    <div class="flex-row d-flex align-items-end justify-content-end mt-4">
+                        <button class="btn btn-success mx-2" type="submit">
+                            Cadastrar
+                        </button>
+                    </div>
+                </div>
+                
+            </div>'
         </div>
-        
     </form>
 </div>
+<style>
+    @media print {
+        body {
+            font-size: 12pt; /* Tamanho da fonte para impressão */
+            color: black; /* Cor do texto para impressão */
+            background-color: white; /* Cor de fundo para impressão */
+        }
+        .box {
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px; /* Adicione um pequeno espaço entre as caixas */
+            display: inline-block;
+            height: auto;
+            max-width: calc(50% - 10px); /* Divida em 2 colunas e adicione um espaço de 10px */
+            text-align: center; /* Centralize o conteúdo dentro das caixas */
+        }
+        .botoes {
+            display: none;
+        }
+        .conteudo-impressao {
+            display: block !important;
+        }
+    }
+    
+    .conteudo-impressao {
+        display: none;
+    }
+</style>
 
 <script>
-  var botao = document.createElement("button");
-  botao.textContent = "Imprimir";
-  botao.onclick = imprimir;
-  document.body.appendChild(botao);
 
-  // Função para criar uma versão separada do conteúdo para impressão
-  function criarConteudoParaImpressao() {
-    // Clona o elemento body, removendo o navbar e o footer
-    var conteudoParaImpressao = document.body.cloneNode(true);
-    
-    // Remove o navbar e o footer da cópia
-    var elementosParaRemover = conteudoParaImpressao.querySelectorAll("nav, footer");
-    elementosParaRemover.forEach(function(elemento) {
-      elemento.parentNode.removeChild(elemento);
+
+const sedentarioSim = document.getElementById('sedentarioSim');
+const sedentarioNao = document.getElementById('sedentarioNao');
+const textAreasAtividade = document.getElementById('textAreasAtividade');
+const textAreasFrequencia = document.getElementById('textAreasFrequencia');
+const textAreasDuracao = document.getElementById('textAreasDuracao');
+
+sedentarioSim.addEventListener('click', function() {
+    if (this.checked) {
+        textAreasAtividade.style.display = 'block';
+        textAreasFrequencia.style.display = 'block';
+        textAreasDuracao.style.display = 'block';
+    }
+});
+
+sedentarioNao.addEventListener('click', function() {
+    if (this.checked) {
+        textAreasAtividade.style.display = 'none';
+        textAreasFrequencia.style.display = 'none';
+        textAreasDuracao.style.display = 'none';
+    }
+});
+
+
+    const fumaSim = document.getElementById('fumaSim');
+    const fumaNao = document.getElementById('fumaNao');
+    const textfuma = document.getElementById('textfuma');
+
+    fumaSim.addEventListener('click', function() {
+        if (this.checked) {
+            textFuma.style.display = 'block';
+        }
     });
 
-    return conteudoParaImpressao;
-  }
+    fumaNao.addEventListener('click', function() {
+        if (this.checked) {
+            textFuma.style.display = 'none';
+        }
+    });
 
-  // Função para imprimir o conteúdo
-  function imprimir() {
-    // Inclui temporariamente o link para o CSS externo do Bootstrap
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"; // Substitua pela URL correta
-    document.head.appendChild(link);
 
-    // Crie um estilo interno para adicionar ao documento de impressão
-    var estiloInterno = document.createElement("style");
-    estiloInterno.type = "text/css";
-    estiloInterno.innerHTML = `
-      /* Seu CSS interno aqui */
-      body {
-        background-color: lightgray;
-      }
-      /* Adicione outras regras CSS internas conforme necessário */
-    `;
-    document.head.appendChild(estiloInterno);
 
-    var conteudoParaImpressao = criarConteudoParaImpressao();
+
+    const restricaoSim = document.getElementById('restricaoSim');
+    const restricaoNao = document.getElementById('restricaoNao');
+    const texRestricao = document.getElementById('texRestricao');
+
+    restricaoSim.addEventListener('click', function() {
+        if (this.checked) {
+            texRestricao.style.display = 'block';
+        }
+    });
+
+    restricaoNao.addEventListener('click', function() {
+        if (this.checked) {
+            texRestricao.style.display = 'none';
+        }
+    });
+
+
+
+   const acidenteSim = document.getElementById('checkAcidenteSim');
+    const acidenteNao = document.getElementById('checkAcidenteNao');
+    const textOutrosAcidente = document.getElementById('textOutrosAcidente');
+
+    acidenteSim.addEventListener('click', function() {
+        if (this.checked) {
+            textOutrosAcidente.style.display = 'block';
+        }
+    });
+
+    acidenteNao.addEventListener('click', function() {
+        if (this.checked) {
+            textOutrosAcidente.style.display = 'none';
+        }
+    });
+
+
+
+
+
+    const checkAlergiaSim = document.getElementById('checkAlergiaSim');
+    const checkAlergiaNao = document.getElementById('checkAlergiaNao');
+    const textOutrosAlergia = document.getElementById('textOutrosAlergia');
+
+    checkAlergiaSim.addEventListener('click', function() {
+        if (this.checked) {
+            textOutrosAlergia.style.display = 'block';
+        }
+    });
+
+    checkAlergiaNao.addEventListener('click', function() {
+        if (this.checked) {
+            textOutrosAlergia.style.display = 'none';
+        }
+    });
+
+
+    const checkOutrosDiagnosticado = document.getElementById('checkOutrosDiagnosticado');
+    const textOutrosDiagnosticado = document.getElementById('textOutrosDiagnosticado');
+
+checkOutrosDiagnosticado.addEventListener('change', function(event) {
+    if (checkOutrosDiagnosticado.checked) {
+        textOutrosDiagnosticado.style.display = 'block';
+    } else {
+        textOutrosDiagnosticado.style.display = 'none';
+    }
+});
+
+    const checkboxOutrosTrabalho = document.getElementById('checkOutrosTrabalho');
+    const campoTextoOutrosTrabalho = document.getElementById('textOutrosTrabalho');
+
+    checkboxOutrosTrabalho.addEventListener('change', function() {
+        if (this.checked) {
+            campoTextoOutrosTrabalho.style.display = 'block';
+        } else {
+            campoTextoOutrosTrabalho.style.display = 'none';
+        }
+    });
+
     
-    // Abre uma nova janela para impressão
-    var win = window.open("about:blank");
-    win.document.open();
-    win.document.write("<html><head><title>Impressão</title></head><body>");
-    win.document.write(conteudoParaImpressao.innerHTML);
+    const checkboxOutrosCirurgia = document.getElementById('checkOutrosCirurgia');
+    const campoTextoOutrosCirurgia = document.getElementById('textOutrosCirurgia');
+    
+    checkboxOutrosCirurgia.addEventListener('change', function() { 
+        if (this.checked) {      
+            campoTextoOutrosCirurgia.style.display = 'block';
+        } else {
+            campoTextoOutrosCirurgia.style.display = 'none';
+        }
+    });
 
-    win.document.write("</body></html>");
-    win.document.close();
 
-    // Remove o link do CSS externo e o estilo interno após a impressão
-    link.parentNode.removeChild(link);
-    estiloInterno.parentNode.removeChild(estiloInterno);
 
-    win.print();
-    win.close();
-  }
+    function togglePassword(inputId, eyeIcon) {
+        const inputElement = document.getElementById(inputId);
+        if (inputElement.type === "password") {
+            inputElement.type = "text";
+            eyeIcon.innerHTML = '<i class="bi bi-eye-slash"></i>'; 
+        } else {
+            inputElement.type = "password";
+            eyeIcon.innerHTML = '<i class="bi bi-eye"></i>'; 
+        }
+    }
+
+
+    // Função para criar uma versão separada do conteúdo para impressão
+    function criarConteudoParaImpressao() {
+        // Clona o elemento body, removendo o navbar e o footer
+        var conteudoParaImpressao = document.body.cloneNode(true);
+        
+        // Remove o navbar e o footer da cópia
+        var elementosParaRemover = conteudoParaImpressao.querySelectorAll("nav, footer");
+        elementosParaRemover.forEach(function(elemento) {
+            elemento.parentNode.removeChild(elemento);
+        });
+
+        // Adicione a classe .conteudo-impressao
+        var elementosParaAdicionarClasse = conteudoParaImpressao.querySelectorAll(".conteudo-impressao");
+        elementosParaAdicionarClasse.forEach(function(elemento) {
+            elemento.style.display = "block";
+        });
+
+        return conteudoParaImpressao;
+    }
+
+    // Função para imprimir o conteúdo
+    function imprimir() {
+        // Inclui temporariamente o link para o CSS externo do Bootstrap
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"; // Substitua pela URL correta
+        document.head.appendChild(link);
+
+        // Crie um estilo interno para adicionar ao documento de impressão
+        var estiloInterno = document.createElement("style");
+        estiloInterno.type = "text/css";
+        estiloInterno.innerHTML = `
+            /* Seu CSS interno aqui */
+            body {
+                background-color: lightgray;
+            }
+            /* Adicione outras regras CSS internas conforme necessário */
+        `;
+        document.head.appendChild(estiloInterno);
+
+        var conteudoParaImpressao = criarConteudoParaImpressao();
+        
+        // Abre uma nova janela para impressão
+        var win = window.open("about:blank");
+        win.document.open();
+        win.document.write("<html><head><title>Impressão</title></head><body>");
+        win.document.write(conteudoParaImpressao.innerHTML);
+
+        win.document.write("</body></html>");
+        win.document.close();
+
+        // Remove o link do CSS externo e o estilo interno após a impressão
+        link.parentNode.removeChild(link);
+        estiloInterno.parentNode.removeChild(estiloInterno);
+
+        win.print();
+        win.close();
+    }
 </script>
 
 @endsection
