@@ -12,24 +12,24 @@ const Mask = {
             currency: 'BRL'
         }).format(value / 100);
     },
-    cpf(value){
+    cpf(value) {
         value = value.replace(/\D/g, "");
 
-            //11122233344
-            value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        //11122233344
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
 
-            //111.22233344
-            value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        //111.22233344
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
 
-            //111.222.33344
-            value = value.replace(/(\d{3})(\d)/, "$1-$2");
+        //111.222.33344
+        value = value.replace(/(\d{3})(\d)/, "$1-$2");
 
-            //111.222.333-44
+        //111.222.333-44
 
-            if(value.length > 14){
-                value = value.slice(0, -1);
-            }
-        
+        if (value.length > 14) {
+            value = value.slice(0, -1);
+        }
+
         return value;
     },
     telefone(value) {
@@ -66,10 +66,10 @@ const Mask = {
         return formattedValue;
     },
 
-    cep(value){
+    cep(value) {
         value = value.replace(/\D/g, "");
 
-        if(value.length > 8){
+        if (value.length > 8) {
             value = value.slice(0, -1);
         }
 
@@ -88,11 +88,11 @@ const PhotosUpload = {
         const { files: fileList } = event.target;
         PhotosUpload.input = event.target;
 
-        if(PhotosUpload.hasLimit(event)) return;
+        if (PhotosUpload.hasLimit(event)) return;
 
         Array.from(fileList).forEach(file => {
 
-             PhotosUpload.files.push(file);
+            PhotosUpload.files.push(file);
 
             const reader = new FileReader();
 
@@ -109,7 +109,7 @@ const PhotosUpload = {
 
         PhotosUpload.input.files = PhotosUpload.getAllFiles();
     },
-    hasLimit(event){
+    hasLimit(event) {
         const { uploadLimit, input, preview } = PhotosUpload;
         const { files: fileList } = input;
         if (fileList.length > uploadLimit) {
@@ -120,15 +120,15 @@ const PhotosUpload = {
         }
 
         const photosDiv = [];
-        preview.childNodes.forEach( item => {
-            if(item.classList && item.classList.value == "photo"){
+        preview.childNodes.forEach(item => {
+            if (item.classList && item.classList.value == "photo") {
                 photosDiv.push(item);
             }
         })
 
         const totalPhotos = fileList.length + photosDiv.length;
 
-        if(totalPhotos > uploadLimit){
+        if (totalPhotos > uploadLimit) {
             alert("Você atingiu o limite máximo de upload de fotos");
 
             event.preventDefault();
@@ -137,7 +137,7 @@ const PhotosUpload = {
 
         return false;
     },
-    getAllFiles(){
+    getAllFiles() {
         const dataTransfer = new ClipboardEvent("").clipboardData || new DataTransfer();
 
         PhotosUpload.files.forEach(file => dataTransfer.items.add(file));
@@ -157,7 +157,7 @@ const PhotosUpload = {
 
         return div;
     },
-    getRemoveButton(){
+    getRemoveButton() {
         const button = document.createElement('i');
 
         button.classList.add('material-icons');
@@ -165,7 +165,7 @@ const PhotosUpload = {
 
         return button;
     },
-    removePhoto(event){
+    removePhoto(event) {
         const photoDiv = event.target.parentNode;
         const photosArray = Array.from(PhotosUpload.preview.children);
         const index = photosArray.indexOf(photoDiv);
@@ -176,13 +176,13 @@ const PhotosUpload = {
 
         photoDiv.remove();
     },
-    removeOldPhoto(event){
+    removeOldPhoto(event) {
         const photoDiv = event.target.parentNode;
 
-        if(photoDiv.id){
+        if (photoDiv.id) {
             const removedFiles = document.querySelector('input[name="removed_files"');
 
-            if(removedFiles){
+            if (removedFiles) {
                 removedFiles.value += `${photoDiv.id},`;
             }
         }
@@ -196,7 +196,7 @@ const ImageGallery = {
     previews: document.querySelectorAll('.gallery-preview img'),
     setImage(e) {
         const { target } = e;
-        ImageGallery.previews.forEach( preview => preview.classList.remove('active'));
+        ImageGallery.previews.forEach(preview => preview.classList.remove('active'));
         target.classList.add('active');
 
         ImageGallery.highlight.src = target.src;
@@ -208,13 +208,13 @@ const Lightbox = {
     target: document.querySelector('.lightbox-target'),
     image: document.querySelector('.lightbox-target img'),
     closeButton: document.querySelector('.lightbox-target a.lightbox-close'),
-    open(){
+    open() {
         Lightbox.target.style.opacity = 1;
         Lightbox.target.style.top = 0;
         Lightbox.target.style.bottom = 0;
         Lightbox.closeButton.style.top = 0;
     },
-    close(){
+    close() {
         Lightbox.target.style.opacity = 0;
         Lightbox.target.style.top = "-100%";
         Lightbox.target.style.bottom = "initial";
@@ -231,12 +231,12 @@ const Validate = {
 
         input.value = results.value;
 
-        if(results.error){
+        if (results.error) {
             Validate.displayError(input, results.error);
         }
-        
+
     },
-    displayError(input, error){
+    displayError(input, error) {
         const div = document.createElement('div');
         div.classList.add('error');
         div.innerHTML = error;
@@ -244,18 +244,18 @@ const Validate = {
 
         input.focus();
     },
-    clearErrors(input){
+    clearErrors(input) {
         const errorDiv = input.parentNode.querySelector('.error');
-        if(errorDiv){
+        if (errorDiv) {
             errorDiv.remove();
         }
     },
-    isEmail(value){
+    isEmail(value) {
         let error = null;
 
         const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-        if(!value.match(mailFormat)){
+        if (!value.match(mailFormat)) {
             error = "Email inválido!";
         }
 
@@ -264,14 +264,14 @@ const Validate = {
             value
         };
     },
-    isCpfCnpj(value){
+    isCpfCnpj(value) {
         value = value.replace(/\D/g, "");
 
         let error = null;
 
-        if(value.length < 11){
+        if (value.length < 11) {
             error = "Informe um documento válido!";
-        }else if(value.length < 14 && value.length !== 11){
+        } else if (value.length < 14 && value.length !== 11) {
             error = "CNPJ inválido!";
         }
 
@@ -280,12 +280,12 @@ const Validate = {
             value
         };
     },
-    isCep(value){
+    isCep(value) {
         value = value.replace(/\D/g, "");
 
         let error = null;
 
-        if(value.length !== 8){
+        if (value.length !== 8) {
             error = "CEP Inválido!";
         }
 
@@ -295,77 +295,21 @@ const Validate = {
         };
     }
 }
-const cpfInput = document.getElementById('cpfInput'); 
-const cepinput = document.getElementById('inputCep');
-const telefoneinput = document.getElementById('inputTelefone');
+const inputCpf = document.getElementById('inputCpf');
+const inputCep = document.getElementById('inputCep');
+const inputTelefone = document.getElementById('inputTelefone');
 
-cpfInput.addEventListener('input', function () {
+inputCpf.addEventListener('input', function () {
     Mask.apply(this, 'cpf');
 });
 
-cepinput.addEventListener('input',function(){
+inputCep.addEventListener('input', function () {
     Mask.apply(this, 'cep')
 })
 
-telefoneinput.addEventListener('input',function(){
+inputTelefone.addEventListener('input', function () {
     Mask.apply(this, 'telefone')
 })
-
-
-
-const inputData = document.getElementById('inputData');
-
-inputData.addEventListener('input', function () {
-    formatarEValidarData(this);
-});
-
-function formatarEValidarData(input) {
-    let valor = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-
-    if (valor.length > 8) {
-        valor = valor.slice(0, 8); // Limita a entrada a 8 dígitos (ddmmyyyy)
-    }
-
-    if (valor.length >= 2) {
-        valor = `${valor.slice(0, 2)}/${valor.slice(2)}`;
-    }
-
-    if (valor.length >= 4) {
-        valor = `${valor.slice(0, 5)}/${valor.slice(5)}`;
-    }
-
-    input.value = valor;
-
-    // Verifica se o segundo dígito do dia foi digitado
-    if (valor.length >= 2) {
-        const dia = parseInt(valor.slice(0, 2), 10);
-        if (dia > 31) {
-            alert('Digite um dia válido (até 31).');
-            valor = valor.slice(0, 1); // Mantém apenas o primeiro dígito do dia
-        }
-    }
-
-    // Verifica se o quarto dígito do mês foi digitado
-    if (valor.length >= 5) {
-        const mes = parseInt(valor.slice(3, 5), 10);
-        if (mes > 12) {
-            alert('Digite um mês válido (até 12).');
-            valor = valor.slice(0, 4); // Mantém apenas os primeiros quatro dígitos do mês
-        }
-    }
-    
-    // Verifica se o quarto dígito do ano foi digitado
-    if (valor.length === 10) {
-        const ano = parseInt(valor.slice(6, 10), 10);
-        const anoAtual = new Date().getFullYear();
-        if (ano < 1900 || ano > anoAtual) {
-            alert(`Digite um ano válido entre 1900 e ${anoAtual}.`);
-            valor = valor.slice(0, 6); // Mantém apenas o dia e mês
-        }
-    }
-
-    input.value = valor;
-}
 
 
 
@@ -377,11 +321,11 @@ inputNome.addEventListener('input', function () {
 
 function validarNome(input) {
     const valor = input.value;
-    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; // Expressão regular para letras maiúsculas, minúsculas e acentos
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
 
     if (!regex.test(valor)) {
         alert('Digite um nome válido (somente letras maiúsculas, minúsculas e acentos).');
-        input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, ''); // Remove caracteres inválidos
+        input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, ''); 
     }
 }
 
@@ -389,27 +333,28 @@ function validarNome(input) {
 const inputSenha = document.querySelector('#inputSenha');
 const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
 const passwordStyle = document.getElementById("inputSenha").style;
+const confirmStyle = document.getElementById("inputConfirmarSenha").style;
 //Validando Senha
-function validarSenha(){
+function validarSenha() {
 
     //teste
     //let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
-    let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[@$!%*?&]+)[A-Za-z\d@$!%*?&]{8,16}$/g;
+    let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[.@$!%*?&]+)[A-Za-z\d.@$!%*?&]{8,16}$/g;
     let resultsPassword = passwordRegex.test(inputSenha.value);
 
-    let msg = document.getElementById("password-error");
+    let msg = document.getElementById("errorSenha");
 
-    if(inputSenha.value == ""){
+    if (inputSenha.value == "") {
         msg.style.display = "block";
         msg.innerHTML = "Campo obrigatório*";
         passwordStyle.borderColor = "red";
         return false;
-    }else if(resultsPassword === false){
+    } else if (resultsPassword === false) {
         msg.style.display = "block";
         msg.innerHTML = "Senha inválida!*";
         passwordStyle.borderColor = "red";
         return false;
-    }else{
+    } else {
         msg.style.display = "none";
         msg.innerHTML = "";
         passwordStyle.borderColor = "green";
@@ -418,21 +363,21 @@ function validarSenha(){
 };
 
 //confirmando Senha
-function confirmPassword(){
+function confirmPassword() {
 
-    let msg = document.getElementById("confirm-error");
+    let msg = document.getElementById("errorConfirmarSenha");
 
-    if(passwordInput.value == ""){
+    if (inputConfirmarSenha.value == "") {
         msg.style.display = "block";
         msg.innerHTML = "Digite a senha novamente!";
         confirmStyle.borderColor = "red";
         return false;
-    }else if(passwordInput.value !== inputConfirmarSenha.value){
+    } else if (inputSenha.value !== inputConfirmarSenha.value) {
         msg.style.display = "block";
         msg.innerHTML = "Senhas não conferem!";
         confirmStyle.borderColor = "red";
         return false;
-    }else{
+    } else {
         msg.style.display = "none";
         msg.innerHTML = "";
         confirmStyle.borderColor = "green";
@@ -446,30 +391,38 @@ function validarSenhas() {
     // Obtém os campos de senha
     const inputSenha = document.querySelector('#inputSenha');
     const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
-  
+
     // Verifica se as senhas são iguais
     if (inputSenha.value !== inputConfirmarSenha.value) {
-      // Exibe uma mensagem de erro
-      document.getElementById('confirm-error').innerHTML = 'As senhas não são iguais.';
-      return false;
+        // Exibe uma mensagem de erro
+        document.getElementById('errorConfirmarSenha').innerHTML = 'As senhas não são iguais.';
+        return false;
     }
-  
+
     // Verifica se a senha é válida
     if (!validarSenha(inputSenha.value)) {
-      // Exibe uma mensagem de erro
-      document.getElementById('password-error').innerHTML = 'A senha deve ter entre 8 e 20 caracteres, conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.';
-      return false;
+        // Exibe uma mensagem de erro
+        document.getElementById('errorSenha').innerHTML = 'A senha deve ter entre 8 e 20 caracteres, conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.';
+        return false;
     }
-  
+
     // Se as senhas forem válidas, retorna true
     return true;
-  }
-  
-  // Adiciona um event listener ao campo de senha para chamar a função validarSenhas() quando o usuário pressionar a tecla Enter
-  document.querySelector('#inputSenha').addEventListener('keydown', function(event) {
+}
+
+// Adiciona um event listener ao campo de senha para chamar a função validarSenhas() quando o usuário pressionar a tecla Enter
+document.querySelector('#inputSenha').addEventListener('keydown', function (event) {
     if (event.keyCode == 13) {
-      validarSenha();
+        validarSenha();
     }
-  });
+})
+
+document.querySelector('#inputConfirmarSenha').addEventListener('keydown', function (event) {
+    if (event.keyCode == 13) {
+        confirmPassword();
+    }
+}
+
+);
 
 

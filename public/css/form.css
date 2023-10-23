@@ -1,0 +1,147 @@
+.option-health-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.option-health-header h3::after {
+    content: '';
+    display: block;
+    width: 7rem;
+    height: 0.3rem;
+    background-color: #f7f7f5;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.subtitle-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtitle-header h3::after {
+    content: '';
+    display: block;
+    width: 7rem;
+    height: 0.3rem;
+    background-color: #212529;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.form-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-header h2::after {
+    content: '';
+    display: block;
+    width: 7rem;
+    height: 0.3rem;
+    background-color: #ff5e00;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.custom-spacing {
+    margin-top: 10px;
+}
+
+.custom-spacing2 {
+    margin-top: 17px;
+}
+
+#descricaoMedicamentos,
+#textAreaOutrosDiagnosticado,
+#txtareaOutrosTrabalhos,
+#ObjetivoOutros,
+#IntervencaoOutros,
+#comentarios,
+#cigarros,
+#Restricao,
+#floatingTextareaAlergia,
+#atividadeText,
+#floatingTextareaAcidente,
+#frequenciaText,
+#duracaoText{
+    border: 1px solid #000;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+input[type="email"],
+.form-select {
+    border: 1px solid #000000ab;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.form-check-input{
+    border: 1px solid #000000ab;
+    border-radius: 10px;
+}
+
+.conteudo-impressao {
+    display: none;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    
+}
+
+.avatar-container {
+    transform: scale(1); 
+    transition: transform 0.2s; /
+}
+
+.avatar-container:hover {
+    transform: scale(1.1);
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.bi-person-add {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+}
+
+.avatar-image[src]+.bi-person-add {
+    display: none;
+}
+
+body{
+    background-color: #f7f7f5;
+}

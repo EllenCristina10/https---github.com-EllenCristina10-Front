@@ -10,8 +10,9 @@
   <script src="https://kit.fontawesome.com/a4a4be15d1.js" crossorigin="anonymous"></script>
 
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+  <link href="{{ asset('css/print.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+ 
 </head>
 
 <body>
@@ -43,9 +44,8 @@
       </div>
     </div>
   </nav>
-  @yield('conteudo')
 
-  
+  @yield('conteudo')
 
   <footer class="footer-section">
     <div class="container">
@@ -160,10 +160,10 @@
       </div>
     </div>
   </footer>
-
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  {{-- <script src="{{ asset('js/validacao.js') }}"></script> --}}
+  
   <script src="/front/public/js/validacao.js"></script>
 
 </body>
