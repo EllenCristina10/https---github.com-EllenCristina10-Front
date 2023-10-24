@@ -2,8 +2,14 @@
 @section('title', 'Lista de Aulas')
 @section('conteudo')
 
-<div class="container">
-    <h1>Lista de Aulas</h1>
+<head>
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+</head>
+
+<div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
+    <div class="form-header">
+        <h2>Lista de Aulas</h2>
+    </div>
     <table class=" table table-light table-striped-columns">
         <thead>
             <tr>
@@ -25,12 +31,12 @@
         <div class="row" style="justify-content: end; margin-top: 36px;"> 
             
             <div class="col-md-1"><a href="{{route('lesson.create')}}"><button dusk='novo-button' class="btn btn-success" type="submit">Novo</button></a></div>
-
+            <div class="custom-spacing"></div>
         </div>
     </div>
 
 </div>
-
+<div class="custom-spacing">
 <div class="col-12 position-relative">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -41,6 +47,7 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
+    </div>
 </div>
 
 @endsection

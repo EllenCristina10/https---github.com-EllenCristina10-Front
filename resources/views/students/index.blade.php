@@ -35,12 +35,14 @@
         <div class="row" style="justify-content: end; margin-top: 36px;"> 
 
         <div class="col-md-1"><a href="{{route('student.create')}}"><button class="btn btn-success" type="submit">Novo</button></a></div>
+        <div class="custom-spacing"></div>
     </div>
+
   
 </div>
 
 </div>
-
+<div class="custom-spacing"></div>
 <div class="col-12 position-relative">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
