@@ -108,66 +108,28 @@ function togglePassword(inputId, eyeIcon) {
     }
 }
 
-
-function criarConteudoParaImpressao() {
-    var conteudoParaImpressao = document.body.cloneNode(true);
-
-    var elementosParaRemover = conteudoParaImpressao.querySelectorAll("nav, footer");
-    elementosParaRemover.forEach(function(elemento) {
-        elemento.parentNode.removeChild(elemento);
-    });
-
-    var elementosParaAdicionarClasse = conteudoParaImpressao.querySelectorAll(".conteudo-impressao");
-    elementosParaAdicionarClasse.forEach(function(elemento) {
-        elemento.style.display = "block";
-    });
-
-    return conteudoParaImpressao;
-}
 function imprimir() {
+    adicionarBootstrapParaImpressao();
+    window.print();
+}
 
-var linkForm = document.createElement("link");
-    linkForm.rel = "stylesheet";
-    linkForm.type = "text/css";
-    linkForm.href = "{{ asset('css/form.css') }}";
-    document.head.appendChild(linkForm);
-
-    var linkApp = document.createElement("link");
-    linkApp.rel = "stylesheet";
-    linkApp.type = "text/css";
-    linkApp.href = "{{ asset('css/app.css') }}";
-    document.head.appendChild(linkApp);
-
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href =
-        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"; 
+function adicionarBootstrapParaImpressao() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css';
+    link.integrity = 'sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9';
+    link.crossOrigin = 'anonymous';
+    link.media = 'print';
     document.head.appendChild(link);
-
-    var estiloInterno = document.createElement("style");
-    estiloInterno.type = "text/css";
-    estiloInterno.innerHTML = "\
-        .conteudo-impressao {\
-            color: black;\
-            font-size: 14px;\
-            font-family: Arial, sans-serif;\
-        }";
-    document.head.appendChild(estiloInterno);
-
-    var conteudoParaImpressao = criarConteudoParaImpressao();
-
-    var win = window.open("about:blank");
-    win.document.open();
-    win.document.write("<html><head><title>Impressão</title></head><body>");
-    win.document.write(conteudoParaImpressao.innerHTML);
-    win.document.write("</body></html>");
+}
+/*
+function imprimirComponente() {
+    var conteudoParaImpressao = document.getElementById('conteudo-impressao').innerHTML;
+    var win = window.open('', '_blank');
+    win.document.write('<html><head><title>Impressão </title></head><body>');
+    win.document.write(conteudoParaImpressao);
+    win.document.write('</body></html>');
     win.document.close();
-
-    link.parentNode.removeChild(link)
-    linkForm.parentNode.removeChild(linkForm);
-    linkApp.parentNode.removeChild(linkApp);
-
     win.print();
     win.close();
-}
+}*/

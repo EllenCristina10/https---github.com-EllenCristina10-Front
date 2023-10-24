@@ -2,12 +2,23 @@
 @section('title', 'Cadastro Instrutor')
 @section('conteudo')
 
-<div class="container" style="margin-top: 36px;">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a4a4be15d1.js" crossorigin="anonymous"></script>
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/print.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+</head>
+
+<div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
 
     <form class="row" id="form">
          {{--Linha 1--}}
-         <h1>Dados Pessoais</h1>
          <div class="row d-flex justify-content-between mt-4">
+            <div class="form-header">
+                <h2>Dados Pessoais</h2>
+            </div>
              {{--Nome completo--}}
              <div class="col-sm-5 " >
                  <div class="input-group">

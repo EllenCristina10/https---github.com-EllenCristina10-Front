@@ -5,22 +5,27 @@
         background-color: white;
     }
 
-    .box {
-        border: 1px solid #000;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px;
-        display: inline-block;
-        height: auto;
-        max-width: calc(50% - 10px);
-        text-align: center;
+    .conteudo-impressao {
+        display: block !important;
     }
 
-    .botoes {
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    .form-select {
+        border: 1px solid #000000ab;
+        border-radius: 7px !important;
+    }
+
+    .botoes,.navbar-expand-lg,.footer-section,#senha, #confirmasenha,.input-group-text {
         display: none;
     }
 
-    .conteudo-impressao {
-        display: block !important;
+    .input-group, input[type="text"], input[type="email"], textarea {
+        font-size: 12pt; /* Ajuste o tamanho da fonte conforme necessário */
+        padding: 5px; /* Ajuste o preenchimento conforme necessário */
+        margin: 5px; /* Ajuste as margens conforme necessário */
+        width: 100%; /* Ajuste a largura conforme necessário */
+        /* Adicione mais estilos conforme necessário para personalizar os campos */
     }
 }

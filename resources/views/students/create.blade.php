@@ -3,8 +3,7 @@
 @section('conteudo')
 
     <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a4a4be15d1.js" crossorigin="anonymous"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -205,7 +204,7 @@
                     <span class="spanError" id="errorTelefone"></span>
                 </div>
                 {{-- Email --}}
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="width: 360px">
                     <label for="inputEmail">Email:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
@@ -224,7 +223,7 @@
                     <span class="spanError" id="errorEmail"></span>
                 </div>
                 {{-- Senha --}}
-                <div class="col-sm-2" style="width: 225px">
+                <div class="col-sm-2" id="senha" style="width: 250px">
                     <label for="inputSenha">Senha:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
@@ -256,7 +255,7 @@
                     <span class="spanError" id="errorSenha"></span>
                 </div>
                 <!-- Confirmação de senha -->
-                <div class="col-sm-3" style="width: 225px">
+                <div class="col-sm-3" id="confirmasenha" style="width: 275px">
                     <label for="inputConfirmarSenha">Confirmação de senha:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
@@ -1540,20 +1539,23 @@
             <p><br><br></p>
             <div class="conteudo-impressao">
                 <div class="row">
+                  
                     <div class="mt-4">
                         <div class="row">
                             <div class="col-6">
                                 <!-- Primeira coluna -->
-                                <div class="box">
+                               <div class="box">
                                     <div class="form-group">
                                         <label>Data do preenchimento:</label> <br>
                                         ____/_____/_____
                                     </div>
-                                </div>
+                               </div>
+                             
                                 <div class="box">
                                     <div class="form-group">
-                                        <label>Assinatura do aluno responsável:</label><br>
-                                        _________________________________
+                                        <label>Assinatura do aluno:</label><br>
+                                        ____________________________
+                                 
                                     </div>
                                 </div>
                             </div>
@@ -1568,7 +1570,7 @@
                                 <div class="box">
                                     <div class="form-group">
                                         <label>Assinatura do instrutor:</label><br>
-                                        _________________________________
+                                        ____________________________
                                     </div>
                                 </div>
                             </div>
@@ -1591,10 +1593,8 @@
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <p><br></p>
         </form>
     </div>
 

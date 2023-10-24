@@ -73,19 +73,30 @@
     border: 1px solid #000;
 }
 
+
 input[type="text"],
 input[type="date"],
-input[type="password"],
 input[type="email"],
 .form-select {
     border: 1px solid #000000ab;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 7px !important;
+    border-top-right-radius: 7px !important;
 }
+
+input[type="password"],
+.input-group-text{
+    border: 1px solid #000000ab;
+}
+
+
+span{
+    border: 1px solid #000000ab!important;
+}
+
 
 .form-check-input{
     border: 1px solid #000000ab;
-    border-radius: 10px;
+  
 }
 
 .conteudo-impressao {
