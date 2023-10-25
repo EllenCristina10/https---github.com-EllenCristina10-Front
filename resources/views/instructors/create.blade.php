@@ -20,7 +20,7 @@
                 <h2>Dados Pessoais</h2>
             </div>
              {{--Nome completo--}}
-             <div class="col-sm-5 " >
+             <div class="col-sm-5">
                  <div class="input-group">
                      <div class="input-group-text background-icon-color">
                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person secondary-color" viewBox="0 0 16 16">
@@ -33,7 +33,7 @@
                          Informe o nome!
                      </div>
                  </div>
-                 <span id="error"></span>
+                 {{--<span id="error"></span>--}}
              </div>
              {{--CPF--}}
              <div class="col-sm-2"  style="width: 210px">
@@ -49,7 +49,7 @@
                          Informe o CPF!
                      </div>
                  </div>
-                 <span id="error"></span>
+                 {{--<span id="error"></span>--}}
              </div>
              {{--Sexo--}}
               <div class="col-sm-2" style="width: 210px">
@@ -101,7 +101,7 @@
                         Informe o telefone!
                     </div>
                 </div>
-                <span id="error"></span>
+                {{--<span id="error"></span>--}}
             </div>
             {{--Email--}}
             <div class="col-sm-4" style="width: 440px">
@@ -116,7 +116,7 @@
                         Informe o email!
                     </div>
                 </div>
-                <span id="error"></span>
+                {{--<span id="error"></span>--}}
             </div>
            {{--Senha--}}
            <div class="col-sm-3" style="width: 220px">
@@ -132,7 +132,7 @@
                         Informe a senha!
                     </div>
                 </div>
-                <span id="error"></span>
+                {{--<span id="error"></span>--}}
             </div>
             {{--Confirmação de senha--}}
             <div class="col-sm-3" style="width: 220px">
@@ -148,7 +148,7 @@
                         Confirme a senha!
                     </div>
                 </div>
-                <span id="error"></span>
+                {{--<span id="error"></span>--}}
             </div>
         </div>
         {{--Linha 3--}}
@@ -181,8 +181,8 @@
                     </div>
                 </div>
             </div>
-            {{--Estado--}}
-            <div class="col-sm-3" style="min-width: 200px">
+                {{--Estado--}}
+       <div class="col-sm-3" style="min-width: 200px">
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
@@ -239,13 +239,14 @@
                         Informe o CEP!
                     </div>
                 </div>
-                <span id="error"></span>
+                {{--<span id="error"></span>--}}
             </div>
         </div>
         {{--Linha 2--}}
-        <div class="row" style="justify-content: start; margin-top: 36px;">
-            {{--Entrada--}}
-            <div class="col-sm-3">
+        <div class="row" style="justify-content: start; maop: 3op: 36px;">
+             {{--Entrada--
+         <d
+            iv class="col-sm-3">
                 <label for="Entrada">Horario de Entrada</label>
                 <div class="input-group">
                     <div class="input-group-text background-icon-color">
@@ -258,8 +259,7 @@
                         Informe o horário da entrada!
                     </div>
                 </div>
-                <span id="error"></span>
-            </div>
+                <s{{--<span id="error"></span>--}}           </div>
             {{--Saída--}}
             <div class="col-sm-3">
                 <label for="Saida">Horario de Saida</label>
@@ -274,7 +274,7 @@
                         Informe o horário da saída!
                     </div>
                 </div>
-                <span id="error"></span>
+           {{--<span id="error"></span>--}}span>
             </div>
         </div>
         <div class="row" style="justify-content: end; margin-top: 36px;">

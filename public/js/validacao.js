@@ -65,7 +65,6 @@ const Mask = {
 
         return formattedValue;
     },
-
     cep(value) {
         value = value.replace(/\D/g, "");
 
@@ -75,6 +74,24 @@ const Mask = {
 
         value = value.replace(/(\d{5})(\d)/, "$1-$2");
 
+        return value;
+    },
+    altura(value) {
+        value = value. replace(/\D/g, "");
+    
+        if (value > 400) {
+            value = value.slice(0, 3); 
+        }
+    
+        return value; 
+    },
+    peso(value) {
+        value = value.replace(/\D/g, ""); 
+    
+        if (value > 500) {
+            value = value.slice(0, 3); 
+        }
+    
         return value;
     }
 }
@@ -293,6 +310,34 @@ const Validate = {
             error,
             value
         };
+    },
+    isPeso(value) {
+        value = value.replace(/\D/g, "");
+
+        let error = null;
+
+        if (value.length > 3) {
+            error = "Peso inválido!";
+        }
+
+        return {
+            error,
+            value
+        };
+    },
+    isAltura(value) {
+        value = value.replace(/\D/g, "");
+
+        let error = null;
+
+        if (value.length > 3) {
+            error = "Altura inválida!";
+        }
+
+        return {
+            error,
+            value
+        };
     }
 }
 const inputCpf = document.getElementById('inputCpf');
@@ -311,8 +356,6 @@ inputTelefone.addEventListener('input', function () {
     Mask.apply(this, 'telefone')
 })
 
-
-
 const inputNome = document.getElementById('inputNome');
 
 inputNome.addEventListener('input', function () {
@@ -329,6 +372,58 @@ function validarNome(input) {
     }
 }
 
+const inputPeso = document.getElementById('inputPeso');
+const inputAltura = document.getElementById('inputAltura');
+
+inputPeso.addEventListener('input', function () {
+    validarPeso();
+});
+
+inputAltura.addEventListener('input', function () {
+    validarAltura();
+});
+
+function validarAltura(){
+    let inputAltura = document.getElementById('inputAltura');
+    let alturaStyle = document.getElementById('inputAltura'); 
+    let alturaValidation = Validate.isAltura(inputAltura.value);
+
+    let msg = document.getElementById("errorAltura");
+
+    if (alturaValidation.error) {
+        msg.style.display = "block";
+        msg.innerHTML = alturaValidation.error;
+        alturaStyle.style.borderColor = "red";
+        return false;
+    }
+    if(alturaValidation.value > 400){
+        msg.style.display = "block";
+        msg.innerHTML = "A altura não pode exceder 400 cm!";
+        alturaStyle.borderColor = "red";
+        return false;
+    }
+}
+
+function validarPeso(){
+    let inputPeso = document.getElementById('inputPeso');
+    let pesoStyle = document.getElementById('inputPeso');
+    let pesoValidation = Validate.isPeso(inputPeso.value);
+
+    let msg = document.getElementById("errorPeso");
+
+    if(pesoValidation.error){
+        msg.style.display = "block";
+        msg.innerHTML = pesoValidation.error;
+        pesoStyle.style.borderColor = "red";
+        return false;
+    }
+    if(pesoValidation.value > 500){
+        msg.style.display = "block";
+        msg.innerHTML = "Peso não pode exceder 500 kg!";
+        pesoStyle.borderColor = "red";
+        return false;
+    }
+}
 
 const inputSenha = document.querySelector('#inputSenha');
 const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
@@ -426,3 +521,40 @@ document.querySelector('#inputConfirmarSenha').addEventListener('keydown', funct
 );
 
 
+document.getElementById('submitButton').addEventListener('click', function(event) {
+    event.preventDefault(); 
+    document.getElementById('form').submit(); // Submete o formulário
+});
+
+// Seleção de estado e cidade para dados do instrutor
+const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+const estado = document.getElementById('inputEstado')
+const cidade = document.getElementById('inputCidade')
+
+
+estado.addEventListener('change', async function(){
+    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado.value+'/municipios'
+    const request = await fetch(urlCidades)
+    const response = await request.json()
+    let options = ''
+    response.forEach(function(cidade){
+        options +='<option>' +cidade.nome+ '</option>'
+
+    })
+    cidade.innerHTML = options
+})
+
+
+window.addEventListener('load', async()=>{
+    const request = await fetch(urlEstados)
+    const response = await request.json()
+
+    
+    const options = document.createElement("optgroup")
+    options.setAttribute('label','estados')
+    response.forEach(function(uf){
+        options.innerHTML += '<option>' +uf.sigla+ '</option>'
+    })
+
+    estado.append(options)
+})

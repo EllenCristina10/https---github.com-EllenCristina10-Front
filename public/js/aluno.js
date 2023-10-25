@@ -122,14 +122,39 @@ function adicionarBootstrapParaImpressao() {
     link.media = 'print';
     document.head.appendChild(link);
 }
-/*
-function imprimirComponente() {
-    var conteudoParaImpressao = document.getElementById('conteudo-impressao').innerHTML;
-    var win = window.open('', '_blank');
-    win.document.write('<html><head><title>Impressão </title></head><body>');
-    win.document.write(conteudoParaImpressao);
-    win.document.write('</body></html>');
-    win.document.close();
-    win.print();
-    win.close();
-}*/
+
+
+
+const urlufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+const estado = document.getElementById('inputEstado')
+const cidade = document.getElementById('inputCidade')
+
+
+estado.addEventListener('change', async function(){
+    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado.value+'/municipios'
+    const request = await fetch(urlCidades)
+    const response = await request.json()
+    let options = ''
+    response.forEach(function(cidade){
+        options +='<option>' +cidade.nome+ '</option>'
+
+    })
+    cidade.innerHTML = options
+})
+
+
+window.addEventListener('load', async()=>{
+    const request = await fetch(urlufs)
+    const response = await request.json()
+
+    response.sort((a, b) => a.nome.localeCompare(b.nome));
+
+    
+    const options = document.createElement("optgroup")
+    options.setAttribute('label','estados')
+    response.forEach(function(uf){
+        options.innerHTML += '<option>' +uf.sigla+ '</option>'
+    })
+
+    estado.append(options)
+})

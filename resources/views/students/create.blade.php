@@ -137,7 +137,7 @@
                     </div>
                     <div class="custom-spacing"></div>
                     {{-- Peso --}}
-                    <div class="col-sm-2" style="width: 210px">
+                    <div class="col-sm-2" style="width: 230px">
                         <label for="inputPeso">Peso:</label>
                         <div class="input-group">
 
@@ -149,15 +149,16 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputPeso" name="cpfStudent"
-                                placeholder="Digite seu peso" required>
+                            <input type="text" class="form-control rounded-right" id="inputPeso"
+                                placeholder="Digite seu peso" required onblur="validarPeso()">
                             <div class="invalid-feedback">
                                 Informe seu peso!
                             </div>
                         </div>
+                        <span class="spanError" id="errorPeso"></span>
                     </div>
                     {{-- Altura --}}
-                    <div class="col-sm-2" style="width: 210px">
+                    <div class="col-sm-2" style="width: 230px">
                         <label for="inputAltura">Altura:</label>
                         <div class="input-group">
 
@@ -169,12 +170,13 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputAltura" name="cpfStudent"
-                                placeholder="Digite sua altura" required>
+                            <input type="text" class="form-control rounded-right" id="inputAltura"
+                                placeholder="Sua altura em cm" required onblur="validarAltura()">
                             <div class="invalid-feedback">
                                 Informe sua altura!
                             </div>
                         </div>
+                        <span class="spanError" id="errorAltura"></span>
                     </div>
                 </div>
             </div>
@@ -291,7 +293,7 @@
             <div class="custom-spacing2"></div>
             <div class="row d-flex justify-content-between mt-4">
                 {{-- Endereço --}}
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="inputEndereco">Endereço:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
@@ -326,6 +328,23 @@
                         </div>
                     </div>
                 </div>
+                {{-- Estado --}}
+                <div class="col-sm-1" style="width: 140px">
+                    <label for="inputEstado">UF:</label>
+                    <div class="input-group">
+                        <div class="input-group-text background-icon-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </div>
+                        <select class="form-select" id="inputEstado" required>
+                            <option selected disabled value=""></option>
+                        </select>
+                    </div>
+                </div>
                 {{-- Cidade --}}
                 <div class="col-sm-3">
                     <label for="inputCidade">Cidade:</label>
@@ -337,62 +356,14 @@
                                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputCidade" placeholder="Digite sua cidade"
-                            required>
+                        <select class="form-select" id="inputCidade" required>
+                            <option selected disabled value=""></option>
+                        </select>
                         <div class="invalid-feedback">
                             Informe a cidade!
                         </div>
                     </div>
                 </div>
-                {{-- Estado --}}
-                <div class="col-sm-3" {{-- style="min-width: 200px" --}}>
-                    <label for="inputEstado">Estado:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                            </svg>
-                        </div>
-                        <select class="form-select" id="inputEstado" required>
-                            <option selected disabled value="">Estado</option>
-                            <option>Acre</option>
-                            <option>Alagoas</option>
-                            <option>Amapá</option>
-                            <option>Amazonas</option>
-                            <option>Bahia</option>
-                            <option>Ceará</option>
-                            <option>Distrito Federal</option>
-                            <option>Espirito Santo</option>
-                            <option>Goiás</option>
-                            <option>Maranhão </option>
-                            <option>Mato Grosso</option>
-                            <option>Mato Grosso do Sul</option>
-                            <option>Minas Gerais</option>
-                            <option>Pará </option>
-                            <option>Paraíba </option>
-                            <option>Paraná </option>
-                            <option>Pernambuco </option>
-                            <option>Piauí </option>
-                            <option>Rio de Janeiro </option>
-                            <option>Rio Grande do Norte</option>
-                            <option>Rio Grande do Sul</option>
-                            <option>Rondônia </option>
-                            <option>Roraima </option>
-                            <option>Santa Catarina</option>
-                            <option>São Paulo</option>
-                            <option>Sergipe</option>
-                            <option>Tocantins </option>
-
-                        </select>
-                        <div class="invalid-feedback">
-                            Informe o Estado!
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-spacing"></div>
                 {{-- CEP --}}
                 <div class="col-sm-2">
                     <label for="inputCep">CEP:</label>
@@ -1588,7 +1559,7 @@
                     </div>
                     <div class="col-2">
                         <div class="flex-row d-flex align-items-end justify-content-end mt-4">
-                            <button class="btn btn-success mx-2" type="submit">
+                            <button class="btn btn-success mx-2" type="submit" id="submitButton">
                                 Cadastrar
                             </button>
                         </div>
@@ -1598,6 +1569,6 @@
         </form>
     </div>
 
-    <script src="/front/public/js/aluno.js"></script>
+    <script src="{{ asset('js/aluno.js') }}"></script>
 
 @endsection
