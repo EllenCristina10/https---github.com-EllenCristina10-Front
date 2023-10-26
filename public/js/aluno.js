@@ -97,16 +97,7 @@ const campoTextoOutrosCirurgia = document.getElementById('textOutrosCirurgia');
 toggleTextElement(checkboxOutrosCirurgia, campoTextoOutrosCirurgia);
 
 
-function togglePassword(inputId, eyeIcon) {
-    const inputElement = document.getElementById(inputId);
-    if (inputElement.type === "password") {
-        inputElement.type = "text";
-        eyeIcon.innerHTML = '<i class="bi bi-eye-slash"></i>';
-    } else {
-        inputElement.type = "password";
-        eyeIcon.innerHTML = '<i class="bi bi-eye"></i>';
-    }
-}
+
 
 function imprimir() {
     adicionarBootstrapParaImpressao();
@@ -123,9 +114,8 @@ function adicionarBootstrapParaImpressao() {
     document.head.appendChild(link);
 }
 
-
-
-const urlufs = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+// Seleção de estado e cidade para dados do instrutor
+const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 const estado = document.getElementById('inputEstado')
 const cidade = document.getElementById('inputCidade')
 
@@ -144,10 +134,8 @@ estado.addEventListener('change', async function(){
 
 
 window.addEventListener('load', async()=>{
-    const request = await fetch(urlufs)
+    const request = await fetch(urlEstados)
     const response = await request.json()
-
-    response.sort((a, b) => a.nome.localeCompare(b.nome));
 
     
     const options = document.createElement("optgroup")
@@ -158,3 +146,4 @@ window.addEventListener('load', async()=>{
 
     estado.append(options)
 })
+

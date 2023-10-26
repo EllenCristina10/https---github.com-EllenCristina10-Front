@@ -32,6 +32,29 @@ const Mask = {
 
         return value;
     },
+    peso(value){
+        
+            // Remove todos os caracteres não numéricos, exceto ponto decimal
+    value = value.replace(/[^\d.]/g, "");
+
+    // Verifique se o valor é um número
+    if (value.length > 0) {
+        // Converter o valor em um número de ponto flutuante
+        let floatValue = parseFloat(value);
+
+        // Limitar o valor máximo a 500 kg
+        if (floatValue > 500) {
+            floatValue = 500;
+        }
+
+        // Formate o valor como desejar
+        let formattedValue = floatValue.toFixed(2); // Para mostrar duas casas decimais
+
+        return formattedValue;
+    }
+
+    return ""; // Retorna uma string vazia se não houver número válido
+},
     telefone(value) {
         // Remove todos os caracteres não numéricos
         value = value.replace(/\D/g, "");
@@ -84,15 +107,6 @@ const Mask = {
         }
     
         return value; 
-    },
-    peso(value) {
-        value = value.replace(/\D/g, ""); 
-    
-        if (value > 500) {
-            value = value.slice(0, 3); 
-        }
-    
-        return value;
     }
 }
 
@@ -288,10 +302,7 @@ const Validate = {
 
         if (value.length < 11) {
             error = "Informe um documento válido!";
-        } else if (value.length < 14 && value.length !== 11) {
-            error = "CNPJ inválido!";
-        }
-
+        } 
         return {
             error,
             value
@@ -311,20 +322,7 @@ const Validate = {
             value
         };
     },
-    isPeso(value) {
-        value = value.replace(/\D/g, "");
-
-        let error = null;
-
-        if (value.length > 3) {
-            error = "Peso inválido!";
-        }
-
-        return {
-            error,
-            value
-        };
-    },
+    
     isAltura(value) {
         value = value.replace(/\D/g, "");
 
@@ -343,6 +341,7 @@ const Validate = {
 const inputCpf = document.getElementById('inputCpf');
 const inputCep = document.getElementById('inputCep');
 const inputTelefone = document.getElementById('inputTelefone');
+const inputPeso = document.getElementById('inputPeso');
 
 inputCpf.addEventListener('input', function () {
     Mask.apply(this, 'cpf');
@@ -350,11 +349,15 @@ inputCpf.addEventListener('input', function () {
 
 inputCep.addEventListener('input', function () {
     Mask.apply(this, 'cep')
-})
+});
 
 inputTelefone.addEventListener('input', function () {
     Mask.apply(this, 'telefone')
-})
+});
+
+inputPeso.addEventListener('input', function () {
+    Mask.apply(this, 'peso')
+});
 
 const inputNome = document.getElementById('inputNome');
 
@@ -372,58 +375,7 @@ function validarNome(input) {
     }
 }
 
-const inputPeso = document.getElementById('inputPeso');
-const inputAltura = document.getElementById('inputAltura');
 
-inputPeso.addEventListener('input', function () {
-    validarPeso();
-});
-
-inputAltura.addEventListener('input', function () {
-    validarAltura();
-});
-
-function validarAltura(){
-    let inputAltura = document.getElementById('inputAltura');
-    let alturaStyle = document.getElementById('inputAltura'); 
-    let alturaValidation = Validate.isAltura(inputAltura.value);
-
-    let msg = document.getElementById("errorAltura");
-
-    if (alturaValidation.error) {
-        msg.style.display = "block";
-        msg.innerHTML = alturaValidation.error;
-        alturaStyle.style.borderColor = "red";
-        return false;
-    }
-    if(alturaValidation.value > 400){
-        msg.style.display = "block";
-        msg.innerHTML = "A altura não pode exceder 400 cm!";
-        alturaStyle.borderColor = "red";
-        return false;
-    }
-}
-
-function validarPeso(){
-    let inputPeso = document.getElementById('inputPeso');
-    let pesoStyle = document.getElementById('inputPeso');
-    let pesoValidation = Validate.isPeso(inputPeso.value);
-
-    let msg = document.getElementById("errorPeso");
-
-    if(pesoValidation.error){
-        msg.style.display = "block";
-        msg.innerHTML = pesoValidation.error;
-        pesoStyle.style.borderColor = "red";
-        return false;
-    }
-    if(pesoValidation.value > 500){
-        msg.style.display = "block";
-        msg.innerHTML = "Peso não pode exceder 500 kg!";
-        pesoStyle.borderColor = "red";
-        return false;
-    }
-}
 
 const inputSenha = document.querySelector('#inputSenha');
 const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
@@ -526,35 +478,15 @@ document.getElementById('submitButton').addEventListener('click', function(event
     document.getElementById('form').submit(); // Submete o formulário
 });
 
-// Seleção de estado e cidade para dados do instrutor
-const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-const estado = document.getElementById('inputEstado')
-const cidade = document.getElementById('inputCidade')
+function togglePassword(inputId, eyeIcon) {
+    const inputElement = document.getElementById(inputId);
+    if (inputElement.type === "password") {
+        inputElement.type = "text";
+        eyeIcon.innerHTML = '<i class="bi bi-eye-slash"></i>';
+    } else {
+        inputElement.type = "password";
+        eyeIcon.innerHTML = '<i class="bi bi-eye"></i>';
+    }
+}
 
 
-estado.addEventListener('change', async function(){
-    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado.value+'/municipios'
-    const request = await fetch(urlCidades)
-    const response = await request.json()
-    let options = ''
-    response.forEach(function(cidade){
-        options +='<option>' +cidade.nome+ '</option>'
-
-    })
-    cidade.innerHTML = options
-})
-
-
-window.addEventListener('load', async()=>{
-    const request = await fetch(urlEstados)
-    const response = await request.json()
-
-    
-    const options = document.createElement("optgroup")
-    options.setAttribute('label','estados')
-    response.forEach(function(uf){
-        options.innerHTML += '<option>' +uf.sigla+ '</option>'
-    })
-
-    estado.append(options)
-})
