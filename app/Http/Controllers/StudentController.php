@@ -13,8 +13,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('students.index');
-
+        $students = Student::all();
+    
+        return view('students.index', ['students' => $students]);
+        
     }
 
     /**
@@ -47,9 +49,9 @@ class StudentController extends Controller
                 'id_instructor' => '1',
                 // é para ser assim, mas como não há campo frequência no front, não há como salvar no banco, então mandaremos um dado diretamente
                 // 'student_frequency' => $request->input('frequencia'),
-                // 'student_photo_url' => $request->input('url'),
-                'student_frequency' => "teste",
+                //'student_photo_url' => $request->input('url'),
                 'student_photo_url' => "teste",
+                'student_frequency' => "teste",
                 'student_address' => $request->input('enderecoStudent'),
                 'student_address_number' => $request->input('numeroStudent'),
                 'student_city' => $request->input('cidadeStudent'),
@@ -60,21 +62,12 @@ class StudentController extends Controller
             // Salvando estudante
             $responseStudent = Http::post('http://localhost:8000/api/v1/students', $studentData);
             dd($responseStudent->json());
-            
-            // if ($responseStudent->successful()) {
-            //     // Lógica a ser executada se a solicitação for bem-sucedida
-            //     return $responseStudent->json();
-            // } 
-            // else {
-            //     // Lógica a ser executada se a solicitação falhar
-            //      return response()->json(['error' => 'Houve um problema ao criar o estudante'], $responseStudent->status());
-            // }
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             // Lógica para lidar com exceções
             return response()->json(['error' => 'Erro ao processar a solicitação: ' . $e->getMessage()], 500);
         }
-    
+
     }
     /**
      * Display the specified resource.

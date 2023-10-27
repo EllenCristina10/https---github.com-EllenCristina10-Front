@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exercicio;
+use App\Models\Exercise;
+use Http;
 use Illuminate\Http\Request;
 
 class ExercicioController extends Controller
@@ -12,7 +13,9 @@ class ExercicioController extends Controller
      */
     public function index()
     {
-        return view('exercises.index');
+        $exercises = Exercise::all();
+
+        return view('exercises.index', ['exercises' => $exercises]);
     }
 
     /**
@@ -28,7 +31,21 @@ class ExercicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $exerciseData = [
+                'exercise_name' => $request->input('nameExercise'),
+                'exercise_description' => $request->input('descriptionExercise'),
+                'exercise_url_tutorial' => $request->input('urlTutorialExercise'),
+            ];
+
+            // Salvando exercicio
+            $responseExercise = Http::post('http://localhost:8000/api/v1/exercises', $exerciseData);
+            dd($responseExercise->json());
+
+        } catch (\Exception $e) {
+            // Lógica para lidar com exceções
+            return response()->json(['error' => 'Erro ao processar a solicitação: ' . $e->getMessage()], 500);
+        }
     }
 
     /**

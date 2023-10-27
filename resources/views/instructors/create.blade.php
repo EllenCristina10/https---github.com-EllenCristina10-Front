@@ -14,7 +14,8 @@
 
     <div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
 
-        <form class="row" id="form">
+        <form class="row" id="form" action="{{ route('instructor.store') }}" method="POST">
+            @csrf
             {{-- Linha 1 --}}
             <div class="row d-flex justify-content-between mt-4">
                 <div class="form-header">
@@ -31,7 +32,8 @@
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+                        <input type="text" class="form-control" id="inputNome" name="nomeInstructor"
+                            placeholder="Nome Completo" required>
 
                         <div class="invalid-feedback">
                             Informe o nome!
@@ -52,14 +54,15 @@
                                     d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputCpf" placeholder="CPF" required>
+                        <input type="text" class="form-control" id="inputCpf" name="cpfInstIuctor" placeholder="CPF"
+                            required>
                         <div class="invalid-feedback">
                             Informe o CPF!
                         </div>
                     </div>
                     {{-- <span id="error"></span> --}}
                 </div>
-                {{-- Sexo --}}
+                {{-- Sexo
                 <div class="col-sm-2" style="width: 210px">
                     <label for="inputSexo">Sexo:</label>
                     <div class="input-group">
@@ -80,7 +83,7 @@
                             Informe o Sexo!
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- Data de nascimento --}}
                 <div class="col-sm-2" style="width: 210px">
                     <label for="inputData">Data de Nascimento:</label>
@@ -94,15 +97,13 @@
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                             </svg>
                         </div>
-                        <input type="date" class="form-control" id="inputData" placeholder="__/__/____" required>
+                        <input type="date" class="form-control" id="inputData" name="nascInstructor"
+                            placeholder="__/__/____" required>
                         <div class="invalid-feedback">
                             Informe a data de nascimento!
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- Linha 2 --}}
-            <div class="row" style="justify-content: space-between; margin-top: 36px;">
                 {{-- Telefone --}}
                 <div class="col-sm-3" style="width: 215px">
                     <label for="inputTelefone">Telefone:</label>
@@ -114,13 +115,18 @@
                                     d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputTelefone" placeholder="(xx) x xxxx-xxxx" required>
+                        <input type="text" class="form-control" id="inputTelefone" name="telefoneInstructor"
+                            placeholder="(xx) x xxxx-xxxx" required>
                         <div class="invalid-feedback">
                             Informe o telefone!
                         </div>
                     </div>
                     {{-- <span id="error"></span> --}}
                 </div>
+            </div>
+            {{-- Linha 2 --}}
+            <div class="custom-spacing"></div>
+            <div class="row" style="justify-content: space-between; margin-top: 36px;">
                 {{-- Email --}}
                 <div class="col-sm-4" style="width: 320px">
                     <label for="inputEmail">Email:</label>
@@ -132,7 +138,8 @@
                                     d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                             </svg>
                         </div>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                        <input type="email" class="form-control" id="inputEmail" name="emailInstructor"
+                            placeholder="Email" required>
                         <div class="invalid-feedback">
                             Informe o email!
                         </div>
@@ -159,8 +166,8 @@
 
                         <span class="input-group-text" onclick="togglePassword('inputSenha')"
                             style="cursor: pointer; border-left: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="background-icon-color"
-                                class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="background-icon-color" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
                                 <path
                                     d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                 <path
@@ -191,21 +198,58 @@
 
                         <span class="input-group-text" onclick="togglePassword('inputConfirmarSenha')"
                             style="cursor: pointer; border-left: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="background-icon-color"
-                                class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="background-icon-color" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
                                 <path
                                     d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                 <path
                                     d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                             </svg>
                         </span>
-
                     </div>
                     <span class="spanError" id="errorConfirmarSenha"></span>
                 </div>
+                {{-- Entrada --}}
+                <div class="col-sm-2">
+                    <label for="inputEntrada">Horario de Entrada</label>
+                    <div class="input-group">
+                        <div class="input-group-text background-icon-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-hourglass-top secondary-color" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z" />
+                            </svg>
+                        </div>
+                        <input type="time" class="form-control" id="inputEntrada" name="entradaInstructor"
+                            placeholder="Entrada" required>
+                        <div class="invalid-feedback">
+                            Informe o horário da entrada!
+                        </div>
+                    </div>
+                    {{-- <span id="error"></span> --}}
+                </div>
+                {{-- Saída --}}
+                <div class="col-sm-2">
+                    <label for="inputSaida">Horario de Saida</label>
+                    <div class="input-group">
+                        <div class="input-group-text background-icon-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-hourglass-bottom secondary-color" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2h-7z" />
+                            </svg>
+                        </div>
+                        <input type="time" class="form-control" id="inputSaida" name="saidaInstructor"
+                            placeholder="Saída" required>
+                        <div class="invalid-feedback">
+                            Informe o horário da saída!
+                        </div>
+                    </div>
+                    {{-- <span id="error"></span> --}}
+                </div>
             </div>
             {{-- Linha 3 --}}
-
+            <div class="custom-spacing"></div>
             <div class="row" style="justify-content: space-between; margin-top: 36px;">
                 {{-- Endereço --}}
                 <div class="col-sm-4">
@@ -218,9 +262,29 @@
                                     d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputEndereco" placeholder="Endereço" required>
+                        <input type="text" class="form-control" id="inputEndereco" name="enderecoInstructor"
+                            placeholder="Endereço" required>
                         <div class="invalid-feedback">
                             Informe o endereço!
+                        </div>
+                    </div>
+                </div>
+                {{-- Número --}}
+                <div class="col-sm-1" style="width: 140px">
+                    <label for="inputNumero">Número:</label>
+                    <div class="input-group">
+                        <div class="input-group-text background-icon-color">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                        </div>
+                        <input type="text" class="form-control" id="inputNumero" name="numeroInstructor"
+                            placeholder="XXXX" required>
+                        <div class="invalid-feedback">
+                            Informe o número!
                         </div>
                     </div>
                 </div>
@@ -235,7 +299,7 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputEstado" required>
+                        <select class="form-select" id="inputEstado" name="estadoInstructor" required>
                             <option selected disabled value=""></option>
                         </select>
                     </div>
@@ -251,7 +315,7 @@
                                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputCidade" required>
+                        <select class="form-select" id="inputCidade" name="cidadeInstructor" required>
                             <option selected disabled value=""></option>
                         </select>
                         <div class="invalid-feedback">
@@ -270,51 +334,10 @@
                                     d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputCep" placeholder="CEP" required>
+                        <input type="text" class="form-control" id="inputCep" name="cepInstructor"
+                            placeholder="CEP" required>
                         <div class="invalid-feedback">
                             Informe o CEP!
-                        </div>
-                    </div>
-                    {{-- <span id="error"></span> --}}
-                </div>
-            </div>
-            {{-- Linha 2 --}}
-            <div class="custom-spacing2"></div>
-            <div class="row" style="justify-content: start; maop: 3op: 36px;">
-                {{-- Entrada --}}
-                
-                <div class="col-sm-3">
-                    <label for="inputEntrada">Horario de Entrada</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-hourglass-top secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z" />
-                            </svg>
-                        </div>
-                        <input type="time" class="form-control" id="inputEntrada" placeholder="Entrada" required>
-                        <div class="invalid-feedback">
-                            Informe o horário da entrada!
-                        </div>
-                    </div>
-                    {{-- <span id="error"></span> --}}
-                </div>
-                {{-- Saída --}}
-               
-                <div class="col-sm-3">
-                    <label for="inputSaida">Horario de Saida</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-hourglass-bottom secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5zm2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2h-7z" />
-                            </svg>
-                        </div>
-                        <input type="time" class="form-control" id="inputSaida" placeholder="Saída" required>
-                        <div class="invalid-feedback">
-                            Informe o horário da saída!
                         </div>
                     </div>
                     {{-- <span id="error"></span> --}}
@@ -324,44 +347,42 @@
                 <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
             </div>
         </form>
-
     </div>
 
     <script>
-// Seleção de estado e cidade para dados do instrutor
-const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-const estado = document.getElementById('inputEstado')
-const cidade = document.getElementById('inputCidade')
+        // Seleção de estado e cidade para dados do instrutor
+        const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+        const estado = document.getElementById('inputEstado')
+        const cidade = document.getElementById('inputCidade')
 
 
-estado.addEventListener('change', async function(){
-    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado.value+'/municipios'
-    const request = await fetch(urlCidades)
-    const response = await request.json()
-    let options = ''
-    response.forEach(function(cidade){
-        options +='<option>' +cidade.nome+ '</option>'
+        estado.addEventListener('change', async function() {
+            const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + estado.value +
+                '/municipios'
+            const request = await fetch(urlCidades)
+            const response = await request.json()
+            let options = ''
+            response.forEach(function(cidade) {
+                options += '<option>' + cidade.nome + '</option>'
 
-    })
-    cidade.innerHTML = options
-})
-
-
-window.addEventListener('load', async()=>{
-    const request = await fetch(urlEstados)
-    const response = await request.json()
-
-    
-    const options = document.createElement("optgroup")
-    options.setAttribute('label','estados')
-    response.forEach(function(uf){
-        options.innerHTML += '<option>' +uf.sigla+ '</option>'
-    })
-
-    estado.append(options)
-})
+            })
+            cidade.innerHTML = options
+        })
 
 
+        window.addEventListener('load', async () => {
+            const request = await fetch(urlEstados)
+            const response = await request.json()
+
+
+            const options = document.createElement("optgroup")
+            options.setAttribute('label', 'estados')
+            response.forEach(function(uf) {
+                options.innerHTML += '<option>' + uf.sigla + '</option>'
+            })
+
+            estado.append(options)
+        })
     </script>
     <script src="{{ asset('js/validacao.js') }}"></script>
 @endsection
