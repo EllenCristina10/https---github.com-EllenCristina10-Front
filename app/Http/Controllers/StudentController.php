@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Http;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -29,9 +30,52 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        try {
+            $studentData = [
+                'student_name' => $request->input('nomeStudent'),
+                'student_cpf' => $request->input('cpfStudent'),
+                'student_email' => $request->input('emailStudent'),
+                'student_telephone' => $request->input('telStudent'),
+                'student_date_birth' => $request->input('nascStudent'),
+                'student_weight' => $request->input('pesoStudent'),
+                'student_height' => $request->input('alturaStudent'),
+                // 'student_level' => $request->input('experiencia'),
+                'student_level' => "teste",
+                //'student_goal' => $request->input('meta'),
+                'student_goal' => "teste",
+                //'id_instructor' => $request->input('instrutorStudent'),
+                'id_instructor' => '1',
+                // é para ser assim, mas como não há campo frequência no front, não há como salvar no banco, então mandaremos um dado diretamente
+                // 'student_frequency' => $request->input('frequencia'),
+                // 'student_photo_url' => $request->input('url'),
+                'student_frequency' => "teste",
+                'student_photo_url' => "teste",
+                'student_address' => $request->input('enderecoStudent'),
+                'student_address_number' => $request->input('numeroStudent'),
+                'student_city' => $request->input('cidadeStudent'),
+                'student_zip_code' => $request->input('cepStudent'),
+                'student_state' => $request->input('estadoStudent'),
+            ];
 
+            // Salvando estudante
+            $responseStudent = Http::post('http://localhost:8000/api/v1/students', $studentData);
+            dd($responseStudent->json());
+            
+            // if ($responseStudent->successful()) {
+            //     // Lógica a ser executada se a solicitação for bem-sucedida
+            //     return $responseStudent->json();
+            // } 
+            // else {
+            //     // Lógica a ser executada se a solicitação falhar
+            //      return response()->json(['error' => 'Houve um problema ao criar o estudante'], $responseStudent->status());
+            // }
+
+        }catch (\Exception $e) {
+            // Lógica para lidar com exceções
+            return response()->json(['error' => 'Erro ao processar a solicitação: ' . $e->getMessage()], 500);
+        }
+    
+    }
     /**
      * Display the specified resource.
      */

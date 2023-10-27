@@ -26,7 +26,7 @@ Route::get('/', [SiteController::class, 'index'])->name('home.index');
 //Students
 Route::get('/student', [StudentController::class, 'index'])->name('student.index');
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
-
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
 //Instructors
 Route::get('/instructor', [InstructorController::class, 'index'])->name('instructor.index');
