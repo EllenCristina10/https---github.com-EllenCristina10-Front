@@ -3,7 +3,8 @@
 @section('conteudo')
 
     <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/a4a4be15d1.js" crossorigin="anonymous"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -14,7 +15,8 @@
     <div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
         {{-- Definindo as linhas --}}
 
-        <form class="row" id="form">
+        <form class="row" id="form" action="{{ route('student.store') }}" method="POST">
+            @csrf
             {{-- Linha 1 --}}
             <div class="row d-flex justify-content-center mt-4">
                 <div class="form-header">
@@ -57,7 +59,7 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control" id="inputNome" name = "nameStudent"
+                            <input type="text" class="form-control" id="inputNome" name = "nomeStudent"
                                 placeholder="Digite seu nome" required>
 
                             <div class="invalid-feedback">
@@ -81,8 +83,8 @@
                                 </svg>
                             </div>
 
-                            <input type="date" class="form-control" id="inputData" required min="1900-01-01"
-                                max="2023-10-20" required>
+                            <input type="date" class="form-control" id="inputData" name="nascStudent" required
+                                min="1900-01-01" max="2023-10-20" required>
                             <div class="invalid-feedback">
                                 Informe a data de nascimento!
                             </div>
@@ -125,7 +127,7 @@
                                 </svg>
                             </div>
 
-                            <select id="inputSexo" class="form-select" required>
+                            <select id="inputSexo" class="form-select" name="sexoStudent" required>
                                 <option selected disabled value="">...</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
@@ -150,8 +152,8 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputPeso"
-                                placeholder="Digite seu peso" required>
+                            <input type="text" class="form-control rounded-right" id="inputPeso"  name="pesoStudent"
+                                placeholder="Digite seu peso" required >
                             <div class="invalid-feedback">
                                 Informe seu peso!
                             </div>
@@ -172,7 +174,7 @@
                             </div>
 
                             <input type="text" class="form-control rounded-right" id="inputAltura"
-                                placeholder="Sua altura em cm" required onblur="validarAltura()">
+                                name="alturaStudent" placeholder="Sua altura em cm" required onblur="validarAltura()">
                             <div class="invalid-feedback">
                                 Informe sua altura!
                             </div>
@@ -198,8 +200,8 @@
                             </svg>
                         </div>
 
-                        <input type="text" class="form-control" id="inputTelefone" placeholder="(xx) xxxxx-xxxx"
-                            required>
+                        <input type="text" class="form-control" id="inputTelefone" name="telStudent"
+                            placeholder="(xx) xxxxx-xxxx" required>
                         <div class="invalid-feedback">
                             Informe o telefone!
                         </div>
@@ -237,7 +239,7 @@
                                 <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                             </svg>
                         </div>
-                        <input type="password" class="form-control border-right-0" id="inputSenha"
+                        <input type="password" class="form-control border-right-0" id="inputSenha" name="senhaStudent"
                             placeholder="Digite sua senha" required>
                         <div class="invalid-feedback">
                             Informe a senha!
@@ -245,8 +247,8 @@
 
                         <span class="input-group-text" onclick="togglePassword('inputSenha')"
                             style="cursor: pointer; border-left: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="background-icon-color"
-                                class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="background-icon-color" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
                                 <path
                                     d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                 <path
@@ -270,15 +272,15 @@
                             </svg>
                         </div>
                         <input type="password" class="form-control border-right-0" id="inputConfirmarSenha"
-                            placeholder="Confirme sua senha " required >
+                        name="confirmSenhaStudent"  placeholder="Confirme sua senha " required >
                         <div class="invalid-feedback">
                             Confirme a senha!
                         </div>
 
                         <span class="input-group-text" onclick="togglePassword('inputConfirmarSenha')"
                             style="cursor: pointer; border-left: none;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="background-icon-color"
-                                class="bi bi-eye secondary-color" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="background-icon-color" class="bi bi-eye secondary-color" viewBox="0 0 16 16">
                                 <path
                                     d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                 <path
@@ -304,8 +306,8 @@
                                     d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputEndereco" placeholder="Digite seu endereço"
-                            required>
+                        <input type="text" class="form-control" id="inputEndereco" name="enderecoStudent"
+                            placeholder="Digite seu endereço" required>
                         <div class="invalid-feedback">
                             Informe o endereço!
                         </div>
@@ -323,7 +325,8 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputNumero" placeholder="XXXX" required>
+                        <input type="text" class="form-control" id="inputNumero" name="numeroStudent"
+                            placeholder="XXXX" required>
                         <div class="invalid-feedback">
                             Informe o número!
                         </div>
@@ -341,7 +344,7 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputEstado" required>
+                        <select class="form-select" id="inputEstado" name="estadoStudent" required>
                             <option selected disabled value=""></option>
                         </select>
                     </div>
@@ -357,7 +360,7 @@
                                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputCidade" required>
+                        <select class="form-select" id="inputCidade" name="cidadeStudent" required>
                             <option selected disabled value=""></option>
                         </select>
                         <div class="invalid-feedback">
@@ -399,7 +402,7 @@
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                             </svg>
                         </div>
-                        <select id="inputInstrutor" class="form-select" required>
+                        <select id="inputInstrutor" class="form-select" name="instrutorStudent" required>
                             <option selected disabled value=""> Instrutor...</option>
                             <option>Ricardo</option>
                             <option>Alan Jefferson</option>
@@ -705,7 +708,6 @@
                 <hr><br>
             </p>
             <div class="subtitle-header">
-                <br>
                 <h3>Marque o(s) problema(s) abaixo que tenha sido diagnosticado(a) ou tratado(a) por um médico:</h3>
             </div>
             <div class="row mt-4">
@@ -1511,23 +1513,23 @@
             <p><br><br></p>
             <div class="conteudo-impressao">
                 <div class="row">
-                  
+
                     <div class="mt-4">
                         <div class="row">
                             <div class="col-6">
                                 <!-- Primeira coluna -->
-                               <div class="box">
+                                <div class="box">
                                     <div class="form-group">
                                         <label>Data do preenchimento:</label> <br>
                                         ____/_____/_____
                                     </div>
-                               </div>
-                             
+                                </div>
+
                                 <div class="box">
                                     <div class="form-group">
                                         <label>Assinatura do aluno:</label><br>
                                         ____________________________
-                                 
+
                                     </div>
                                 </div>
                             </div>
@@ -1570,6 +1572,7 @@
         </form>
     </div>
 
+    <script src="{{ asset('js/validacao.js') }}"></script>
     <script src="{{ asset('js/aluno.js') }}"></script>
 
 @endsection

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aula;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
+use Http;
 
 class AulaController extends Controller
 {
@@ -12,7 +13,10 @@ class AulaController extends Controller
      */
     public function index()
     {
-        return view('lessons.index');
+        $lessons = Lesson::all();
+
+        return view('lessons.index', ['lessons' => $lessons]);
+
     }
 
     /**
@@ -28,7 +32,21 @@ class AulaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $lessonData = [
+                'id_instructor' => '1',
+                'lesson_description' => $request->input('descriptionLesson'),
+                'lesson_max_students' => $request->input('maxStudentLesson'),
+            ];
+
+            // Salvando aula
+            $responseLesson = Http::post('http://localhost:8000/api/v1/lessons', $lessonData);
+            dd($responseLesson->json());
+
+        } catch (\Exception $e) {
+            // Lógica para lidar com exceções
+            return response()->json(['error' => 'Erro ao processar a solicitação: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
