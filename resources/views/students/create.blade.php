@@ -87,6 +87,7 @@
                                 Informe a data de nascimento!
                             </div>
                         </div>
+                        <span class="spanError" id="errorData"></span>
                     </div>
                     {{-- CPF --}}
                     <div class="col-sm-2" style="width: 210px">
@@ -150,7 +151,7 @@
                             </div>
 
                             <input type="text" class="form-control rounded-right" id="inputPeso"
-                                placeholder="Digite seu peso" required onblur="validarPeso()">
+                                placeholder="Digite seu peso" required>
                             <div class="invalid-feedback">
                                 Informe seu peso!
                             </div>
@@ -237,7 +238,7 @@
                             </svg>
                         </div>
                         <input type="password" class="form-control border-right-0" id="inputSenha"
-                            placeholder="Digite sua senha" required onblur="validarSenhas(this.value)">
+                            placeholder="Digite sua senha" required>
                         <div class="invalid-feedback">
                             Informe a senha!
                         </div>
@@ -269,7 +270,7 @@
                             </svg>
                         </div>
                         <input type="password" class="form-control border-right-0" id="inputConfirmarSenha"
-                            placeholder="Confirme sua senha " required onblur="validarSenhas(this.value)">
+                            placeholder="Confirme sua senha " required >
                         <div class="invalid-feedback">
                             Confirme a senha!
                         </div>

@@ -13,6 +13,7 @@ const Mask = {
         }).format(value / 100);
     },
     cpf(value) {
+        let msg = document.getElementById("errorCpf");
         value = value.replace(/\D/g, "");
 
         //11122233344
@@ -29,37 +30,43 @@ const Mask = {
         if (value.length > 14) {
             value = value.slice(0, -1);
         }
-
+        if(value.length < 14){
+            msg.style.display = "block";
+            msg.innerHTML = "Número de Cpf incompleto";
+            inputCpf.style.borderColor = "red";
+        }
+        else{ 
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputCpf.style.borderColor = "green";
+        }
         return value;
     },
     peso(value){
-        
-            // Remove todos os caracteres não numéricos, exceto ponto decimal
-    value = value.replace(/[^\d.]/g, "");
 
-    // Verifique se o valor é um número
-    if (value.length > 0) {
-        // Converter o valor em um número de ponto flutuante
-        let floatValue = parseFloat(value);
+        let msg = document.getElementById("errorPeso");
+    value = value.replace(/[^0-9.]/g, '');
 
-        // Limitar o valor máximo a 500 kg
-        if (floatValue > 500) {
-            floatValue = 500;
-        }
 
-        // Formate o valor como desejar
-        let formattedValue = floatValue.toFixed(2); // Para mostrar duas casas decimais
-
-        return formattedValue;
+    if (value.length > 6) {
+        value = value.slice(0, 6);
     }
 
-    return ""; // Retorna uma string vazia se não houver número válido
+    const peso = parseFloat(value);
+
+    if (!isNaN(peso) && peso <= 500.00) {
+        return value;
+    } else {
+        msg.style.display = "block";
+        msg.innerHTML = "O limite de Peso é de 500 kgs";
+        inputPeso.style.borderColor = "red";
+        return '';
+    }
 },
     telefone(value) {
-        // Remove todos os caracteres não numéricos
         value = value.replace(/\D/g, "");
+        let msg = document.getElementById("errorTelefone");
 
-        // Limita o telefone a 11 dígitos (incluindo DDD)
         if (value.length > 11) {
             value = value.slice(0, 11);
         }
@@ -67,46 +74,106 @@ const Mask = {
         let formattedValue = "";
 
         if (value.length > 0) {
-            // Formato: (11
             formattedValue += `(${value.slice(0, 2)}`;
         }
 
         if (value.length > 2) {
-            // Formato: (11) 9
             formattedValue += `) ${value.slice(2, 3)}`;
         }
 
         if (value.length > 3) {
-            // Formato: (11) 9 2222
             formattedValue += ` ${value.slice(3, 7)}`;
         }
 
         if (value.length > 7) {
-            // Formato: (11) 9 2222-3333
             formattedValue += `-${value.slice(7, 11)}`;
         }
-
+        if(value.length < 11){
+            msg.style.display = "block";
+            msg.innerHTML = "Número de telefone Incompleto";
+            inputTelefone.style.borderColor = "red";
+        }
+        else{ 
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputTelefone.style.borderColor = "green";
+        }
         return formattedValue;
+    },data(value) {
+        let msg = document.getElementById("errorData");
+        let currentDate = new Date();
+        let minDate = new Date(currentDate);
+        minDate.setFullYear(minDate.getFullYear() - 10);
+        let inputDate = new Date(value);
+    
+        if (!value) {
+            // O campo está vazio
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputData.style.borderColor = "";
+        } else if (inputDate < new Date("1900-01-01")) {
+            // A data é menor que "01/01/01"
+            msg.style.display = "block";
+            msg.innerHTML = "Aluno muito idoso";
+            inputData.style.borderColor = "red";
+        } else if (inputDate > currentDate) {
+            // A data é maior que a data atual
+            msg.style.display = "block";
+            msg.innerHTML = "Data invalida, valor muito alto";
+            inputData.style.borderColor = "red";
+        }else if (inputDate > minDate) {
+            // A data é maior que 10 anos atrás a partir da data atual
+            msg.style.display = "block";
+            msg.innerHTML = "Data invalida, aluno muito novo";
+            inputData.style.borderColor = "red";
+        } else {
+            // A data está dentro do intervalo desejado
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputData.style.borderColor = "green";
+        }
+    
+        return value;
     },
     cep(value) {
+        let msg = document.getElementById("errorCep");
         value = value.replace(/\D/g, "");
 
         if (value.length > 8) {
             value = value.slice(0, -1);
         }
-
+        
         value = value.replace(/(\d{5})(\d)/, "$1-$2");
-
+        if(value.length < 8){
+            msg.style.display = "block";
+            msg.innerHTML = "Cep Incompleto";
+            inputCep.style.borderColor = "red";
+        }
+        else{ 
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputCep.style.borderColor = "green";
+        }
         return value;
     },
     altura(value) {
-        value = value. replace(/\D/g, "");
-    
-        if (value > 400) {
-            value = value.slice(0, 3); 
+        let msg = document.getElementById("errorAltura");
+        value = value.replace(/\D/g, "");
+
+        if (value.length > 3) {
+            value = value.slice(0, 6);
         }
-    
-        return value; 
+        
+        const altura = value;
+
+        if (!isNaN(altura) && altura <= 400) {
+            return value;
+        } else {
+            msg.style.display = "block";
+            msg.innerHTML = "O limite de altura é de 400 cm";
+            inputAltura.style.borderColor = "red";
+            return '';
+        }
     }
 }
 
@@ -323,25 +390,14 @@ const Validate = {
         };
     },
     
-    isAltura(value) {
-        value = value.replace(/\D/g, "");
-
-        let error = null;
-
-        if (value.length > 3) {
-            error = "Altura inválida!";
-        }
-
-        return {
-            error,
-            value
-        };
-    }
+    
 }
 const inputCpf = document.getElementById('inputCpf');
 const inputCep = document.getElementById('inputCep');
 const inputTelefone = document.getElementById('inputTelefone');
 const inputPeso = document.getElementById('inputPeso');
+const inputAltura = document.getElementById('inputAltura');
+const inputData = document.getElementById('inputData');
 
 inputCpf.addEventListener('input', function () {
     Mask.apply(this, 'cpf');
@@ -358,6 +414,12 @@ inputTelefone.addEventListener('input', function () {
 inputPeso.addEventListener('input', function () {
     Mask.apply(this, 'peso')
 });
+inputAltura.addEventListener('input', function () {
+    Mask.apply(this, 'altura')
+});
+inputData.addEventListener('input', function () {
+    Mask.apply(this, 'data')
+});
 
 const inputNome = document.getElementById('inputNome');
 
@@ -368,24 +430,40 @@ inputNome.addEventListener('input', function () {
 function validarNome(input) {
     const valor = input.value;
     const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
+    let msg = document.getElementById("errorNome");
 
+    
     if (!regex.test(valor)) {
-        alert('Digite um nome válido (somente letras maiúsculas, minúsculas e acentos).');
-        input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, ''); 
+        
+            msg.style.display = "block";
+            msg.innerHTML = "Nome inválido, apenas letras são aceitas";
+            inputNome.style.borderColor = "red";
+            input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, ''); 
+    }else if (valor.length < 10){
+        msg.style.display = "block";
+            msg.innerHTML = "Nome muito pequeno";
+            inputNome.style.borderColor = "red";
+    }
+    else{ 
+        msg.style.display = "none";
+        msg.innerHTML = "";
+        inputNome.style.borderColor = "green";
     }
 }
 
 
-
-const inputSenha = document.querySelector('#inputSenha');
+document.querySelector('#inputSenha').addEventListener('input', function () {
+    validarSenha();
+});
+document.querySelector('#inputConfirmarSenha').addEventListener('input', function () {
+    confirmPassword();
+});
 const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
 const passwordStyle = document.getElementById("inputSenha").style;
 const confirmStyle = document.getElementById("inputConfirmarSenha").style;
 //Validando Senha
 function validarSenha() {
 
-    //teste
-    //let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
     let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[.@$!%*?&]+)[A-Za-z\d.@$!%*?&]{8,16}$/g;
     let resultsPassword = passwordRegex.test(inputSenha.value);
 
@@ -398,7 +476,7 @@ function validarSenha() {
         return false;
     } else if (resultsPassword === false) {
         msg.style.display = "block";
-        msg.innerHTML = "Senha inválida!*";
+        msg.innerHTML = "Senha inválida! <br>A senha deve conter entre 8 e 20 caracteres e deve incluir letras maiúsculas, letras minúsculas e caracteres especiais.";
         passwordStyle.borderColor = "red";
         return false;
     } else {
@@ -433,49 +511,11 @@ function confirmPassword() {
 };
 
 
-// Função para validar as senhas
-function validarSenhas() {
-    // Obtém os campos de senha
-    const inputSenha = document.querySelector('#inputSenha');
-    const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
-
-    // Verifica se as senhas são iguais
-    if (inputSenha.value !== inputConfirmarSenha.value) {
-        // Exibe uma mensagem de erro
-        document.getElementById('errorConfirmarSenha').innerHTML = 'As senhas não são iguais.';
-        return false;
-    }
-
-    // Verifica se a senha é válida
-    if (!validarSenha(inputSenha.value)) {
-        // Exibe uma mensagem de erro
-        document.getElementById('errorSenha').innerHTML = 'A senha deve ter entre 8 e 20 caracteres, conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.';
-        return false;
-    }
-
-    // Se as senhas forem válidas, retorna true
-    return true;
-}
-
-// Adiciona um event listener ao campo de senha para chamar a função validarSenhas() quando o usuário pressionar a tecla Enter
-document.querySelector('#inputSenha').addEventListener('keydown', function (event) {
-    if (event.keyCode == 13) {
-        validarSenha();
-    }
-})
-
-document.querySelector('#inputConfirmarSenha').addEventListener('keydown', function (event) {
-    if (event.keyCode == 13) {
-        confirmPassword();
-    }
-}
-
-);
 
 
 document.getElementById('submitButton').addEventListener('click', function(event) {
     event.preventDefault(); 
-    document.getElementById('form').submit(); // Submete o formulário
+    document.getElementById('form').submit(); 
 });
 
 function togglePassword(inputId, eyeIcon) {
@@ -488,5 +528,7 @@ function togglePassword(inputId, eyeIcon) {
         eyeIcon.innerHTML = '<i class="bi bi-eye"></i>';
     }
 }
-
+document.getElementById('form').addEventListener('submit', function (event) {
+    event.preventDefault();
+});
 
