@@ -55,6 +55,9 @@ const Mask = {
     const peso = parseFloat(value);
 
     if (!isNaN(peso) && peso <= 500.00) {
+        msg.style.display = "block";
+        msg.innerHTML = "";
+        inputPeso.style.borderColor = "green";
         return value;
     } else {
         msg.style.display = "block";
@@ -134,6 +137,21 @@ const Mask = {
         }
     
         return value;
+    },numero(value){
+        let msg = document.getElementById("errorNumero");
+        value = value.replace(/\D/g, "");
+        if (value.length > 5) {
+            value = value.slice(0, -1);
+            msg.style.display = "block";
+            msg.innerHTML = "Número muito alto";
+            inputNumero.style.borderColor = "red";
+            return "";
+        } else{
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputNumero.style.borderColor = "green";
+        }
+        return value;
     },
     cep(value) {
         let msg = document.getElementById("errorCep");
@@ -167,6 +185,9 @@ const Mask = {
         const altura = value;
 
         if (!isNaN(altura) && altura <= 400) {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputAltura.style.borderColor = "green";
             return value;
         } else {
             msg.style.display = "block";
@@ -174,6 +195,41 @@ const Mask = {
             inputAltura.style.borderColor = "red";
             return '';
         }
+    },
+    sexo(value){
+        let msg = document.getElementById("errorSexo");
+
+        if (value!="...") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputSexo.style.borderColor = "green";
+            return value;
+        } 
+    },
+    email(value){
+        let msg = document.getElementById("errorEmail") 
+
+        if(value.includes("@") && value.includes(".")){
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputEmail.style.borderColor = "green";
+        }else{
+            msg.style.display = "none";
+            msg.innerHTML = "Email invalido";
+            inputEmail.style.borderColor = "red";
+        }
+        return value;
+    },
+    uf(value){
+        let msg = document.getElementById("errorEstado");
+
+        if (value!="") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputEstado.style.borderColor = "green";
+            inputCidade.style.borderColor = "green";
+            return value;
+        } 
     }
 }
 
@@ -398,7 +454,10 @@ const inputTelefone = document.getElementById('inputTelefone');
 const inputPeso = document.getElementById('inputPeso');
 const inputAltura = document.getElementById('inputAltura');
 const inputData = document.getElementById('inputData');
-
+const inputNumero = document.getElementById('inputNumero');
+const inputSexo = document.getElementById('inputSexo');
+const inputEmail = document.getElementById('inputEmail');
+const inputEstado = document.getElementById('inputEstado');
 inputCpf.addEventListener('input', function () {
     Mask.apply(this, 'cpf');
 });
@@ -420,8 +479,23 @@ inputAltura.addEventListener('input', function () {
 inputData.addEventListener('input', function () {
     Mask.apply(this, 'data')
 });
+inputNumero.addEventListener('input', function () {
+    Mask.apply(this, 'numero')
+});
+inputSexo.addEventListener('input', function () {
+    Mask.apply(this, 'sexo')
+});
+inputEmail.addEventListener('input', function () {
+    Mask.apply(this, 'email')
+});
+inputEstado.addEventListener('input', function () {
+    Mask.apply(this, 'uf')
+});
+
+
 
 const inputNome = document.getElementById('inputNome');
+
 
 inputNome.addEventListener('input', function () {
     validarNome(this);
@@ -513,10 +587,7 @@ function confirmPassword() {
 
 
 
-document.getElementById('submitButton').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    document.getElementById('form').submit(); 
-});
+
 
 function togglePassword(inputId, eyeIcon) {
     const inputElement = document.getElementById(inputId);
@@ -528,7 +599,54 @@ function togglePassword(inputId, eyeIcon) {
         eyeIcon.innerHTML = '<i class="bi bi-eye"></i>';
     }
 }
-document.getElementById('form').addEventListener('submit', function (event) {
-    event.preventDefault();
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Adicione um manipulador de eventos ao formulário
+    document.getElementById('form').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Impede o envio do formulário
+        }
+    });
 });
 
+document.getElementById('submitButton').addEventListener('click', function(event) {
+    // Define uma variável para controlar a validação dos campos
+    let camposSaoValidos = validarCampos();
+
+    if (!camposSaoValidos) {
+        alert("Campos inválidos. Por favor, corrija-os antes de enviar o formulário.");
+    }
+
+    // Impede o envio do formulário se os campos não forem válidos
+    if (!camposSaoValidos) {
+        event.preventDefault();
+    }
+});
+
+function validarCampos() {
+    const campos = [
+        inputCpf,
+        inputCep,
+        inputTelefone,
+        inputPeso,
+        inputAltura,
+        inputData,
+        inputNumero,
+        inputNome,
+        inputSenha,
+        inputConfirmarSenha,
+        inputSexo,
+        inputEmail,
+        inputEstado,
+        inputCidade
+    ];
+
+    for (const campo of campos) {
+        if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+            alert("Preencha todos os campos corretamente antes de enviar o formulário.");
+            return false;
+        }
+    }
+
+    return true; // Todos os campos são válidos, pode enviar o formulário
+}

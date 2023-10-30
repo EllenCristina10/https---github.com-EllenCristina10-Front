@@ -136,6 +136,7 @@
                             <div class="invalid-feedback">
                                 Informe o Sexo!
                             </div>
+                            <span class="spanError" id="errorSexo"></span>
                         </div>
                     </div>
                     <div class="custom-spacing"></div>
@@ -174,7 +175,7 @@
                             </div>
 
                             <input type="text" class="form-control rounded-right" id="inputAltura"
-                                name="alturaStudent" placeholder="Sua altura em cm" required onblur="validarAltura()">
+                                name="alturaStudent" placeholder="Sua altura em cm" required >
                             <div class="invalid-feedback">
                                 Informe sua altura!
                             </div>
@@ -311,6 +312,7 @@
                         <div class="invalid-feedback">
                             Informe o endereço!
                         </div>
+                        
                     </div>
                 </div>
                 {{-- Número --}}
@@ -330,6 +332,7 @@
                         <div class="invalid-feedback">
                             Informe o número!
                         </div>
+                        <span class="spanError" id="errorNumero"></span>
                     </div>
                 </div>
                 {{-- Estado --}}
@@ -348,6 +351,7 @@
                             <option selected disabled value=""></option>
                         </select>
                     </div>
+                    <span class="spanError" id="errorEstado"></span>
                 </div>
                 {{-- Cidade --}}
                 <div class="col-sm-3">
@@ -366,6 +370,7 @@
                         <div class="invalid-feedback">
                             Informe a cidade!
                         </div>
+                        <span class="spanError" id="errorCidade"></span>
                     </div>
                 </div>
                 {{-- CEP --}}
