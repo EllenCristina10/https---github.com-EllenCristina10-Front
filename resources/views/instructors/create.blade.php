@@ -39,7 +39,7 @@
                             Informe o nome!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorNome"></span>
                 </div>
                 {{-- CPF --}}
                 <div class="col-sm-2" style="width: 210px">
@@ -60,7 +60,7 @@
                             Informe o CPF!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorCpf"></span>
                 </div>
                 {{-- Sexo
                 <div class="col-sm-2" style="width: 210px">
@@ -102,6 +102,7 @@
                         <div class="invalid-feedback">
                             Informe a data de nascimento!
                         </div>
+                        <span class="spanError" id="errorData"></span>
                     </div>
                 </div>
                 {{-- Telefone --}}
@@ -121,7 +122,7 @@
                             Informe o telefone!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorTelefone"></span>
                 </div>
             </div>
             {{-- Linha 2 --}}
@@ -144,7 +145,7 @@
                             Informe o email!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorEmail"></span>
                 </div>
                 {{-- Senha --}}
                 <div class="col-sm-2" id="senha" style="width: 250px">
@@ -226,8 +227,9 @@
                             Informe o horário da entrada!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorEntrada"></span>
                 </div>
+                <div class="custom-spacing"></div>
                 {{-- Saída --}}
                 <div class="col-sm-2">
                     <label for="inputSaida">Horario de Saida</label>
@@ -245,112 +247,137 @@
                             Informe o horário da saída!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorSaida"></span>
                 </div>
             </div>
             {{-- Linha 3 --}}
-            <div class="custom-spacing"></div>
+
             <div class="row" style="justify-content: space-between; margin-top: 36px;">
-                {{-- Endereço --}}
-                <div class="col-sm-4">
-                    <label for="inputEndereco">Endereço:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-map secondary-color" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
-                            </svg>
+                <div class="custom-spacing2"></div>
+                <div class="row d-flex justify-content-between mt-4">
+                    {{-- Endereço --}}
+                    <div class="col-sm-3">
+                        <label for="inputEndereco">Endereço:</label>
+                        <div class="input-group">
+                            <div class="input-group-text background-icon-color">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-map secondary-color" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
+                                </svg>
+                            </div>
+                            <input type="text" class="form-control" id="inputEndereco" name="enderecoStudent"
+                                placeholder="Digite seu endereço" required>
+                            <div class="invalid-feedback">
+                                Informe o endereço!
+                            </div>
+
                         </div>
-                        <input type="text" class="form-control" id="inputEndereco" name="enderecoInstructor"
-                            placeholder="Endereço" required>
-                        <div class="invalid-feedback">
-                            Informe o endereço!
+                        <span class="spanError" id="errorEndereco"></span>
+                    </div>
+                    {{-- Número --}}
+                    <div class="col-sm-1" style="width: 140px">
+                        <label for="inputNumero">Número:</label>
+                        <div class="input-group">
+                            <div class="input-group-text background-icon-color">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </div>
+                            <input type="text" class="form-control" id="inputNumero" name="numeroStudent"
+                                placeholder="XXXX" required>
+                            <div class="invalid-feedback">
+                                Informe o número!
+                            </div>
+                            <span class="spanError" id="errorNumero"></span>
                         </div>
                     </div>
-                </div>
-                {{-- Número --}}
-                <div class="col-sm-1" style="width: 140px">
-                    <label for="inputNumero">Número:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                            </svg>
+                    {{-- Estado --}}
+                    <div class="col-sm-1" style="width: 140px">
+                        <label for="inputEstado">UF:</label>
+                        <div class="input-group">
+                            <div class="input-group-text background-icon-color">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </div>
+                            <select class="form-select" id="inputEstado" name="estadoStudent" required>
+                                <option selected disabled value=""></option>
+                            </select>
                         </div>
-                        <input type="text" class="form-control" id="inputNumero" name="numeroInstructor"
-                            placeholder="XXXX" required>
-                        <div class="invalid-feedback">
-                            Informe o número!
+                        <span class="spanError" id="errorEstado"></span>
+                    </div>
+                    {{-- Cidade --}}
+                    <div class="col-sm-3">
+                        <label for="inputCidade">Cidade:</label>
+                        <div class="input-group">
+                            <div class="input-group-text background-icon-color">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-houses secondary-color" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
+                                </svg>
+                            </div>
+                            <select class="form-select" id="inputCidade" name="cidadeStudent" required>
+                                <option selected disabled value=""></option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Informe a cidade!
+                            </div>
+                            <span class="spanError" id="errorCidade"></span>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-1" style="width: 140px">
-                    <label for="inputEstado">UF:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-geo-alt secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                            </svg>
+                    {{-- CEP --}}
+                    <div class="col-sm-2">
+                        <label for="inputCep">CEP:</label>
+                        <div class="input-group">
+                            <div class="input-group-text background-icon-color">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-truck secondary-color" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                </svg>
+                            </div>
+                            <input type="text" class="form-control" id="inputCep" name="cepStudent"
+                                placeholder="Digite o CEP" required>
+                            <div class="invalid-feedback">
+                                Informe o CEP!
+                            </div>
                         </div>
-                        <select class="form-select" id="inputEstado" name="estadoInstructor" required>
-                            <option selected disabled value=""></option>
-                        </select>
+                        <span class="spanError" id="errorCep"></span>
                     </div>
-                </div>
-                {{-- Cidade --}}
-                <div class="col-sm-3">
-                    <label for="inputCidade">Cidade:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-houses secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
-                            </svg>
-                        </div>
-                        <select class="form-select" id="inputCidade" name="cidadeInstructor" required>
-                            <option selected disabled value=""></option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Informe a cidade!
-                        </div>
-                    </div>
-                </div>
-                {{-- CEP --}}
-                <div class="col-sm-2">
-                    <label for="inputCep">Cep:</label>
-                    <div class="input-group">
-                        <div class="input-group-text background-icon-color">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-truck secondary-color" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                            </svg>
-                        </div>
-                        <input type="text" class="form-control" id="inputCep" name="cepInstructor"
-                            placeholder="CEP" required>
-                        <div class="invalid-feedback">
-                            Informe o CEP!
-                        </div>
-                    </div>
-                    {{-- <span id="error"></span> --}}
                 </div>
             </div>
             <div class="row" style="justify-content: end; margin-top: 36px;">
-                <div class="col-md-1"><button class="btn btn-success" type="submit">Cadastrar</button></div>
+                <div class="col-md-1"><button class="btn btn-success" type="submit"
+                        id="submitButton">Cadastrar</button></div>
             </div>
         </form>
     </div>
 
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erro</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="modalErrorMessage">Preencha todos os campos corretamente antes de enviar o formulário.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="fecharModal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Seleção de estado e cidade para dados do instrutor
         const urlEstados = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
         const estado = document.getElementById('inputEstado')
         const cidade = document.getElementById('inputCidade')
@@ -383,6 +410,40 @@
 
             estado.append(options)
         })
+
+        function validarCampos() {
+            const campos = [
+                { campo: inputNome, nome: "Nome Completo" },
+                { campo: inputCpf, nome: "CPF" },
+                { campo: inputData, nome: "Data de Nascimento" },
+                { campo: inputTelefone, nome: "Telefone" },
+                { campo: inputEmail, nome: "E-mail" },
+                { campo: inputSenha, nome: "Senha" },
+                { campo: inputConfirmarSenha, nome: "Confirmar Senha" },
+                { campo: inputEndereco, nome: "Endereço" },
+                { campo: inputEntrada, nome: "Horario de Entrada" },
+                { campo: inputSaida, nome: "Horario de Saida" },
+                { campo: inputNumero, nome: "Número" },
+                { campo: inputEstado, nome: "Estado" },
+                { campo: inputCidade, nome: "Cidade" },
+                { campo: inputCep, nome: "CEP" }
+            ];
+
+            for (const {
+                    campo,
+                    nome
+                }
+                of campos) {
+                if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                    document.getElementById('modalErrorMessage').textContent =
+                        `Por favor preencha adequadamente o campo "${nome}" .`;
+                    $('#myModal').modal('show');
+                    return false;
+                }
+            }
+            return true;
+        }
     </script>
+
     <script src="{{ asset('js/validacao.js') }}"></script>
 @endsection

@@ -24,7 +24,7 @@
                 {{-- Nome --}}
                 <div class="col-sm-6">
 
-                    <label for="inputNome">Nome da Aula:</label>
+                    <label for="nomeExercicio">Nome da Aula:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -33,13 +33,13 @@
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputNome" name="nameLesson" placeholder="Nome"
+                        <input type="text" class="form-control" id="nomeExercicio" name="nameLesson" placeholder="Nome"
                             required>
                         <div class="invalid-feedback">
                             Informe o nome da aula!
                         </div>
                     </div>
-                    {{-- <span id="error"></span> --}}
+                    <span class="spanError" id="errorNome"></span>
                 </div>
                 {{-- Instrutor --}}
                 <div class="col-sm-3" style="min-width: 200px">
@@ -62,6 +62,7 @@
                             Informe o Instrutor!
                         </div>
                     </div>
+                    <span class="spanError" id="errorInstrutor"></span>
                 </div>
                 {{-- Máximo de Aluno --}}
                 <div class="col-sm-3">
@@ -82,13 +83,14 @@
                             Informe o número máximo de alunos!
                         </div>
                     </div>
+                    <span class="spanError" id="errorMaxAlunos"></span>
                 </div>
             </div>
             {{-- Linha 2 --}}
             <div class="row" style="justify-content: space-between; margin-top: 36px;">
                 {{-- Descrição --}}
                 <div class="col-sm-16 ">
-                    <label for="aulaDescricao">Descrição da Aula</label>
+                    <label for="descricaoExercicio">Descrição da Aula</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -103,22 +105,75 @@
                             <textarea class="form-control h-100"
                                 style="border: 1px solid #000;border-bottom-right-radius: 7px;
                         border-top-right-radius: 7px ;"
-                                id="aulaDescricao" name="descriptionLesson"></textarea>
-
+                                id="descricaoExercicio" name="descriptionLesson"></textarea>
                         </div>
                         <div class="invalid-feedback">
                             Informe a descrição!
                         </div>
                     </div>
+                    <span class="spanError" id="errorDescricao"></span>
                 </div>
 
             </div>
             <div class="row" style="justify-content: end; margin-top: 36px;">
-                <div class="col-md-1"><button button type="button" class="btn btn-success">Cadastrar</button></div>
+                <div class="col-md-1">
+                    <button button class="btn btn-success" type="submit" id="submitButton">Cadastrar</button>
+                </div>
             </div>
+            <div class="custom-spacing"></div>
     </div>
     </form>
-
     </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erro</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="modalErrorMessage">Preencha todos os campos corretamente antes de enviar o formulário.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="fecharModal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validarCampos() {
+            const campos = [
+                {
+                    campo: nomeExercicio,
+                    nome: "Nome da aula"
+                },
+                {
+                    campo: inputInstrutor,
+                    nome: "Instrutor responsavel"
+                },
+                {
+                    campo: inputMaxAlunos,
+                    nome: "Maximo de alunos"
+                },
+                {
+                    campo: descricaoExercicio,
+                    nome: "Descrição da aula"
+                },
+            ];
+
+            for (const {
+                    campo,
+                    nome
+                }
+                of campos) {
+                if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                    document.getElementById('modalErrorMessage').textContent =
+                        `Por favor preencha adequadamente o campo "${nome}" .`;
+                    $('#myModal').modal('show');
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
 
 @endsection

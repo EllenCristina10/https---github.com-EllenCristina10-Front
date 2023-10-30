@@ -35,7 +35,7 @@
                                     <path
                                         d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
                                     <path
-                                        d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.740.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+                                        d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8.5 10c.26 0 .507.009.740.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
                                 </svg>
                             </label>
                         </div>
@@ -312,7 +312,7 @@
                         <div class="invalid-feedback">
                             Informe o endereço!
                         </div>
-                        
+                        <span class="spanError" id="errorEndereco"></span>
                     </div>
                 </div>
                 {{-- Número --}}
@@ -417,6 +417,7 @@
                         <div class="invalid-feedback">
                             Informe o Instrutor!
                         </div>
+                    <span class="spanError" id="errorInstrutor"></span>
                     </div>
                 </div>
                 {{-- Turno --}}
@@ -440,6 +441,7 @@
                         <div class="invalid-feedback">
                             Informe o Turno!
                         </div>
+                        <span class="spanError" id="errorTurno"></span>
                     </div>
                 </div>
             </div>
@@ -1576,8 +1578,63 @@
             </div>
         </form>
     </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erro</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="modalErrorMessage">Preencha todos os campos corretamente antes de enviar o formulário.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="fecharModal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      function validarCampos() {
+    const campos = [
+        { campo: document.getElementById('imageContainer'), nome: "Imagem" },
+        { campo: inputNome, nome: "Nome Completo" },
+        { campo: inputData, nome: "Data de Nascimento" },
+        { campo: inputCpf, nome: "CPF" },
+        { campo: inputSexo, nome: "Sexo" },
+        { campo: inputPeso, nome: "Peso" },
+        { campo: inputAltura, nome: "Altura" },
+        { campo: inputTelefone, nome: "Telefone" },
+        { campo: inputEmail, nome: "E-mail" },
+        { campo: inputSenha, nome: "Senha" },
+        { campo: inputConfirmarSenha, nome: "Confirmar Senha" },
+        { campo: inputEndereco, nome: "Endereço" },
+        { campo: inputNumero, nome: "Número" },
+        { campo: inputEstado, nome: "Estado" },
+        { campo: inputCidade, nome: "Cidade" },
+        { campo: inputCep, nome: "CEP" },
+        { campo: inputInstrutor, nome: "Instrutor" },
+        { campo: inputTurno, nome: "Turno" },
+     
+    ];
 
-    <script src="{{ asset('js/validacao.js') }}"></script>
+    for (const { campo, nome } of campos) {
+        if (campo === document.getElementById('imageContainer')) {
+            if (!campo.classList.contains('border-green')) {
+                document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
+                $('#myModal').modal('show');
+                return false;
+            }
+        } else {
+            if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                document.getElementById('modalErrorMessage').textContent = `Por favor, preencha adequadamente o campo "${nome}".`;
+                $('#myModal').modal('show');
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+    </script>
     <script src="{{ asset('js/aluno.js') }}"></script>
-
 @endsection

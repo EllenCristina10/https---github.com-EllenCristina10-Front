@@ -30,42 +30,42 @@ const Mask = {
         if (value.length > 14) {
             value = value.slice(0, -1);
         }
-        if(value.length < 14){
+        if (value.length < 14) {
             msg.style.display = "block";
             msg.innerHTML = "Número de Cpf incompleto";
             inputCpf.style.borderColor = "red";
         }
-        else{ 
+        else {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputCpf.style.borderColor = "green";
         }
         return value;
     },
-    peso(value){
+    peso(value) {
 
         let msg = document.getElementById("errorPeso");
-    value = value.replace(/[^0-9.]/g, '');
+        value = value.replace(/[^0-9.]/g, '');
 
 
-    if (value.length > 6) {
-        value = value.slice(0, 6);
-    }
+        if (value.length > 6) {
+            value = value.slice(0, 6);
+        }
 
-    const peso = parseFloat(value);
+        const peso = parseFloat(value);
 
-    if (!isNaN(peso) && peso <= 500.00) {
-        msg.style.display = "block";
-        msg.innerHTML = "";
-        inputPeso.style.borderColor = "green";
-        return value;
-    } else {
-        msg.style.display = "block";
-        msg.innerHTML = "O limite de Peso é de 500 kgs";
-        inputPeso.style.borderColor = "red";
-        return '';
-    }
-},
+        if (!isNaN(peso) && peso <= 500.00) {
+            msg.style.display = "block";
+            msg.innerHTML = "";
+            inputPeso.style.borderColor = "green";
+            return value;
+        } else {
+            msg.style.display = "block";
+            msg.innerHTML = "O limite de Peso é de 500 kgs";
+            inputPeso.style.borderColor = "red";
+            return '';
+        }
+    },
     telefone(value) {
         value = value.replace(/\D/g, "");
         let msg = document.getElementById("errorTelefone");
@@ -91,24 +91,24 @@ const Mask = {
         if (value.length > 7) {
             formattedValue += `-${value.slice(7, 11)}`;
         }
-        if(value.length < 11){
+        if (value.length < 11) {
             msg.style.display = "block";
             msg.innerHTML = "Número de telefone Incompleto";
             inputTelefone.style.borderColor = "red";
         }
-        else{ 
+        else {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputTelefone.style.borderColor = "green";
         }
         return formattedValue;
-    },data(value) {
+    }, data(value) {
         let msg = document.getElementById("errorData");
         let currentDate = new Date();
         let minDate = new Date(currentDate);
         minDate.setFullYear(minDate.getFullYear() - 10);
         let inputDate = new Date(value);
-    
+
         if (!value) {
             // O campo está vazio
             msg.style.display = "none";
@@ -117,17 +117,17 @@ const Mask = {
         } else if (inputDate < new Date("1900-01-01")) {
             // A data é menor que "01/01/01"
             msg.style.display = "block";
-            msg.innerHTML = "Aluno muito idoso";
+            msg.innerHTML = "Pessoa muito velha";
             inputData.style.borderColor = "red";
         } else if (inputDate > currentDate) {
             // A data é maior que a data atual
             msg.style.display = "block";
             msg.innerHTML = "Data invalida, valor muito alto";
             inputData.style.borderColor = "red";
-        }else if (inputDate > minDate) {
+        } else if (inputDate > minDate) {
             // A data é maior que 10 anos atrás a partir da data atual
             msg.style.display = "block";
-            msg.innerHTML = "Data invalida, aluno muito novo";
+            msg.innerHTML = "Data invalida, pessoa muito nova";
             inputData.style.borderColor = "red";
         } else {
             // A data está dentro do intervalo desejado
@@ -135,9 +135,9 @@ const Mask = {
             msg.innerHTML = "";
             inputData.style.borderColor = "green";
         }
-    
+
         return value;
-    },numero(value){
+    }, numero(value) {
         let msg = document.getElementById("errorNumero");
         value = value.replace(/\D/g, "");
         if (value.length > 5) {
@@ -146,7 +146,7 @@ const Mask = {
             msg.innerHTML = "Número muito alto";
             inputNumero.style.borderColor = "red";
             return "";
-        } else{
+        } else {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputNumero.style.borderColor = "green";
@@ -160,14 +160,14 @@ const Mask = {
         if (value.length > 8) {
             value = value.slice(0, -1);
         }
-        
+
         value = value.replace(/(\d{5})(\d)/, "$1-$2");
-        if(value.length < 8){
+        if (value.length < 8) {
             msg.style.display = "block";
             msg.innerHTML = "Cep Incompleto";
             inputCep.style.borderColor = "red";
         }
-        else{ 
+        else {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputCep.style.borderColor = "green";
@@ -181,7 +181,7 @@ const Mask = {
         if (value.length > 3) {
             value = value.slice(0, 6);
         }
-        
+
         const altura = value;
 
         if (!isNaN(altura) && altura <= 400) {
@@ -196,41 +196,146 @@ const Mask = {
             return '';
         }
     },
-    sexo(value){
+    sexo(value) {
         let msg = document.getElementById("errorSexo");
 
-        if (value!="...") {
+        if (value != "...") {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputSexo.style.borderColor = "green";
             return value;
-        } 
+        }
     },
-    email(value){
-        let msg = document.getElementById("errorEmail") 
+    email(value) {
+        let msg = document.getElementById("errorEmail")
 
-        if(value.includes("@") && value.includes(".")){
+        if (value.includes("@") && value.includes(".")) {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputEmail.style.borderColor = "green";
-        }else{
+        } else {
             msg.style.display = "none";
             msg.innerHTML = "Email invalido";
             inputEmail.style.borderColor = "red";
         }
         return value;
     },
-    uf(value){
+    uf(value) {
         let msg = document.getElementById("errorEstado");
 
-        if (value!="") {
+        if (value != "") {
             msg.style.display = "none";
             msg.innerHTML = "";
             inputEstado.style.borderColor = "green";
             inputCidade.style.borderColor = "green";
             return value;
-        } 
-    }
+        }
+    }, endereco(value) {
+        let msg = document.getElementById("errorEndereco");
+        if (value.length < 6) {
+            msg.style.display = "block";
+            msg.innerHTML = "Endereço muito pequeno";
+            inputEndereco.style.borderColor = "red";
+        }
+        else {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputEndereco.style.borderColor = "green";
+        }
+        return value
+    },
+    instrutor(value){
+        let msg = document.getElementById("errorInstrutor");
+
+        if (value != "...") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputInstrutor.style.borderColor = "green";
+            return value;
+        }
+    },
+    turno(value){
+        let msg = document.getElementById("errorTurno");
+
+        if (value != "...") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputTurno.style.borderColor = "green";
+            return value;
+        }
+    },
+    entrada(value){
+        let msg = document.getElementById("errorEntrada");
+
+        if (value != "...") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputEntrada.style.borderColor = "green";
+            return value;
+        }
+    },
+    saida(value){
+        let msg = document.getElementById("errorSaida");
+
+        if (value != "...") {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputSaida.style.borderColor = "green";
+            return value;
+        }
+    },
+    nomeexercicio(value){
+        let msg = document.getElementById("errorNome");
+
+        if (value.length < 3) {
+            msg.style.display = "block";
+            msg.innerHTML = "Nome muito pequeno";
+            nomeExercicio.style.borderColor = "red";
+        }
+        else {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            nomeExercicio.style.borderColor = "green";
+        }
+        return value;
+    },
+    descricaoexercicio(value){
+        let msg = document.getElementById("errorDescricao");
+
+        if (value.length < 10) {
+            msg.style.display = "block";
+            msg.innerHTML = "Descrição muito pequena";
+            descricaoExercicio.style.borderColor = "red";
+        }
+        else {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            descricaoExercicio.style.borderColor = "green";
+        }
+        return value;
+    },
+    maxAlunos(value) {
+        let msg = document.getElementById("errorMaxAlunos");
+        value = value.replace(/\D/g, "");
+
+        if (value.length > 3) {
+            value = value.slice(0, 6);
+        }
+
+        const max = value;
+
+        if (!isNaN(max) && max <= 30) {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputMaxAlunos.style.borderColor = "green";
+            return value;
+        } else {
+            msg.style.display = "block";
+            msg.innerHTML = "O limite de alunos e de 30";
+            inputMaxAlunos.style.borderColor = "red";
+            return '';
+        }
+    },
 }
 
 const PhotosUpload = {
@@ -425,7 +530,7 @@ const Validate = {
 
         if (value.length < 11) {
             error = "Informe um documento válido!";
-        } 
+        }
         return {
             error,
             value
@@ -444,9 +549,9 @@ const Validate = {
             error,
             value
         };
-    },
-    
-    
+    }
+
+
 }
 const inputCpf = document.getElementById('inputCpf');
 const inputCep = document.getElementById('inputCep');
@@ -458,83 +563,149 @@ const inputNumero = document.getElementById('inputNumero');
 const inputSexo = document.getElementById('inputSexo');
 const inputEmail = document.getElementById('inputEmail');
 const inputEstado = document.getElementById('inputEstado');
+const inputEndereco = document.getElementById('inputEndereco');
+const inputInstrutor = document.getElementById('inputInstrutor');
+const inputTurno = document.getElementById('inputTurno');
+const inputEntrada = document.getElementById('inputEntrada');
+const inputSaida = document.getElementById('inputSaida');
+const nomeExercicio = document.getElementById('nomeExercicio');
+const descricaoExercicio = document.getElementById('descricaoExercicio');
+const inputMaxAlunos = document.getElementById('inputMaxAlunos');
+
+if(inputCpf){
 inputCpf.addEventListener('input', function () {
     Mask.apply(this, 'cpf');
 });
-
+}
+if(inputCep){
 inputCep.addEventListener('input', function () {
     Mask.apply(this, 'cep')
 });
-
+}
+if(inputTelefone){
 inputTelefone.addEventListener('input', function () {
     Mask.apply(this, 'telefone')
 });
-
+}
+if(inputPeso){
 inputPeso.addEventListener('input', function () {
     Mask.apply(this, 'peso')
 });
+}
+if(inputAltura){
 inputAltura.addEventListener('input', function () {
     Mask.apply(this, 'altura')
 });
+}
+if(inputData){
 inputData.addEventListener('input', function () {
     Mask.apply(this, 'data')
 });
+}
+if(inputNumero){
 inputNumero.addEventListener('input', function () {
     Mask.apply(this, 'numero')
 });
+}
+if(inputSexo){
 inputSexo.addEventListener('input', function () {
     Mask.apply(this, 'sexo')
 });
+}
+if(inputEmail){
 inputEmail.addEventListener('input', function () {
     Mask.apply(this, 'email')
 });
+}
+if(inputEstado){
 inputEstado.addEventListener('input', function () {
     Mask.apply(this, 'uf')
 });
-
-
+}
+if(inputEndereco){
+inputEndereco.addEventListener('input', function () {
+    Mask.apply(this, 'endereco');
+});
+}
+if(inputInstrutor){
+inputInstrutor.addEventListener('input', function () {
+    Mask.apply(this, 'instrutor');
+});
+}
+if(inputTurno){
+    inputTurno.addEventListener('input', function () {
+        Mask.apply(this, 'turno');
+    });
+}
+if(inputEntrada){
+    inputEntrada.addEventListener('input', function () {
+        Mask.apply(this, 'entrada');
+    });
+}
+if(inputSaida){
+    inputSaida.addEventListener('input', function () {
+        Mask.apply(this, 'saida');
+    });
+}
+if(nomeExercicio){
+    nomeExercicio.addEventListener('input', function () {
+        Mask.apply(this, 'nomeexercicio');
+    });
+}
+if(descricaoExercicio){
+    descricaoExercicio.addEventListener('input', function () {
+        Mask.apply(this, 'descricaoexercicio');
+    });
+}
+if(inputMaxAlunos){
+    inputMaxAlunos.addEventListener('input', function () {
+        Mask.apply(this, 'maxAlunos');
+    });
+}
 
 const inputNome = document.getElementById('inputNome');
-
-
-inputNome.addEventListener('input', function () {
-    validarNome(this);
-});
-
+if(inputNome){
+    inputNome.addEventListener('input', function () {
+        validarNome(this);
+    });
+}
 function validarNome(input) {
     const valor = input.value;
-    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/; 
+    const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
     let msg = document.getElementById("errorNome");
 
-    
+
     if (!regex.test(valor)) {
-        
-            msg.style.display = "block";
-            msg.innerHTML = "Nome inválido, apenas letras são aceitas";
-            inputNome.style.borderColor = "red";
-            input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, ''); 
-    }else if (valor.length < 10){
         msg.style.display = "block";
-            msg.innerHTML = "Nome muito pequeno";
-            inputNome.style.borderColor = "red";
+        msg.innerHTML = "Nome inválido, apenas letras são aceitas";
+        inputNome.style.borderColor = "red";
+        input.value = valor.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ\s]+/g, '');
+
+    } else if (valor.length < 10) {
+        msg.style.display = "block";
+        msg.innerHTML = "Nome muito pequeno";
+        inputNome.style.borderColor = "red";
     }
-    else{ 
+    else {
         msg.style.display = "none";
         msg.innerHTML = "";
         inputNome.style.borderColor = "green";
     }
 }
 
+const inputSenha = document.getElementById('inputSenha');
+const inputConfirmarSenha = document.getElementById('inputConfirmarSenha');
+    if(inputSenha){
+        inputSenha.addEventListener('input', function () {
+            validarSenha();
+        });
+    }
+    if(inputConfirmarSenha){
+        inputConfirmarSenha.addEventListener('input', function () {
+            confirmPassword();
+        });
+    }
 
-document.querySelector('#inputSenha').addEventListener('input', function () {
-    validarSenha();
-});
-document.querySelector('#inputConfirmarSenha').addEventListener('input', function () {
-    confirmPassword();
-});
-const inputConfirmarSenha = document.querySelector('#inputConfirmarSenha');
-const passwordStyle = document.getElementById("inputSenha").style;
-const confirmStyle = document.getElementById("inputConfirmarSenha").style;
 //Validando Senha
 function validarSenha() {
 
@@ -546,17 +717,17 @@ function validarSenha() {
     if (inputSenha.value == "") {
         msg.style.display = "block";
         msg.innerHTML = "Campo obrigatório*";
-        passwordStyle.borderColor = "red";
+        inputSenha.borderColor = "red";
         return false;
     } else if (resultsPassword === false) {
         msg.style.display = "block";
         msg.innerHTML = "Senha inválida! <br>A senha deve conter entre 8 e 20 caracteres e deve incluir letras maiúsculas, letras minúsculas e caracteres especiais.";
-        passwordStyle.borderColor = "red";
+        inputSenha.borderColor = "red";
         return false;
     } else {
         msg.style.display = "none";
         msg.innerHTML = "";
-        passwordStyle.borderColor = "green";
+        inputSenha.borderColor = "green";
         return true;
     };
 };
@@ -569,25 +740,20 @@ function confirmPassword() {
     if (inputConfirmarSenha.value == "") {
         msg.style.display = "block";
         msg.innerHTML = "Digite a senha novamente!";
-        confirmStyle.borderColor = "red";
+        inputConfirmarSenha.borderColor = "red";
         return false;
     } else if (inputSenha.value !== inputConfirmarSenha.value) {
         msg.style.display = "block";
         msg.innerHTML = "Senhas não conferem!";
-        confirmStyle.borderColor = "red";
+        inputConfirmarSenha.borderColor = "red";
         return false;
     } else {
         msg.style.display = "none";
         msg.innerHTML = "";
-        confirmStyle.borderColor = "green";
+        inputConfirmarSenha.borderColor = "green";
         return true;
     };
 };
-
-
-
-
-
 
 function togglePassword(inputId, eyeIcon) {
     const inputElement = document.getElementById(inputId);
@@ -600,53 +766,25 @@ function togglePassword(inputId, eyeIcon) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Adicione um manipulador de eventos ao formulário
-    document.getElementById('form').addEventListener('keypress', function(e) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('form').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
-            e.preventDefault(); // Impede o envio do formulário
+            e.preventDefault(); 
         }
     });
 });
 
-document.getElementById('submitButton').addEventListener('click', function(event) {
-    // Define uma variável para controlar a validação dos campos
+document.getElementById('submitButton').addEventListener('click', function (event) {
     let camposSaoValidos = validarCampos();
 
-    if (!camposSaoValidos) {
-        alert("Campos inválidos. Por favor, corrija-os antes de enviar o formulário.");
-    }
 
-    // Impede o envio do formulário se os campos não forem válidos
     if (!camposSaoValidos) {
         event.preventDefault();
     }
 });
 
-function validarCampos() {
-    const campos = [
-        inputCpf,
-        inputCep,
-        inputTelefone,
-        inputPeso,
-        inputAltura,
-        inputData,
-        inputNumero,
-        inputNome,
-        inputSenha,
-        inputConfirmarSenha,
-        inputSexo,
-        inputEmail,
-        inputEstado,
-        inputCidade
-    ];
 
-    for (const campo of campos) {
-        if (!campo.style.borderColor || campo.style.borderColor !== "green") {
-            alert("Preencha todos os campos corretamente antes de enviar o formulário.");
-            return false;
-        }
-    }
 
-    return true; // Todos os campos são válidos, pode enviar o formulário
-}
+document.getElementById('fecharModal').addEventListener('click', function () {
+    $('#myModal').modal('hide');
+});

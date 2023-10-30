@@ -1,29 +1,29 @@
 document.getElementById('inputImage').addEventListener('change', function(e) {
     const imageFile = e.target.files[0];
+    const avatarImage = document.getElementById('avatarImage');
+    const icon = document.querySelector('.bi-person-add');
+    const imageContainer = document.getElementById('imageContainer');
+
     if (imageFile) {
         const reader = new FileReader();
         reader.onload = function(event) {
-            const avatarImage = document.getElementById('avatarImage');
-            const icon = document.querySelector('.bi-person-add');
             avatarImage.src = event.target.result;
             avatarImage.style.display = 'block';
             icon.style.display = 'none';
 
-            avatarImage.style.width = 'auto';
-            avatarImage.style.height = 'auto';
-
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.style.width = '200px';
-            imageContainer.style.height = '200px';
-            imageContainer.style.overflow = 'hidden';
-            imageContainer.style.borderRadius = '50%';
-
-            avatarImage.style.maxWidth = '120%';
-            avatarImage.style.maxHeight = '120%';
-            avatarImage.style.display = 'block';
-            avatarImage.style.margin = 'auto';
+            // Adicione a classe "border-green" para destacar as bordas da imagem
+            imageContainer.classList.add('border-green');
+            
+            // Defina a borda do input como verde
+            e.target.style.borderColor = 'green';
         };
         reader.readAsDataURL(imageFile);
+    } else {
+        // Caso o usuário não tenha carregado uma imagem, remova a classe "border-green"
+        imageContainer.classList.remove('border-green');
+        
+        // Reverta a cor da borda do input para a cor padrão
+        e.target.style.borderColor = '';
     }
 });
 

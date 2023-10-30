@@ -23,7 +23,7 @@
                 </div>
                 {{-- Nome --}}
                 <div class="col-sm-6">
-                    <label for="NomeExercicio">Nome do Exercício:</label>
+                    <label for="nomeExercicio">Nome do Exercício:</label>
                     <div class="input-group">
                         <div class="input-group-text background-icon-color">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -32,13 +32,13 @@
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="NomeExercicio" name="nameExercise"
+                        <input type="text" class="form-control" id="nomeExercicio" name="nameExercise"
                             placeholder="Nome do Exercício" pattern="[a-z A-Z àâÂÀòôÒÔèêÈÊìîÌÎùûÙÛ \s]+$" required>
                         <div class="invalid-feedback">
                             Informe o nome do exercício!
                         </div>
                     </div>
-                    {{--  <span id="error"></span>   --}}
+                    <span class="spanError" id="errorNome"></span>
                 </div>
                 {{-- Descrição --}}
                 <div class="col-sm-6">
@@ -65,7 +65,7 @@
                             Informe a descrição!
                         </div>
                     </div>
-
+                    <span class="spanError" id="errorDescricao"></span>
                 </div>
             </div>
             {{-- Linha 2 --}}
@@ -93,11 +93,54 @@
                 </div>
             </div>
             <div class="row" style="justify-content: end; margin-top: 36px;">
-                <div class="col-md-1"><button button class="btn btn-success" type="submit"
-                        onclick="validate()">Cadastrar</button></div>
+                <div class="col-md-1">
+                    <button button class="btn btn-success" type="submit" id="submitButton">Cadastrar</button>
+                    </div>
             </div>
+            <div class="custom-spacing"></div>
     </div>
     </form>
     </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erro</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="modalErrorMessage">Preencha todos os campos corretamente antes de enviar o formulário.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="fecharModal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validarCampos() {
+            const campos = [{
+                    campo: nomeExercicio,
+                    nome: "Nome do exercicio"
+                },
+                {
+                    campo: descricaoExercicio,
+                    nome: "Descrição do exercício"
+                },
+            ];
 
+            for (const {
+                    campo,
+                    nome
+                }
+                of campos) {
+                if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                    document.getElementById('modalErrorMessage').textContent =
+                        `Por favor preencha adequadamente o campo "${nome}" .`;
+                    $('#myModal').modal('show');
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
 @endsection

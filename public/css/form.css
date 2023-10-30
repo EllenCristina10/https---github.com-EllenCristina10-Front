@@ -80,6 +80,7 @@
 input[type="text"],
 input[type="date"],
 input[type="email"],
+input[type="time"],
 .form-select {
     border: 1px solid #000000ab;
     border-bottom-right-radius: 7px !important;
@@ -90,10 +91,6 @@ input[type="password"],
 .input-group-text{
     border: 1px solid #000000ab;
 }
-
-
-
-
 
 .form-check-input{
     border: 1px solid #000000ab;
