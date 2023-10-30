@@ -10,23 +10,35 @@
         <div class="form-header">
             <h2>Lista de Alunos</h2>
         </div>
-        <table class=" table table-light table-striped-columns">
+        <table class="table table-light table-striped-columns">
             <thead>
                 <tr>
                     <th scope="col">Código</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contato</th>
-                    {{-- <th scope="col">Turno</th> --}}
+                    <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($students as $student)
                     <tr>
-                        <th> {{ $student->id }} </th>
-                        <th> {{ $student->student_name }} </th>
-                        <th> {{ $student->student_email }} </th>
-                        <th> {{ $student->student_telephone }} </th>
+                        <td> {{ $student->id }} </td>
+                        <td> {{ $student->student_name }} </td>
+                        <td> {{ $student->student_email }} </td>
+                        <td> {{ $student->student_telephone }} </td>
+                        <td class="text-center">
+                    
+                            <a href="{{ route('student.edit', $student->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <form action="{{ route('student.destroy', $student->id) }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

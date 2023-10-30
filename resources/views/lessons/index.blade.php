@@ -15,6 +15,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Descrição</th>
+                    <th scope="col" class="text-center">Ações</th>
                     {{-- <th scope="col">Nome da Aula</th>
                 <th scope="col">Nome do Instrutor</th>                --}}
                 </tr>
@@ -24,6 +25,18 @@
                     <tr>
                         <th> {{ $lesson->id }} </th>
                         <th> {{ $lesson->lesson_description }} </th>
+                        <td class="text-center">
+                    
+                            <a href="{{ route('lesson.edit', $lesson->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <form action="{{ route('lesson.destroy', $lesson->id) }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

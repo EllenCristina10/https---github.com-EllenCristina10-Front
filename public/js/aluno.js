@@ -1,4 +1,4 @@
-document.getElementById('inputImage').addEventListener('change', function(e) {
+document.getElementById('inputImage').addEventListener('change', function (e) {
     const imageFile = e.target.files[0];
     const avatarImage = document.getElementById('avatarImage');
     const icon = document.querySelector('.bi-person-add');
@@ -6,14 +6,14 @@ document.getElementById('inputImage').addEventListener('change', function(e) {
 
     if (imageFile) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             avatarImage.src = event.target.result;
             avatarImage.style.display = 'block';
             icon.style.display = 'none';
 
             // Adicione a classe "border-green" para destacar as bordas da imagem
             imageContainer.classList.add('border-green');
-            
+
             // Defina a borda do input como verde
             e.target.style.borderColor = 'green';
         };
@@ -21,7 +21,7 @@ document.getElementById('inputImage').addEventListener('change', function(e) {
     } else {
         // Caso o usuário não tenha carregado uma imagem, remova a classe "border-green"
         imageContainer.classList.remove('border-green');
-        
+
         // Reverta a cor da borda do input para a cor padrão
         e.target.style.borderColor = '';
     }
@@ -29,19 +29,19 @@ document.getElementById('inputImage').addEventListener('change', function(e) {
 
 
 function toggleElements(inputSim, inputNao, textArea) {
-inputSim.addEventListener('click', function() {
-if (this.checked) {
-    textArea.style.display = 'block';
-} else {
-    textArea.style.display = 'none';
-}
-});
+    inputSim.addEventListener('click', function () {
+        if (this.checked) {
+            textArea.style.display = 'block';
+        } else {
+            textArea.style.display = 'none';
+        }
+    });
 
-inputNao.addEventListener('click', function() {
-if (this.checked) {
-    textArea.style.display = 'none';
-}
-});
+    inputNao.addEventListener('click', function () {
+        if (this.checked) {
+            textArea.style.display = 'none';
+        }
+    });
 }
 
 const sedentarioSim = document.getElementById('sedentarioSim');
@@ -79,9 +79,9 @@ const textOutrosAlergia = document.getElementById('textOutrosAlergia');
 toggleElements(checkAlergiaSim, checkAlergiaNao, textOutrosAlergia);
 
 function toggleTextElement(checkbox, textElement) {
-checkbox.addEventListener('change', function() {
-textElement.style.display = this.checked ? 'block' : 'none';
-});
+    checkbox.addEventListener('change', function () {
+        textElement.style.display = this.checked ? 'block' : 'none';
+    });
 }
 
 const checkOutrosDiagnosticado = document.getElementById('checkOutrosDiagnosticado');
@@ -120,28 +120,28 @@ const estado = document.getElementById('inputEstado')
 const cidade = document.getElementById('inputCidade')
 
 
-estado.addEventListener('change', async function(){
-    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+estado.value+'/municipios'
+estado.addEventListener('change', async function () {
+    const urlCidades = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/' + estado.value + '/municipios'
     const request = await fetch(urlCidades)
     const response = await request.json()
     let options = ''
-    response.forEach(function(cidade){
-        options +='<option>' +cidade.nome+ '</option>'
+    response.forEach(function (cidade) {
+        options += '<option>' + cidade.nome + '</option>'
 
     })
     cidade.innerHTML = options
 })
 
 
-window.addEventListener('load', async()=>{
+window.addEventListener('load', async () => {
     const request = await fetch(urlEstados)
     const response = await request.json()
 
-    
+
     const options = document.createElement("optgroup")
-    options.setAttribute('label','estados')
-    response.forEach(function(uf){
-        options.innerHTML += '<option>' +uf.sigla+ '</option>'
+    options.setAttribute('label', 'estados')
+    response.forEach(function (uf) {
+        options.innerHTML += '<option>' + uf.sigla + '</option>'
     })
 
     estado.append(options)

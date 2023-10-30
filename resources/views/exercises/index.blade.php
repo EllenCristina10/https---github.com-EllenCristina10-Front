@@ -16,6 +16,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Nome</th>
                     <th scope ="col">Descrição</th>
+                    <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,18 @@
                         <th> {{ $exercise->id }} </th>
                         <th> {{ $exercise->exercise_name }} </th>
                         <th> {{ $exercise->exercise_description }} </th>
+                        <td class="text-center">
+                    
+                            <a href="{{ route('exercise.edit', $exercise->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <form action="{{ route('exercise.destroy', $exercise->id) }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

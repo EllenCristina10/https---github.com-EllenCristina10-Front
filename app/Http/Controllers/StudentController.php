@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Anamnese;
 use Http;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class StudentController extends Controller
 {

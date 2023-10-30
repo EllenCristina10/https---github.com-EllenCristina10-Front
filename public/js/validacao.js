@@ -244,7 +244,7 @@ const Mask = {
         }
         return value
     },
-    instrutor(value){
+    instrutor(value) {
         let msg = document.getElementById("errorInstrutor");
 
         if (value != "...") {
@@ -254,7 +254,7 @@ const Mask = {
             return value;
         }
     },
-    turno(value){
+    turno(value) {
         let msg = document.getElementById("errorTurno");
 
         if (value != "...") {
@@ -264,7 +264,7 @@ const Mask = {
             return value;
         }
     },
-    entrada(value){
+    entrada(value) {
         let msg = document.getElementById("errorEntrada");
 
         if (value != "...") {
@@ -274,7 +274,7 @@ const Mask = {
             return value;
         }
     },
-    saida(value){
+    saida(value) {
         let msg = document.getElementById("errorSaida");
 
         if (value != "...") {
@@ -284,7 +284,7 @@ const Mask = {
             return value;
         }
     },
-    nomeexercicio(value){
+    nomeexercicio(value) {
         let msg = document.getElementById("errorNome");
 
         if (value.length < 3) {
@@ -299,7 +299,7 @@ const Mask = {
         }
         return value;
     },
-    descricaoexercicio(value){
+    descricaoexercicio(value) {
         let msg = document.getElementById("errorDescricao");
 
         if (value.length < 10) {
@@ -572,99 +572,99 @@ const nomeExercicio = document.getElementById('nomeExercicio');
 const descricaoExercicio = document.getElementById('descricaoExercicio');
 const inputMaxAlunos = document.getElementById('inputMaxAlunos');
 
-if(inputCpf){
-inputCpf.addEventListener('input', function () {
-    Mask.apply(this, 'cpf');
-});
+if (inputCpf) {
+    inputCpf.addEventListener('input', function () {
+        Mask.apply(this, 'cpf');
+    });
 }
-if(inputCep){
-inputCep.addEventListener('input', function () {
-    Mask.apply(this, 'cep')
-});
+if (inputCep) {
+    inputCep.addEventListener('input', function () {
+        Mask.apply(this, 'cep')
+    });
 }
-if(inputTelefone){
-inputTelefone.addEventListener('input', function () {
-    Mask.apply(this, 'telefone')
-});
+if (inputTelefone) {
+    inputTelefone.addEventListener('input', function () {
+        Mask.apply(this, 'telefone')
+    });
 }
-if(inputPeso){
-inputPeso.addEventListener('input', function () {
-    Mask.apply(this, 'peso')
-});
+if (inputPeso) {
+    inputPeso.addEventListener('input', function () {
+        Mask.apply(this, 'peso')
+    });
 }
-if(inputAltura){
-inputAltura.addEventListener('input', function () {
-    Mask.apply(this, 'altura')
-});
+if (inputAltura) {
+    inputAltura.addEventListener('input', function () {
+        Mask.apply(this, 'altura')
+    });
 }
-if(inputData){
-inputData.addEventListener('input', function () {
-    Mask.apply(this, 'data')
-});
+if (inputData) {
+    inputData.addEventListener('input', function () {
+        Mask.apply(this, 'data')
+    });
 }
-if(inputNumero){
-inputNumero.addEventListener('input', function () {
-    Mask.apply(this, 'numero')
-});
+if (inputNumero) {
+    inputNumero.addEventListener('input', function () {
+        Mask.apply(this, 'numero')
+    });
 }
-if(inputSexo){
-inputSexo.addEventListener('input', function () {
-    Mask.apply(this, 'sexo')
-});
+if (inputSexo) {
+    inputSexo.addEventListener('input', function () {
+        Mask.apply(this, 'sexo')
+    });
 }
-if(inputEmail){
-inputEmail.addEventListener('input', function () {
-    Mask.apply(this, 'email')
-});
+if (inputEmail) {
+    inputEmail.addEventListener('input', function () {
+        Mask.apply(this, 'email')
+    });
 }
-if(inputEstado){
-inputEstado.addEventListener('input', function () {
-    Mask.apply(this, 'uf')
-});
+if (inputEstado) {
+    inputEstado.addEventListener('input', function () {
+        Mask.apply(this, 'uf')
+    });
 }
-if(inputEndereco){
-inputEndereco.addEventListener('input', function () {
-    Mask.apply(this, 'endereco');
-});
+if (inputEndereco) {
+    inputEndereco.addEventListener('input', function () {
+        Mask.apply(this, 'endereco');
+    });
 }
-if(inputInstrutor){
-inputInstrutor.addEventListener('input', function () {
-    Mask.apply(this, 'instrutor');
-});
+if (inputInstrutor) {
+    inputInstrutor.addEventListener('input', function () {
+        Mask.apply(this, 'instrutor');
+    });
 }
-if(inputTurno){
+if (inputTurno) {
     inputTurno.addEventListener('input', function () {
         Mask.apply(this, 'turno');
     });
 }
-if(inputEntrada){
+if (inputEntrada) {
     inputEntrada.addEventListener('input', function () {
         Mask.apply(this, 'entrada');
     });
 }
-if(inputSaida){
+if (inputSaida) {
     inputSaida.addEventListener('input', function () {
         Mask.apply(this, 'saida');
     });
 }
-if(nomeExercicio){
+if (nomeExercicio) {
     nomeExercicio.addEventListener('input', function () {
         Mask.apply(this, 'nomeexercicio');
     });
 }
-if(descricaoExercicio){
+if (descricaoExercicio) {
     descricaoExercicio.addEventListener('input', function () {
         Mask.apply(this, 'descricaoexercicio');
     });
 }
-if(inputMaxAlunos){
+if (inputMaxAlunos) {
     inputMaxAlunos.addEventListener('input', function () {
         Mask.apply(this, 'maxAlunos');
     });
 }
 
 const inputNome = document.getElementById('inputNome');
-if(inputNome){
+if (inputNome) {
     inputNome.addEventListener('input', function () {
         validarNome(this);
     });
@@ -695,16 +695,16 @@ function validarNome(input) {
 
 const inputSenha = document.getElementById('inputSenha');
 const inputConfirmarSenha = document.getElementById('inputConfirmarSenha');
-    if(inputSenha){
-        inputSenha.addEventListener('input', function () {
-            validarSenha();
-        });
-    }
-    if(inputConfirmarSenha){
-        inputConfirmarSenha.addEventListener('input', function () {
-            confirmPassword();
-        });
-    }
+if (inputSenha) {
+    inputSenha.addEventListener('input', function () {
+        validarSenha();
+    });
+}
+if (inputConfirmarSenha) {
+    inputConfirmarSenha.addEventListener('input', function () {
+        confirmPassword();
+    });
+}
 
 //Validando Senha
 function validarSenha() {
@@ -769,7 +769,7 @@ function togglePassword(inputId, eyeIcon) {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('form').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
-            e.preventDefault(); 
+            e.preventDefault();
         }
     });
 });

@@ -17,6 +17,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Email</th>
+                    <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,18 @@
                         <th> {{ $instructor->instructor_name }} </th>
                         <th> {{ $instructor->instructor_telephone }} </th>
                         <th> {{ $instructor->instructor_email }} </th>
+                        <td class="text-center">
+                    
+                            <a href="{{ route('instructor.edit', $instructor->id) }}" class="btn btn-primary btn-sm">Editar</a>
+                            <form action="{{ route('instructor.destroy', $instructor->id) }}" method="POST"
+                                style="display: inline-block;">
+                                @csrf
+
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
