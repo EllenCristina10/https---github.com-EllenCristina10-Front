@@ -510,7 +510,7 @@
             <div class="row mt-4">
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="sentarnacadeira">
+                        <input class="form-check-input" type="checkbox" value="" id="sentarnacadeira" required>
                         <label class="form-check-label" for="sentarnacadeira">
                             Sentar na cadeira
                         </label>
@@ -518,7 +518,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="Levantaecarregar">
+                        <input class="form-check-input" type="checkbox" value="" id="Levantaecarregar" required>
                         <label class="form-check-label" for="Levantaecarregar">
                             Levantar ou carregar peso
                         </label>
@@ -526,7 +526,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="ficardepe">
+                        <input class="form-check-input" type="checkbox" value="" id="ficardepe" required>
                         <label class="form-check-label" for="ficardepe">
                             Ficar de pé
                         </label>
@@ -536,7 +536,7 @@
             <div class="row">
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="caminhar">
+                        <input class="form-check-input" type="checkbox" value="" id="caminhar" required>
                         <label class="form-check-label" for="caminhar">
                             Caminhar
                         </label>
@@ -544,7 +544,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="dirigir">
+                        <input class="form-check-input" type="checkbox" value="" id="dirigir" required>
                         <label class="form-check-label" for="dirigir">
                             Dirigir
                         </label>
@@ -552,7 +552,7 @@
                 </div>
                 <div class="col-sm">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="checkOutrosTrabalho">
+                        <input class="form-check-input" type="checkbox" value="" id="checkOutrosTrabalho" required>
                         <label class="form-check-label" for="checkOutrosTrabalho">
                             Outros
                         </label>
@@ -1051,7 +1051,7 @@
                     <div class="row mt-4">
                         <div class="col-sm-2">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="dornopeito " value="sempre"
+                                <input class="form-check-input" type="radio" name="dornopeito" value="sempre"
                                     id="dornopeitosempre">
                                 <label class="form-check-label" for="dornopeitosempre">
                                     Sempre
@@ -1119,7 +1119,7 @@
                     <div class="row mt-4">
                         <div class="col-sm-2">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="Faltadearcomesforçoleve "
+                                <input class="form-check-input" type="radio" name="Faltadearcomesforçoleve"
                                     value="sempre" id="Faltadearsempre">
                                 <label class="form-check-label" for="Faltadearsempre">
                                     Sempre
@@ -1595,12 +1595,13 @@
         </div>
     </div>
     <script>
-        function validarCampos() {
-            const campos = [{
-                    campo: document.getElementById('imageContainer'),
-                    nome: "Imagem"
-                },
-                {
+       function validarCampos() {
+    const campos = [
+        {
+            campo: document.getElementById('imageContainer'),
+            nome: "Imagem"
+        },
+        {
                     campo: inputNome,
                     nome: "Nome Completo"
                 },
@@ -1675,38 +1676,39 @@
 
                 }
 
-            ];
+    ];
 
-            for (const {
-                    campo,
-                    nome
-                }
-                of campos) {
-                if (campo === document.getElementById('imageContainer')) {
-                    if (!campo.classList.contains('border-green')) {
-                        document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
-                        $('#myModal').modal('show');
-                        return false;
-                    }
-                } else {
-                    if (!campo.style.borderColor || campo.style.borderColor !== "green") {
-                        document.getElementById('modalErrorMessage').textContent =
-                            `Por favor, preencha adequadamente o campo "${nome}".`;
-                        $('#myModal').modal('show');
-                        return false;
-                    }
-                }
+    for (const { campo, nome } of campos) {
+        if (campo === document.getElementById('imageContainer')) {
+            if (!campo.classList.contains('border-green')) {
+                exibirMensagemDeErro(`Por favor, carregue a foto.`);
+                return false;
             }
-            if(validarRadio()){
-                return true;
-            }
-            else {
-                document.getElementById('modalErrorMessage').textContent =
-                            `Por favor, preencha a pergunta Horas de trabalho semanais:`;
-                        $('#myModal').modal('show');
+        } else {
+            if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                exibirMensagemDeErro(`Por favor, preencha adequadamente o campo "${nome}".`);
                 return false;
             }
         }
+    }
+
+    if (!validarRadio()) {
+        exibirMensagemDeErro(`Por favor, preencha a pergunta Horas de trabalho semanais.`);
+        return false;
+    }
+    if (!validarSintomas()) {
+        return false;
+    }
+    if(!verificainputsRadio()){
+        return false;
+    }
+    return true;
+}
+
+function exibirMensagemDeErro(mensagem) {
+    document.getElementById('modalErrorMessage').textContent = mensagem;
+    $('#myModal').modal('show');
+}
     </script>
     <script src="{{ asset('js/aluno.js') }}"></script>
     {{-- <script src="{{ asset('js/validacao.js') }}"></script> --}}

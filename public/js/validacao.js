@@ -110,27 +110,26 @@ const Mask = {
         let inputDate = new Date(value);
 
         if (!value) {
-            // O campo está vazio
             msg.style.display = "none";
             msg.innerHTML = "";
             inputData.style.borderColor = "";
         } else if (inputDate < new Date("1900-01-01")) {
-            // A data é menor que "01/01/01"
+       
             msg.style.display = "block";
             msg.innerHTML = "Pessoa muito velha";
             inputData.style.borderColor = "red";
         } else if (inputDate > currentDate) {
-            // A data é maior que a data atual
+     
             msg.style.display = "block";
             msg.innerHTML = "Data invalida, valor muito alto";
             inputData.style.borderColor = "red";
         } else if (inputDate > minDate) {
-            // A data é maior que 10 anos atrás a partir da data atual
+          
             msg.style.display = "block";
             msg.innerHTML = "Data invalida, pessoa muito nova";
             inputData.style.borderColor = "red";
         } else {
-            // A data está dentro do intervalo desejado
+        
             msg.style.display = "none";
             msg.innerHTML = "";
             inputData.style.borderColor = "green";
@@ -724,7 +723,54 @@ function validarRadio() {
     }
 }
 
+function verificaRadio(name) {
+    const radios = document.getElementsByName(name);
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            return true;
+        }
+    }
+    return false; 
+}
 
+function verificainputsRadio() {
+  
+    const alergiaMarcada = verificaRadio("alergia");
+    if (!alergiaMarcada) {
+        mostrarMensagemDeErro("Por favor, selecione se você possui alguma alergia.");
+        return false; 
+    }
+
+   
+    const acidenteMarcado = verificaRadio("acidente");
+    if (!acidenteMarcado) {
+        mostrarMensagemDeErro("Por favor, selecione se você sofreu algum acidente ou lesão ósteo-articular.");
+        return false; 
+    }
+
+
+    const restricaoMarcada = verificaRadio("restricao");
+    if (!restricaoMarcada) {
+        mostrarMensagemDeErro("Por favor, selecione se você possui alguma restrição à prática de atividade física.");
+        return false; 
+    }
+
+    
+    const fumaMarcado = verificaRadio("fuma");
+    if (!fumaMarcado) {
+        mostrarMensagemDeErro("Por favor, selecione se você fuma atualmente.");
+        return false; 
+    }
+
+ 
+    const sedentarioMarcado = verificaRadio("sedentario");
+    if (!sedentarioMarcado) {
+        mostrarMensagemDeErro("Por favor, selecione se você realiza alguma atividade física.");
+        return false; 
+    }
+
+    return true; 
+}
 function validarNome(input) {
     const valor = input.value;
     const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
@@ -748,6 +794,47 @@ function validarNome(input) {
         inputNome.style.borderColor = "green";
     }
 }
+function mostrarMensagemDeErro(mensagem) {
+    const modal = document.getElementById("myModal");
+    const modalErrorMessage = document.getElementById("modalErrorMessage");
+
+    modalErrorMessage.textContent = mensagem;
+    modal.style.display = "block";
+
+    const fecharModalButton = document.getElementById("fecharModal");
+    fecharModalButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+}
+
+
+
+function validarSintomas() {
+    const gruposSintomas = ['tosseComSangue', 'dorabdonminal', 'dornaspernas', 'dornosbraços', 'dornascostasoupescoco', 'dornopeito', 'doresarticulares', 'Faltadearcomesforçoleve', 'sentirsefraco', 'tontura', 'palpitação'];
+
+    for (const grupo of gruposSintomas) {
+        const opcoes = document.getElementsByName(grupo);
+
+        let algumaOpcaoMarcada = false;
+        for (const opcao of opcoes) {
+            if (opcao.checked) {
+                algumaOpcaoMarcada = true;
+                break;
+            }
+        }
+
+        if (!algumaOpcaoMarcada) {
+            mostrarMensagemDeErro(`Selecione pelo menos uma opção para o grupo de sintomas "${grupo}"`);
+            return false; 
+        }
+    }
+
+    return true;
+}
+
+
+
+
 
 const inputSenha = document.getElementById('inputSenha');
 const inputConfirmarSenha = document.getElementById('inputConfirmarSenha');
@@ -763,7 +850,6 @@ if (inputConfirmarSenha) {
     });
 }
 
-//Validando Senha
 function validarSenha() {
 
     let passwordRegex = /^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*\d+)(?=.*[.@$!%*?&]+)[A-Za-z\d.@$!%*?&]{8,16}$/g;
@@ -789,7 +875,6 @@ function validarSenha() {
     };
 };
 
-//confirmando Senha
 function confirmPassword() {
 
     let msg = document.getElementById("errorConfirmarSenha");
