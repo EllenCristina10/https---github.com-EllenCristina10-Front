@@ -120,8 +120,9 @@
                         <div class="input-group">
 
                             <div class="input-group-text background-icon-color">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-gender-ambiguous secondary-color" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-gender-ambiguous secondary-color"
+                                    viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
                                 </svg>
@@ -153,8 +154,8 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputPeso"  name="pesoStudent"
-                                placeholder="Digite seu peso" required >
+                            <input type="text" class="form-control rounded-right" id="inputPeso" name="pesoStudent"
+                                placeholder="Digite seu peso" required>
                             <div class="invalid-feedback">
                                 Informe seu peso!
                             </div>
@@ -175,7 +176,7 @@
                             </div>
 
                             <input type="text" class="form-control rounded-right" id="inputAltura"
-                                name="alturaStudent" placeholder="Sua altura em cm" required >
+                                name="alturaStudent" placeholder="Sua altura em cm" required>
                             <div class="invalid-feedback">
                                 Informe sua altura!
                             </div>
@@ -273,7 +274,7 @@
                             </svg>
                         </div>
                         <input type="password" class="form-control border-right-0" id="inputConfirmarSenha"
-                        name="confirmSenhaStudent"  placeholder="Confirme sua senha " required >
+                            name="confirmSenhaStudent" placeholder="Confirme sua senha " required>
                         <div class="invalid-feedback">
                             Confirme a senha!
                         </div>
@@ -417,7 +418,7 @@
                         <div class="invalid-feedback">
                             Informe o Instrutor!
                         </div>
-                    <span class="spanError" id="errorInstrutor"></span>
+                        <span class="spanError" id="errorInstrutor"></span>
                     </div>
                 </div>
                 {{-- Turno --}}
@@ -1594,47 +1595,117 @@
         </div>
     </div>
     <script>
-      function validarCampos() {
-    const campos = [
-        { campo: document.getElementById('imageContainer'), nome: "Imagem" },
-        { campo: inputNome, nome: "Nome Completo" },
-        { campo: inputData, nome: "Data de Nascimento" },
-        { campo: inputCpf, nome: "CPF" },
-        { campo: inputSexo, nome: "Sexo" },
-        { campo: inputPeso, nome: "Peso" },
-        { campo: inputAltura, nome: "Altura" },
-        { campo: inputTelefone, nome: "Telefone" },
-        { campo: inputEmail, nome: "E-mail" },
-        { campo: inputSenha, nome: "Senha" },
-        { campo: inputConfirmarSenha, nome: "Confirmar Senha" },
-        { campo: inputEndereco, nome: "Endereço" },
-        { campo: inputNumero, nome: "Número" },
-        { campo: inputEstado, nome: "Estado" },
-        { campo: inputCidade, nome: "Cidade" },
-        { campo: inputCep, nome: "CEP" },
-        { campo: inputInstrutor, nome: "Instrutor" },
-        { campo: inputTurno, nome: "Turno" },
-     
-    ];
+        function validarCampos() {
+            const campos = [{
+                    campo: document.getElementById('imageContainer'),
+                    nome: "Imagem"
+                },
+                {
+                    campo: inputNome,
+                    nome: "Nome Completo"
+                },
+                {
+                    campo: inputData,
+                    nome: "Data de Nascimento"
+                },
+                {
+                    campo: inputCpf,
+                    nome: "CPF"
+                },
+                {
+                    campo: inputSexo,
+                    nome: "Sexo"
+                },
+                {
+                    campo: inputPeso,
+                    nome: "Peso"
+                },
+                {
+                    campo: inputAltura,
+                    nome: "Altura"
+                },
+                {
+                    campo: inputTelefone,
+                    nome: "Telefone"
+                },
+                {
+                    campo: inputEmail,
+                    nome: "E-mail"
+                },
+                {
+                    campo: inputSenha,
+                    nome: "Senha"
+                },
+                {
+                    campo: inputConfirmarSenha,
+                    nome: "Confirmar Senha"
+                },
+                {
+                    campo: inputEndereco,
+                    nome: "Endereço"
+                },
+                {
+                    campo: inputNumero,
+                    nome: "Número"
+                },
+                {
+                    campo: inputEstado,
+                    nome: "Estado"
+                },
+                {
+                    campo: inputCidade,
+                    nome: "Cidade"
+                },
+                {
+                    campo: inputCep,
+                    nome: "CEP"
+                },
+                {
+                    campo: inputInstrutor,
+                    nome: "Instrutor"
+                },
+                {
+                    campo: inputTurno,
+                    nome: "Turno"
+                },
+                {
+                    campo: inputDataExame,
+                    nome: "Data do ultimo exame medico"
 
-    for (const { campo, nome } of campos) {
-        if (campo === document.getElementById('imageContainer')) {
-            if (!campo.classList.contains('border-green')) {
-                document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
-                $('#myModal').modal('show');
-                return false;
+                }
+
+            ];
+
+            for (const {
+                    campo,
+                    nome
+                }
+                of campos) {
+                if (campo === document.getElementById('imageContainer')) {
+                    if (!campo.classList.contains('border-green')) {
+                        document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
+                        $('#myModal').modal('show');
+                        return false;
+                    }
+                } else {
+                    if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                        document.getElementById('modalErrorMessage').textContent =
+                            `Por favor, preencha adequadamente o campo "${nome}".`;
+                        $('#myModal').modal('show');
+                        return false;
+                    }
+                }
             }
-        } else {
-            if (!campo.style.borderColor || campo.style.borderColor !== "green") {
-                document.getElementById('modalErrorMessage').textContent = `Por favor, preencha adequadamente o campo "${nome}".`;
-                $('#myModal').modal('show');
+            if(validarRadio()){
+                return true;
+            }
+            else {
+                document.getElementById('modalErrorMessage').textContent =
+                            `Por favor, preencha a pergunta Horas de trabalho semanais:`;
+                        $('#myModal').modal('show');
                 return false;
             }
         }
-    }
-
-    return true;
-}
     </script>
     <script src="{{ asset('js/aluno.js') }}"></script>
 @endsection

@@ -335,7 +335,32 @@ const Mask = {
             inputMaxAlunos.style.borderColor = "red";
             return '';
         }
-    },
+    },dataExame(value){
+        let msg = document.getElementById("errorDataUltimoExame");
+        let currentDate = new Date();
+        let inputDataExameValue = new Date(document.getElementById('inputDataExame').value);
+        let inputDataValue = new Date(document.getElementById('inputData').value);
+    
+        if (!value) {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputDataExame.style.borderColor = "";
+        } else if (inputDataExameValue < inputDataValue) {
+            msg.style.display = "block";
+            msg.innerHTML = "Data inválida, exame mais antigo que o aluno";
+            inputDataExame.style.borderColor = "red";
+        } else if (inputDataExameValue > currentDate) {
+            msg.style.display = "block";
+            msg.innerHTML = "Data inválida, valor muito alto";
+            inputDataExame.style.borderColor = "red";
+        } else {
+            msg.style.display = "none";
+            msg.innerHTML = "";
+            inputDataExame.style.borderColor = "green";
+        }
+    
+        return value;
+    }
 }
 
 const PhotosUpload = {
@@ -571,6 +596,8 @@ const inputSaida = document.getElementById('inputSaida');
 const nomeExercicio = document.getElementById('nomeExercicio');
 const descricaoExercicio = document.getElementById('descricaoExercicio');
 const inputMaxAlunos = document.getElementById('inputMaxAlunos');
+const inputDataExame = document.getElementById('inputDataExame');
+
 
 if (inputCpf) {
     inputCpf.addEventListener('input', function () {
@@ -663,12 +690,41 @@ if (inputMaxAlunos) {
     });
 }
 
+if(inputDataExame){
+    inputDataExame.addEventListener('input', function () {
+        Mask.apply(this, 'dataExame');
+    });
+}
+
 const inputNome = document.getElementById('inputNome');
 if (inputNome) {
     inputNome.addEventListener('input', function () {
         validarNome(this);
     });
 }
+
+
+
+
+function validarRadio() {
+    const Horassemanais = document.querySelectorAll('input[type=radio][name=numHorasSemanais]');
+    var peloMenosUmMarcado = false;
+
+    for (var i = 0; i < Horassemanais.length; i++) {
+        if (Horassemanais[i].checked) {
+            peloMenosUmMarcado = true;
+            break;
+        }
+    }
+
+    if (peloMenosUmMarcado) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 function validarNome(input) {
     const valor = input.value;
     const regex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
@@ -698,6 +754,7 @@ const inputConfirmarSenha = document.getElementById('inputConfirmarSenha');
 if (inputSenha) {
     inputSenha.addEventListener('input', function () {
         validarSenha();
+        confirmPassword();
     });
 }
 if (inputConfirmarSenha) {
@@ -717,17 +774,17 @@ function validarSenha() {
     if (inputSenha.value == "") {
         msg.style.display = "block";
         msg.innerHTML = "Campo obrigatório*";
-        inputSenha.borderColor = "red";
+        inputSenha.style.borderColor = "red";
         return false;
     } else if (resultsPassword === false) {
         msg.style.display = "block";
         msg.innerHTML = "Senha inválida! <br>A senha deve conter entre 8 e 20 caracteres e deve incluir letras maiúsculas, letras minúsculas e caracteres especiais.";
-        inputSenha.borderColor = "red";
+        inputSenha.style.borderColor = "red";
         return false;
     } else {
         msg.style.display = "none";
         msg.innerHTML = "";
-        inputSenha.borderColor = "green";
+        inputSenha.style.borderColor = "green";
         return true;
     };
 };
@@ -739,18 +796,18 @@ function confirmPassword() {
 
     if (inputConfirmarSenha.value == "") {
         msg.style.display = "block";
-        msg.innerHTML = "Digite a senha novamente!";
+        msg.innerHTML = "Repita a senha!";
         inputConfirmarSenha.borderColor = "red";
         return false;
     } else if (inputSenha.value !== inputConfirmarSenha.value) {
         msg.style.display = "block";
         msg.innerHTML = "Senhas não conferem!";
-        inputConfirmarSenha.borderColor = "red";
+        inputConfirmarSenha.style.borderColor = "red";
         return false;
     } else {
         msg.style.display = "none";
         msg.innerHTML = "";
-        inputConfirmarSenha.borderColor = "green";
+        inputConfirmarSenha.style.borderColor = "green";
         return true;
     };
 };
@@ -759,10 +816,10 @@ function togglePassword(inputId, eyeIcon) {
     const inputElement = document.getElementById(inputId);
     if (inputElement.type === "password") {
         inputElement.type = "text";
-        eyeIcon.innerHTML = '<i class="bi bi-eye-slash"></i>';
+       
     } else {
         inputElement.type = "password";
-        eyeIcon.innerHTML = '<i class="bi bi-eye"></i>';
+
     }
 }
 
