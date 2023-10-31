@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Cadastro Aluno')
+@section('title', 'Edição de Aluno')
 @section('conteudo')
 
     <head>
@@ -15,8 +15,9 @@
     <div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
         {{-- Definindo as linhas --}}
 
-        <form class="row" id="form" action="{{ route('student.store') }}" method="POST">
+        <form class="row" id="form" action="{{ route('student.update',['id' => $students->id])}}" method="POST">
             @csrf
+            @method('PUT')
             {{-- Linha 1 --}}
             <div class="row d-flex justify-content-center mt-4">
                 <div class="form-header">
@@ -25,7 +26,7 @@
                 <div class="col-sm-2">
                     <div class="avatar-container">
                         <div class="avatar">
-                            <input type="file" id="inputImage" name="photo" style="display: none;" accept="image/*">
+                            <input type="file" id="inputImage" value="{{$students->photo}}" style="display: none;" accept="image/*">
                             <label for="inputImage">
                                 <div class="image-container" id="imageContainer">
                                     <img id="avatarImage" class="avatar-image">
@@ -59,7 +60,7 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control" id="inputNome" name = "nomeStudent"
+                            <input type="text" class="form-control" id="inputNome" name = "nomeStudent" value="{{$students->student_name}}"
                                 placeholder="Digite seu nome" required>
 
                             <div class="invalid-feedback">
@@ -83,7 +84,7 @@
                                 </svg>
                             </div>
 
-                            <input type="date" class="form-control" id="inputData" name="nascStudent" required
+                            <input type="date" class="form-control" id="inputData" name="nascStudent" value="{{$students->student_date_birth}}" required
                                 min="1900-01-01" max="2023-10-20" required>
                             <div class="invalid-feedback">
                                 Informe a data de nascimento!
@@ -106,7 +107,7 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputCpf" name="cpfStudent"
+                            <input type="text" class="form-control rounded-right" id="inputCpf" name="cpfStudent" value="{{$students->student_cpf}}"
                                 placeholder="xxx.xxx.xxx-xx" required>
                             <div class="invalid-feedback">
                                 Informe o CPF!
@@ -120,15 +121,14 @@
                         <div class="input-group">
 
                             <div class="input-group-text background-icon-color">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                    fill="currentColor" class="bi bi-gender-ambiguous secondary-color"
-                                    viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-gender-ambiguous secondary-color" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z" />
                                 </svg>
                             </div>
 
-                            <select id="inputSexo" class="form-select" name="sexoStudent" required>
+                            <select id="inputSexo" class="form-select" name="sexoStudent"  required>
                                 <option selected disabled value="">...</option>
                                 <option>Masculino</option>
                                 <option>Feminino</option>
@@ -154,8 +154,8 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputPeso" name="pesoStudent"
-                                placeholder="Digite seu peso" required>
+                            <input type="text" class="form-control rounded-right" id="inputPeso"  name="pesoStudent" value="{{$students->student_weight}}"
+                                placeholder="Digite seu peso" required >
                             <div class="invalid-feedback">
                                 Informe seu peso!
                             </div>
@@ -175,8 +175,8 @@
                                 </svg>
                             </div>
 
-                            <input type="text" class="form-control rounded-right" id="inputAltura"
-                                name="alturaStudent" placeholder="Sua altura em cm" required>
+                            <input type="text" class="form-control rounded-right" id="inputAltura" value="{{$students->student_height}}"
+                                name="alturaStudent" placeholder="Sua altura em cm" required >
                             <div class="invalid-feedback">
                                 Informe sua altura!
                             </div>
@@ -202,7 +202,7 @@
                             </svg>
                         </div>
 
-                        <input type="text" class="form-control" id="inputTelefone" name="telStudent"
+                        <input type="text" class="form-control" id="inputTelefone" name="telStudent" value="{{$students->student_telephone}}"
                             placeholder="(xx) xxxxx-xxxx" required>
                         <div class="invalid-feedback">
                             Informe o telefone!
@@ -221,7 +221,7 @@
                                     d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                             </svg>
                         </div>
-                        <input type="email" class="form-control" id="inputEmail" name = "emailStudent"
+                        <input type="email" class="form-control" id="inputEmail" name = "emailStudent" value="{{$students->student_email}}"
                             placeholder="Digite seu email" required>
                         <div class="invalid-feedback">
                             Informe o email!
@@ -241,7 +241,7 @@
                                 <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                             </svg>
                         </div>
-                        <input type="password" class="form-control border-right-0" id="inputSenha" name="senhaStudent"
+                        <input type="password" class="form-control border-right-0" id="inputSenha" name="senhaStudent" 
                             placeholder="Digite sua senha" required>
                         <div class="invalid-feedback">
                             Informe a senha!
@@ -274,7 +274,7 @@
                             </svg>
                         </div>
                         <input type="password" class="form-control border-right-0" id="inputConfirmarSenha"
-                            name="confirmSenhaStudent" placeholder="Confirme sua senha " required>
+                        name="confirmSenhaStudent"  placeholder="Confirme sua senha " required >
                         <div class="invalid-feedback">
                             Confirme a senha!
                         </div>
@@ -308,7 +308,7 @@
                                     d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103zM10 1.91l-4-.8v12.98l4 .8V1.91zm1 12.98 4-.8V1.11l-4 .8v12.98zm-6-.8V1.11l-4 .8v12.98l4-.8z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputEndereco" name="enderecoStudent"
+                        <input type="text" class="form-control" id="inputEndereco" name="enderecoStudent" value="{{$students->student_address}}"
                             placeholder="Digite seu endereço" required>
                         <div class="invalid-feedback">
                             Informe o endereço!
@@ -328,7 +328,7 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputNumero" name="numeroStudent"
+                        <input type="text" class="form-control" id="inputNumero" name="numeroStudent" value="{{$students->student_address_number}}"
                             placeholder="XXXX" required>
                         <div class="invalid-feedback">
                             Informe o número!
@@ -348,7 +348,7 @@
                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputEstado" name="estadoStudent" required>
+                        <select class="form-select" id="inputEstado" name="estadoStudent" value="{{$students->student_state}}" required>
                             <option selected disabled value=""></option>
                         </select>
                     </div>
@@ -365,7 +365,7 @@
                                     d="M5.793 1a1 1 0 0 1 1.414 0l.647.646a.5.5 0 1 1-.708.708L6.5 1.707 2 6.207V12.5a.5.5 0 0 0 .5.5.5.5 0 0 1 0 1A1.5 1.5 0 0 1 1 12.5V7.207l-.146.147a.5.5 0 0 1-.708-.708L5.793 1Zm3 1a1 1 0 0 1 1.414 0L12 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l1.854 1.853a.5.5 0 0 1-.708.708L15 8.207V13.5a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 4 13.5V8.207l-.146.147a.5.5 0 1 1-.708-.708L8.793 2Zm.707.707L5 7.207V13.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V7.207l-4.5-4.5Z" />
                             </svg>
                         </div>
-                        <select class="form-select" id="inputCidade" name="cidadeStudent" required>
+                        <select class="form-select" id="inputCidade" name="cidadeStudent" value="{{$students->student_city}}" required>
                             <option selected disabled value=""></option>
                         </select>
                         <div class="invalid-feedback">
@@ -385,7 +385,7 @@
                                     d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                             </svg>
                         </div>
-                        <input type="text" class="form-control" id="inputCep" name="cepStudent"
+                        <input type="text" class="form-control" id="inputCep" name="cepStudent" value="{{$students->student_zip_code}}"
                             placeholder="Digite o CEP" required>
                         <div class="invalid-feedback">
                             Informe o CEP!
@@ -408,7 +408,7 @@
                                     d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
                             </svg>
                         </div>
-                        <select id="inputInstrutor" class="form-select" name="instrutorStudent" required>
+                        <select id="inputInstrutor" class="form-select" name="instrutorStudent" value="{{$students->id_instructor}}" required>
                             <option selected disabled value=""> Instrutor...</option>
                             <option>Ricardo</option>
                             <option>Alan Jefferson</option>
@@ -418,7 +418,7 @@
                         <div class="invalid-feedback">
                             Informe o Instrutor!
                         </div>
-                        <span class="spanError" id="errorInstrutor"></span>
+                    <span class="spanError" id="errorInstrutor"></span>
                     </div>
                 </div>
                 {{-- Turno --}}
@@ -1571,7 +1571,7 @@
                     <div class="col-2">
                         <div class="flex-row d-flex align-items-end justify-content-end mt-4">
                             <button class="btn btn-success mx-2" type="submit" id="submitButton">
-                                Cadastrar
+                                Atualizar
                             </button>
                         </div>
                     </div>
@@ -1594,120 +1594,48 @@
             </div>
         </div>
     </div>
-    <script>
-        function validarCampos() {
-            const campos = [{
-                    campo: document.getElementById('imageContainer'),
-                    nome: "Imagem"
-                },
-                {
-                    campo: inputNome,
-                    nome: "Nome Completo"
-                },
-                {
-                    campo: inputData,
-                    nome: "Data de Nascimento"
-                },
-                {
-                    campo: inputCpf,
-                    nome: "CPF"
-                },
-                {
-                    campo: inputSexo,
-                    nome: "Sexo"
-                },
-                {
-                    campo: inputPeso,
-                    nome: "Peso"
-                },
-                {
-                    campo: inputAltura,
-                    nome: "Altura"
-                },
-                {
-                    campo: inputTelefone,
-                    nome: "Telefone"
-                },
-                {
-                    campo: inputEmail,
-                    nome: "E-mail"
-                },
-                {
-                    campo: inputSenha,
-                    nome: "Senha"
-                },
-                {
-                    campo: inputConfirmarSenha,
-                    nome: "Confirmar Senha"
-                },
-                {
-                    campo: inputEndereco,
-                    nome: "Endereço"
-                },
-                {
-                    campo: inputNumero,
-                    nome: "Número"
-                },
-                {
-                    campo: inputEstado,
-                    nome: "Estado"
-                },
-                {
-                    campo: inputCidade,
-                    nome: "Cidade"
-                },
-                {
-                    campo: inputCep,
-                    nome: "CEP"
-                },
-                {
-                    campo: inputInstrutor,
-                    nome: "Instrutor"
-                },
-                {
-                    campo: inputTurno,
-                    nome: "Turno"
-                }
-                ,
-                {
-                    campo: inputDataExame,
-                    nome: "Data do ultimo exame medico"
+    {{-- <script>
+      function validarCampos() {
+    const campos = [
+        { campo: document.getElementById('imageContainer'), nome: "Imagem" },
+        { campo: inputNome, nome: "Nome Completo" },
+        { campo: inputData, nome: "Data de Nascimento" },
+        { campo: inputCpf, nome: "CPF" },
+        { campo: inputSexo, nome: "Sexo" },
+        { campo: inputPeso, nome: "Peso" },
+        { campo: inputAltura, nome: "Altura" },
+        { campo: inputTelefone, nome: "Telefone" },
+        { campo: inputEmail, nome: "E-mail" },
+        { campo: inputSenha, nome: "Senha" },
+        { campo: inputConfirmarSenha, nome: "Confirmar Senha" },
+        { campo: inputEndereco, nome: "Endereço" },
+        { campo: inputNumero, nome: "Número" },
+        { campo: inputEstado, nome: "Estado" },
+        { campo: inputCidade, nome: "Cidade" },
+        { campo: inputCep, nome: "CEP" },
+        { campo: inputInstrutor, nome: "Instrutor" },
+        { campo: inputTurno, nome: "Turno" },
+     
+    ];
 
-                }
-
-            ];
-
-            for (const {
-                    campo,
-                    nome
-                }
-                of campos) {
-                if (campo === document.getElementById('imageContainer')) {
-                    if (!campo.classList.contains('border-green')) {
-                        document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
-                        $('#myModal').modal('show');
-                        return false;
-                    }
-                } else {
-                    if (!campo.style.borderColor || campo.style.borderColor !== "green") {
-                        document.getElementById('modalErrorMessage').textContent =
-                            `Por favor, preencha adequadamente o campo "${nome}".`;
-                        $('#myModal').modal('show');
-                        return false;
-                    }
-                }
+    for (const { campo, nome } of campos) {
+        if (campo === document.getElementById('imageContainer')) {
+            if (!campo.classList.contains('border-green')) {
+                document.getElementById('modalErrorMessage').textContent = `Por favor, carregue a foto.`;
+                $('#myModal').modal('show');
+                return false;
             }
-            if(validarRadio()){
-                return true;
-            }
-            else {
-                document.getElementById('modalErrorMessage').textContent =
-                            `Por favor, preencha a pergunta Horas de trabalho semanais:`;
-                        $('#myModal').modal('show');
+        } else {
+            if (!campo.style.borderColor || campo.style.borderColor !== "green") {
+                document.getElementById('modalErrorMessage').textContent = `Por favor, preencha adequadamente o campo "${nome}".`;
+                $('#myModal').modal('show');
                 return false;
             }
         }
-    </script>
+    }
+
+    return true;
+}
+    </script> --}}
     <script src="{{ asset('js/aluno.js') }}"></script>
-    {{-- <script src="{{ asset('js/validacao.js') }}"></script> --}}
 @endsection

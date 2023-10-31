@@ -69,9 +69,14 @@ class InstructorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Instructor $instructor)
+    public function edit($id)
     {
-        //
+        $instructors = Instructor::where('id', $id)->first();
+        if(!empty($instructors)){
+            return view('instructors.edit',['instructors' => $instructors]);
+        }else{
+            return redirect()->route('instructor.index');
+        }
     }
 
     /**

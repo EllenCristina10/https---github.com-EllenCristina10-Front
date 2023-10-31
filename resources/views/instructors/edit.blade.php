@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Cadastro Instrutor')
+@section('title', 'Edição de Instrutor')
 @section('conteudo')
 
     <head>
@@ -14,8 +14,9 @@
 
     <div class="container" style="background-color: #f2f2f2; border-radius: 10px;">
 
-        <form class="row" id="form" action="{{ route('instructor.store') }}" method="POST">
+        <form class="row" id="form" action="{{ route('instructor.update',['id' => $instructors->id])}}) }}" method="POST">
             @csrf
+            @method('PUT')
             {{-- Linha 1 --}}
             <div class="row d-flex justify-content-between mt-4">
                 <div class="form-header">
@@ -356,7 +357,7 @@
             </div>
             <div class="row" style="justify-content: end; margin-top: 36px;">
                 <div class="col-md-1"><button class="btn btn-success" type="submit"
-                        id="submitButton">Cadastrar</button></div>
+                        id="submitButton">Atualizar</button></div>
             </div>
         </form>
     </div>

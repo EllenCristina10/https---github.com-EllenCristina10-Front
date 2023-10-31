@@ -51,8 +51,8 @@ class StudentController extends Controller
                 'id_instructor' => '1',
                 // é para ser assim, mas como não há campo frequência no front, não há como salvar no banco, então mandaremos um dado diretamente
                 // 'student_frequency' => $request->input('frequencia'),
-                //'student_photo_url' => $request->input('url'),
-                'student_photo_url' => "teste",
+                'photo' => $request->input('photo'),
+                //'student_photo_url' => "teste",
                 'student_frequency' => "teste",
                 'student_address' => $request->input('enderecoStudent'),
                 'student_address_number' => $request->input('numeroStudent'),
@@ -74,7 +74,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $aluno)
+    public function show(Student $student)
     {
         //
     }
@@ -82,23 +82,45 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $aluno)
+    public function edit($id)
     {
-        //
+        $students = Student::where('id', $id)->first();
+        if(!empty($students)){
+            return view('students.edit',['students' => $students]);
+        }else{
+            return redirect()->route('student.index');
+        }
+        
     }
-
+    
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $aluno)
+    public function update(Request $request, $id)
     {
-        //
+        $data = [
+        'student_name' => $request->student_name,
+        'student_cpf'  => $request->cpf,
+        'student_email' => $request->student_email,
+        'student_telephone' => $request->student_telephone,
+        'student_date_birth' => $request->student_date_birth,
+        'student_weight' => $request->student_weight,
+        'student_height' => $request->student_height,
+        //'photo' => $request->student_photo,
+        'student_address' => $request->student_address,
+        'student_address_number' => $request->student_address_number,
+        'student_city' => $request->student_city,
+        'student_zip_code' => $request->student_zip_code,
+        'student_state' => $request->student_state,
+        ];
+        Student::where('id', $id)->update($data);
+        return redirect()->route('student.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $aluno)
+    public function destroy(Student $student)
     {
         //
     }

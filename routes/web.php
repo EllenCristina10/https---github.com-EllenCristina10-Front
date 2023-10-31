@@ -28,6 +28,7 @@ Route::get('/student', [StudentController::class, 'index'])->name('student.index
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
 Route::post('/student', [StudentController::class, 'store'])->name('student.store');
 Route::get('/student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+Route::put('/student/{id}', [StudentController::class, 'update'])->name('student.update');
 Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
 
 //Instructors
@@ -35,6 +36,7 @@ Route::get('/instructor', [InstructorController::class, 'index'])->name('instruc
 Route::get('/instructor/create', [InstructorController::class, 'create'])->name('instructor.create');
 Route::post('/instructor', [InstructorController::class, 'store'])->name('instructor.store');
 Route::get('/instructor/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
+Route::put('/instructor/{id}', [InstructorController::class, 'update'])->name('instructor.update');
 Route::delete('/instructor/{id}', [InstructorController::class, 'destroy'])->name('instructor.destroy');
 
 // Route::get('/listarinstrutor', [ListarInstrutorController::class, 'index'])->name('listarinstrutor.index');

@@ -59,9 +59,14 @@ class ExercicioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Exercicio $exercicio)
+    public function edit($id)
     {
-        //
+        $exercises = Exercise::where('id', $id)->first();
+        if(!empty($execises)){
+            return view('exercises.edit',['exercises' => $exercises]);
+        }else{
+            return redirect()->route('exercise.index');
+        }
     }
 
     /**

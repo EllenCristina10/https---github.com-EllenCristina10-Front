@@ -52,7 +52,7 @@ class AulaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Aula $aula)
+    public function show(Lesson $lesson)
     {
         //
     }
@@ -60,15 +60,20 @@ class AulaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Aula $aula)
+    public function edit($id)
     {
-        //
+        $lessons = Lesson::where('id', $id)->first();
+        if(!empty($lessons)){
+            return view('lessons.edit',['lessons' => $lessons]);
+        }else{
+            return redirect()->route('lesson.index');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Aula $aula)
+    public function update(Request $request, Lesson $lesson)
     {
         //
     }
@@ -76,7 +81,7 @@ class AulaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Aula $aula)
+    public function destroy(Lesson $lesson)
     {
         //
     }
